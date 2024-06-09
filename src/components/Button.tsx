@@ -26,6 +26,8 @@ const Container = styled.button<{ $style: Styles }>`
   border-radius: 6px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
 
   &:hover,
   &:active,

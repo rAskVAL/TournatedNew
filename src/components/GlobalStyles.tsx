@@ -12,7 +12,16 @@ const GlobalStyle = createGlobalStyle`
 export const containerStyles = css`
   width: 100%;
   max-width: 1240px;
+  padding-inline: 20px;
 `;
+
+export const breakpoint = {
+  xs: 400,
+  sm: 500,
+  m: 760,
+  l: 1100,
+  xl: 1200,
+};
 
 export const colors = {
   primary500: "#FF720B",
@@ -25,26 +34,18 @@ export const colors = {
 };
 
 export const typography = {
+  grotesk14: css`
+    font-family: "Familjen Grotesk", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16.8px;
+  `,
   grotesk16: css`
     font-family: "Familjen Grotesk", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
-    text-align: left;
-  `,
-  grotesk80: css`
-    font-family: "Familjen Grotesk", sans-serif;
-    font-size: 80px;
-    font-weight: 400;
-    line-height: 80px;
-    text-align: left;
-  `,
-  grotesk80italic: css`
-    font-family: "Familjen Grotesk", sans-serif;
-    font-size: 80px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 80px;
     text-align: left;
   `,
   grotesk24: css`
@@ -53,6 +54,23 @@ export const typography = {
     font-weight: 400;
     line-height: 24px;
     text-align: left;
+  `,
+  grotesk40: css`
+    font-family: "Familjen Grotesk", sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+  `,
+  grotesk80: css`
+    font-family: "Familjen Grotesk", sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 80px;
+    text-align: left;
+  `,
+  italic: css`
+    font-style: italic;
   `,
 };
 

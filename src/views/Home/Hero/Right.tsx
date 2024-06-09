@@ -5,8 +5,13 @@ import platformRed from "../../../assets/platform-red.png";
 import platformBlue from "../../../assets/platform-blue.png";
 
 import { useState } from "react";
-import { colors, typography } from "../../../components/GlobalStyles.tsx";
+import {
+  breakpoint,
+  colors,
+  typography,
+} from "../../../components/GlobalStyles.tsx";
 import { AnimatePresence, motion } from "framer-motion";
+import { useMediaQuery } from "@react-hookz/web";
 
 type Colors = "red" | "blue" | "orange";
 
@@ -17,6 +22,7 @@ const platformImages = {
 } satisfies { [color in Colors]: string };
 
 const Right = () => {
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);
   const [selectedColor, setSelectedColor] = useState<Colors>("orange");
   return (
     <Container>
@@ -66,53 +72,75 @@ const Right = () => {
           />
         )}
       </AnimatePresence>
-      <SelectorWrapper>
-        <SelectorTitle>Customize</SelectorTitle>
-        <Selector>
-          <Color
-            $color={"orange"}
-            onClick={() => setSelectedColor("orange")}
-            $isSelected={selectedColor === "orange"}
-          />
-          <Color
-            $color={"red"}
-            onClick={() => setSelectedColor("red")}
-            $isSelected={selectedColor === "red"}
-          />
-          <Color
-            $color={"blue"}
-            onClick={() => setSelectedColor("blue")}
-            $isSelected={selectedColor === "blue"}
-          />
-        </Selector>
-      </SelectorWrapper>
+      {isDesktop && (
+        <SelectorWrapper>
+          <SelectorTitle>Customize</SelectorTitle>
+          <Selector>
+            <Color
+              $color={"orange"}
+              onClick={() => setSelectedColor("orange")}
+              $isSelected={selectedColor === "orange"}
+            />
+            <Color
+              $color={"red"}
+              onClick={() => setSelectedColor("red")}
+              $isSelected={selectedColor === "red"}
+            />
+            <Color
+              $color={"blue"}
+              onClick={() => setSelectedColor("blue")}
+              $isSelected={selectedColor === "blue"}
+            />
+          </Selector>
+        </SelectorWrapper>
+      )}
     </Container>
   );
 };
 
 export default Right;
 
-const PlatformPreview = styled(motion.img)`
-  position: absolute;
-  left: 54px;
-  top: 160px;
-  height: 705px;
-`;
-
-const Background = styled.img`
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 807px;
-`;
-
 const Container = styled.div`
   flex: 1;
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: end;
-  height: 807px;
+  min-height: 400px;
+  width: 100%;
+
+  @media (min-width: ${breakpoint.l}px) {
+    min-height: 807px;
+    justify-content: end;
+  }
+`;
+
+const PlatformPreview = styled(motion.img)`
+  position: absolute;
+  height: 491px;
+
+  @media (min-width: ${breakpoint.l}px) {
+    left: 72px;
+    top: 160px;
+    height: 705px;
+  }
+
+  @media (max-width: ${breakpoint.l}px) {
+    right: -120px;
+    top: 60px;
+  }
+`;
+
+const Background = styled.img`
+  position: absolute;
+
+  height: 400px;
+  left: -20px;
+
+  @media (min-width: ${breakpoint.l}px) {
+    left: 0;
+    top: 0;
+    height: 807px;
+  }
 `;
 
 const SelectorWrapper = styled.div`

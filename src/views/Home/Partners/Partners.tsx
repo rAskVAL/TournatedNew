@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { containerStyles } from "../../../components/GlobalStyles";
+import {
+  breakpoint,
+  colors,
+  containerStyles,
+} from "../../../components/GlobalStyles";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,7 +14,25 @@ import "swiper/css";
 
 const Partners = () => (
   <Container>
-    <List slidesPerView={5} freeMode={true}>
+    <Block />
+    <List
+      slidesPerView={1.4}
+      freeMode={true}
+      breakpoints={{
+        [breakpoint.xs]: {
+          slidesPerView: 2,
+        },
+        [breakpoint.sm]: {
+          slidesPerView: 2.7,
+        },
+        [breakpoint.m]: {
+          slidesPerView: 4,
+        },
+        [breakpoint.l]: {
+          slidesPerView: 5,
+        },
+      }}
+    >
       {[...new Array(12)].map(() => (
         <SwiperSlide>
           <Logo src={placeholder} />
@@ -31,10 +53,18 @@ const Container = styled.div`
 `;
 
 const List = styled(Swiper)`
-  display: flex;
   overflow: visible;
 `;
 
 const Logo = styled.img`
   height: 24px;
+`;
+
+const Block = styled.div`
+  position: absolute;
+  right: 100%;
+  background: ${colors.grey800};
+  height: 40px;
+  width: 100vw;
+  z-index: 10;
 `;

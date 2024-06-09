@@ -1,17 +1,22 @@
 import styled from "styled-components";
-import { colors, typography } from "../../../components/GlobalStyles.tsx";
+import {
+  breakpoint,
+  colors,
+  typography,
+} from "../../../components/GlobalStyles.tsx";
 import Button from "../../../components/Button.tsx";
+import DynamicText from "./DynamicText.tsx";
 
 const Left = () => (
   <Container>
     <TitleBox>
       <Headline>
         <p>Start managing</p>
-        <DynamicText>tournaments </DynamicText>
+        <DynamicText />
         <p>for free</p>
       </Headline>
       <Subtitle>
-        Or launch your own custom web platform and mobile app.
+        Or launch your own custom web platform  and mobile app for any sport
       </Subtitle>
     </TitleBox>
     <Stats>
@@ -46,6 +51,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @media (max-width: ${breakpoint.l}px) {
+    margin-block: 20px;
+  }
 `;
 
 const TitleBox = styled.div`
@@ -60,21 +69,30 @@ const Subtitle = styled.p`
   line-height: 16px;
   text-align: left;
   color: ${colors.grey400};
+
+  @media (max-width: ${breakpoint.l}px) {
+    ${typography.grotesk14};
+    max-width: 335px;
+  }
 `;
 
 const Headline = styled.div`
   color: white;
   ${typography.grotesk80};
-`;
 
-const DynamicText = styled.div`
-  color: #ff720b;
-  ${typography.grotesk80italic};
+  @media (max-width: ${breakpoint.l}px) {
+    ${typography.grotesk40};
+  }
 `;
 
 const Stats = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 18px;
+
+  @media (max-width: ${breakpoint.l}px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const Stat = styled.div`
@@ -85,6 +103,10 @@ const Stat = styled.div`
   color: ${colors.white100};
 
   &:not(:last-child) {
+    border-right: 1px solid #343434;
+  }
+
+  @media (max-width: ${breakpoint.l}px) {
     border-right: 1px solid #343434;
   }
 `;

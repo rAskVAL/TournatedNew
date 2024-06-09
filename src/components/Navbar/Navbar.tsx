@@ -3,19 +3,28 @@ import logo from "../../assets/logo.svg";
 import Menu from "./Menu.tsx";
 import LanguageSelector from "./LanguageSelector.tsx";
 import Button from "../Button.tsx";
-import { containerStyles } from "../GlobalStyles.tsx";
+import { breakpoint, containerStyles } from "../GlobalStyles.tsx";
+import { useMediaQuery } from "@react-hookz/web";
+import BurgerIcon from "../../assets/Icons/Burger.svg?react";
 
 const Navbar = () => {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
   return (
     <Container>
       <Wrapper>
         <Logo src={logo} alt="Logo" />
-        <Menu />
-        <RightContainer>
-          <LanguageSelector />
-          <Button style="outline">Go to platform</Button>
-          <Button style="primary">Go to platform</Button>
-        </RightContainer>
+        {isMobile ? (
+          <BurgerIcon />
+        ) : (
+          <>
+            <Menu />
+            <RightContainer>
+              <LanguageSelector />
+              <Button style="outline">Go to platform</Button>
+              <Button style="primary">Go to platform</Button>
+            </RightContainer>
+          </>
+        )}
       </Wrapper>
     </Container>
   );
@@ -28,6 +37,11 @@ const Container = styled.nav`
   background: #1d1d1d;
   display: flex;
   justify-content: center;
+  transition: all 0.2s;
+
+  @media (max-width: ${breakpoint.l}px) {
+    height: 56px;
+  }
 `;
 
 const Wrapper = styled.div`
