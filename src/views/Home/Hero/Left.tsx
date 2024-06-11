@@ -52,7 +52,7 @@ const Container = styled.div`
   flex-direction: column;
   gap: 40px;
 
-  @media (max-width: ${breakpoint.l}px) {
+  @media screen and (width <= ${breakpoint.l}px) {
     margin-block: 20px;
   }
 `;
@@ -70,7 +70,7 @@ const Subtitle = styled.p`
   text-align: left;
   color: ${colors.grey400};
 
-  @media (max-width: ${breakpoint.l}px) {
+  @media screen and (width <= ${breakpoint.l}px) {
     ${typography.grotesk14};
     max-width: 335px;
   }
@@ -100,7 +100,7 @@ const Stat = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
-  color: ${colors.white100};
+  color: ${colors.white};
 
   &:not(:last-child) {
     border-right: 1px solid #343434;

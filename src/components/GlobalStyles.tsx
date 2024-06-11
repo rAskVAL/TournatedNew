@@ -24,10 +24,15 @@ export const breakpoint = {
 };
 
 export const colors = {
-  primary500: "#FF720B",
+  primary: "#FF720B",
+  primaryHover: "#D26210",
+  secondary: "#373737",
+  secondaryHover: "#292929",
+  brown400: "#723F19",
   grey800: "#141414",
   grey400: "#C3C3C3",
-  white100: "#FFF",
+  white: "#FFF",
+  whiteHover: "#C4C4C4",
   grey900: "#1D1D1D",
   purple400: "#6772E5",
   red700: "#8C2135",

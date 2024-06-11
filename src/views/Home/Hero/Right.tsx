@@ -171,13 +171,11 @@ const Color = styled.button<{ $color: Colors; $isSelected: boolean }>`
   width: 40px;
   border-radius: 0;
   background: ${({ $color }) =>
-    colors[
-      $color === "orange"
-        ? "primary500"
-        : $color === "blue"
-          ? "purple400"
-          : "red700"
-    ]};
+    $color === "orange"
+      ? colors.primary
+      : $color === "blue"
+        ? colors.purple400
+        : colors.red700};
   opacity: ${({ $isSelected }) => ($isSelected ? 1 : 0.7)};
   outline: ${({ $isSelected }) => ($isSelected ? "3px solid white" : "none")};
   transition: all 0.1s;

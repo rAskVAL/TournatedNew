@@ -81,7 +81,7 @@ const Text = styled(motion.p)`
 const Slides = styled.div`
   height: 80px;
 
-  @media (max-width: ${breakpoint.l}px) {
+  @media screen and (width <= ${breakpoint.l}px) {
     height: 40px;
   }
 `;

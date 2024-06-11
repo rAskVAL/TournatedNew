@@ -1,3 +1,5 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 import styled from "styled-components";
 import logo from "../../assets/logo.svg";
 import Menu from "./Menu.tsx";
@@ -39,7 +41,7 @@ const Container = styled.nav`
   justify-content: center;
   transition: all 0.2s;
 
-  @media (max-width: ${breakpoint.l}px) {
+  @media screen and (width <= ${breakpoint.l}px) {
     height: 56px;
   }
 `;
