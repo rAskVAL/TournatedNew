@@ -16,22 +16,26 @@ import BurgerIcon from "../../assets/Icons/burger.svg?react";
 import Elipse from "../../assets/Icons/elipse.svg?react";
 
 const Navbar = () => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
+  const isNarrow = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
+  const isMoble = useMediaQuery(`(max-width: ${breakpoint.sm}px)`);
+
   return (
     <>
-      <InfoContainer>
-        <p>We are live</p>
-        <Elipse />
-        <a>Read more</a>
-        <Elipse />
-        <a>Find documentation</a>
-        <Elipse />
-        <a>Submit feedback</a>
-      </InfoContainer>
+      {!isMoble && (
+        <InfoContainer>
+          <p>We are live</p>
+          <Elipse />
+          <a>Read more</a>
+          <Elipse />
+          <a>Find documentation</a>
+          <Elipse />
+          <a>Submit feedback</a>
+        </InfoContainer>
+      )}
       <Container>
         <Wrapper>
           <Logo src={logo} alt="Logo" />
-          {isMobile ? (
+          {isNarrow ? (
             <BurgerIcon />
           ) : (
             <>
@@ -58,7 +62,7 @@ const Container = styled.nav`
   justify-content: center;
   transition: all 0.2s;
 
-  @media screen and (width <= ${breakpoint.l}px) {
+  @media (max-width: ${breakpoint.l}px) {
     height: 56px;
   }
 `;
@@ -90,6 +94,7 @@ const InfoContainer = styled.div`
   width: 100%;
   background: ${colors.orange300};
   ${typography.grotesk14};
+  white-space: nowrap;
 
   & > a {
     cursor: pointer;
