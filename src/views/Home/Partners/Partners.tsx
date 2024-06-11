@@ -3,6 +3,7 @@ import {
   breakpoint,
   colors,
   containerStyles,
+  typography,
 } from "../../../components/GlobalStyles";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,6 +15,7 @@ import "swiper/css";
 
 const Partners = () => (
   <Container>
+    <Title>Partners</Title>
     <Block />
     <List
       slidesPerView={1.4}
@@ -54,6 +56,12 @@ const Container = styled.div`
 
 const List = styled(Swiper)`
   overflow: visible;
+`;
+
+const Title = styled.h3`
+  margin-bottom: 42px;
+  ${typography.grotesk16};
+  color: ${colors.grey400};
 `;
 
 const Logo = styled.img`
