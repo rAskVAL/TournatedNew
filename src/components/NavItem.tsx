@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { colors, typography } from "./GlobalStyles.tsx";
 import { ReactNode } from "react";
-import ChevronDown from "../assets/Icons/ChevronDown.svg?react";
+import ChevronDown from "../assets/Icons/chevronDown.svg?react";
 
 type Props = {
   children: ReactNode;

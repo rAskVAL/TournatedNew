@@ -1,5 +1,4 @@
 import { createGlobalStyle, css } from "styled-components";
-
 const GlobalStyle = createGlobalStyle`
   * {
       box-sizing: border-box;
@@ -28,7 +27,9 @@ export const colors = {
   primaryHover: "#D26210",
   secondary: "#373737",
   secondaryHover: "#292929",
+  orange300: "#FFE1CB",
   brown400: "#723F19",
+  brown500: "#8B3A00",
   grey800: "#141414",
   grey400: "#C3C3C3",
   white: "#FFF",
@@ -76,6 +77,9 @@ export const typography = {
   `,
   italic: css`
     font-style: italic;
+  `,
+  bold500: css`
+    font-weight: 500;
   `,
 };
 

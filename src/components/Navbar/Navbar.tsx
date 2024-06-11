@@ -5,30 +5,47 @@ import logo from "../../assets/logo.svg";
 import Menu from "./Menu.tsx";
 import LanguageSelector from "./LanguageSelector.tsx";
 import Button from "../Button.tsx";
-import { breakpoint, containerStyles } from "../GlobalStyles.tsx";
+import {
+  breakpoint,
+  colors,
+  containerStyles,
+  typography,
+} from "../GlobalStyles.tsx";
 import { useMediaQuery } from "@react-hookz/web";
-import BurgerIcon from "../../assets/Icons/Burger.svg?react";
+import BurgerIcon from "../../assets/Icons/burger.svg?react";
+import Elipse from "../../assets/Icons/elipse.svg?react";
 
 const Navbar = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
   return (
-    <Container>
-      <Wrapper>
-        <Logo src={logo} alt="Logo" />
-        {isMobile ? (
-          <BurgerIcon />
-        ) : (
-          <>
-            <Menu />
-            <RightContainer>
-              <LanguageSelector />
-              <Button style="outline">Go to platform</Button>
-              <Button style="primary">Go to platform</Button>
-            </RightContainer>
-          </>
-        )}
-      </Wrapper>
-    </Container>
+    <>
+      <InfoContainer>
+        <p>We are live</p>
+        <Elipse />
+        <a>Read more</a>
+        <Elipse />
+        <a>Find documentation</a>
+        <Elipse />
+        <a>Submit feedback</a>
+      </InfoContainer>
+      <Container>
+        <Wrapper>
+          <Logo src={logo} alt="Logo" />
+          {isMobile ? (
+            <BurgerIcon />
+          ) : (
+            <>
+              <Menu />
+              <RightContainer>
+                <LanguageSelector />
+                <Button style="outline">Contact Sales</Button>
+                <Button style="primary">Go to platform</Button>
+              </RightContainer>
+            </>
+          )}
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 export default Navbar;
@@ -62,4 +79,25 @@ const RightContainer = styled.div`
   display: flex;
   gap: 8px;
   align-items: center;
+`;
+
+const InfoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  height: 24px;
+  width: 100%;
+  background: ${colors.orange300};
+  ${typography.grotesk14};
+
+  & > a {
+    cursor: pointer;
+    color: ${colors.brown500};
+    text-decoration: underline;
+  }
+  & > p {
+    color: ${colors.grey800};
+    font-weight: 500;
+  }
 `;
