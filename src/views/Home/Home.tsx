@@ -1,11 +1,13 @@
 import Hero from "./Hero/Hero.tsx";
 import styled from "styled-components";
 import Partners from "./Partners/Partners.tsx";
+import Featured from "./Featured/Featured.tsx";
 
 const Home = () => (
   <Main>
     <Hero />
     <Partners />
+    <Featured />
   </Main>
 );
 
