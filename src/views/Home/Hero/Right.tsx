@@ -1,9 +1,5 @@
 import styled from "styled-components";
 import bg from "../../../assets/herobg.png";
-import platformOrange from "../../../assets/platform-orange.png";
-import platformRed from "../../../assets/platform-red.png";
-import platformBlue from "../../../assets/platform-blue.png";
-
 import { useState } from "react";
 import {
   breakpoint,
@@ -16,9 +12,9 @@ import { useMediaQuery } from "@react-hookz/web";
 type Colors = "red" | "blue" | "orange";
 
 const platformImages = {
-  red: platformRed,
-  blue: platformBlue,
-  orange: platformOrange,
+  red: "https://i.imgur.com/Cks5zj4.png",
+  blue: "https://i.imgur.com/3DSabjf.png",
+  orange: "https://i.imgur.com/uNvfyrP.png",
 } satisfies { [color in Colors]: string };
 
 const Right = () => {
@@ -26,7 +22,31 @@ const Right = () => {
   const [selectedColor, setSelectedColor] = useState<Colors>("orange");
   return (
     <Container>
-      <Background src={bg} />
+      <Wrapper>
+        <Background src={bg} />
+        {isDesktop && (
+          <SelectorWrapper>
+            <SelectorTitle>Customize</SelectorTitle>
+            <Selector>
+              <Color
+                $color={"orange"}
+                onClick={() => setSelectedColor("orange")}
+                $isSelected={selectedColor === "orange"}
+              />
+              <Color
+                $color={"red"}
+                onClick={() => setSelectedColor("red")}
+                $isSelected={selectedColor === "red"}
+              />
+              <Color
+                $color={"blue"}
+                onClick={() => setSelectedColor("blue")}
+                $isSelected={selectedColor === "blue"}
+              />
+            </Selector>
+          </SelectorWrapper>
+        )}
+      </Wrapper>
       <AnimatePresence>
         {selectedColor === "orange" && (
           <PlatformPreview
@@ -72,44 +92,23 @@ const Right = () => {
           />
         )}
       </AnimatePresence>
-      {isDesktop && (
-        <SelectorWrapper>
-          <SelectorTitle>Customize</SelectorTitle>
-          <Selector>
-            <Color
-              $color={"orange"}
-              onClick={() => setSelectedColor("orange")}
-              $isSelected={selectedColor === "orange"}
-            />
-            <Color
-              $color={"red"}
-              onClick={() => setSelectedColor("red")}
-              $isSelected={selectedColor === "red"}
-            />
-            <Color
-              $color={"blue"}
-              onClick={() => setSelectedColor("blue")}
-              $isSelected={selectedColor === "blue"}
-            />
-          </Selector>
-        </SelectorWrapper>
-      )}
     </Container>
   );
 };
 
 export default Right;
 
-const Container = styled.div`
-  flex: 1;
+const Wrapper = styled.div`
   position: relative;
+  flex: 1;
   display: flex;
   align-items: center;
   min-height: 400px;
+  height: 100%;
   width: 100%;
 
   @media (min-width: ${breakpoint.l}px) {
-    min-height: 807px;
+    height: min(807px, 100%);
     justify-content: end;
   }
 `;
@@ -119,14 +118,15 @@ const PlatformPreview = styled(motion.img)`
   height: 491px;
 
   @media (min-width: ${breakpoint.l}px) {
-    left: 72px;
-    top: 160px;
-    height: 705px;
+    left: 48px;
+    bottom: 40px;
+    height: 75%;
   }
 
   @media (max-width: ${breakpoint.l}px) {
-    right: -120px;
-    top: 60px;
+    top: 40px;
+    left: 0;
+    height: 391px;
   }
 `;
 
@@ -134,12 +134,17 @@ const Background = styled.img`
   position: absolute;
 
   height: 400px;
-  left: -20px;
 
   @media (min-width: ${breakpoint.l}px) {
     left: 0;
     top: 0;
     height: 807px;
+  }
+
+  @media (max-width: ${breakpoint.l}px) {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 
@@ -193,5 +198,18 @@ const Color = styled.button<{ $color: Colors; $isSelected: boolean }>`
   &:focus {
     opacity: 1;
     outline: ${({ $isSelected }) => ($isSelected ? "3px solid white" : "none")};
+  }
+`;
+
+const Container = styled.div`
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: ${breakpoint.l}px) {
+    max-width: 400px;
   }
 `;

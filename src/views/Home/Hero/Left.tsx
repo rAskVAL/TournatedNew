@@ -50,6 +50,8 @@ const Container = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  justify-content: center;
   gap: 40px;
 
   @media screen and (width <= ${breakpoint.l}px) {

@@ -29,7 +29,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 856px;
+  height: 836px;
   width: 100%;
 `;
 

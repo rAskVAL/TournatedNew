@@ -22,7 +22,7 @@ export const breakpoint = {
   xs: 400,
   sm: 500,
   m: 760,
-  l: 1100,
+  l: 1120,
   xl: 1200,
 };
 

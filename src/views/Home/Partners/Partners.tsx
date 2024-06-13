@@ -49,9 +49,13 @@ export default Partners;
 const Container = styled.div`
   position: relative;
   overflow: visible;
+  padding-bottom: 20px;
 
-  margin-top: 200px;
-  ${containerStyles}
+  ${containerStyles};
+
+  @media (max-width: ${breakpoint.l}px) {
+    margin-top: 50px;
+  }
 `;
 
 const List = styled(Swiper)`
