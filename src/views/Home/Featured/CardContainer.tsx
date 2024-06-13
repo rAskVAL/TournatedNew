@@ -1,24 +1,33 @@
-import styled, { css, RuleSet } from "styled-components";
-import { ReactNode } from "react";
+import styled, { css } from "styled-components";
+import { ReactElement, ReactNode } from "react";
 import { colors, typography } from "../../../components/GlobalStyles.tsx";
 
 type Type = "league" | "tournament" | "athlete";
 
+const perType = <T,>(styles: { [value in Type]: T }, style: Type): T =>
+  styles[style];
+
 type Props = {
-  title: string;
   children: ReactNode;
+  noPaddingZone?: ReactElement;
   type: Type;
+  className?: string;
 };
 
-const perType = (
-  styles: { [value in Type]: RuleSet | string },
-  style: Type,
-): RuleSet | string => styles[style];
-
-const CardContainer = ({ title, children, type }: Props) => (
+const CardContainer = ({ children, noPaddingZone, type, className }: Props) => (
   <Container>
-    <TitleBox $type={type}>{title}</TitleBox>
-    <Content>{children}</Content>
+    <TitleBox $type={type}>
+      {perType(
+        {
+          athlete: "Athlete",
+          league: "League",
+          tournament: "Tournament",
+        },
+        type,
+      )}
+    </TitleBox>
+    {noPaddingZone}
+    <Content className={className}>{children}</Content>
   </Container>
 );
 
@@ -55,11 +64,16 @@ const Content = styled.div`
   padding: 20px;
   width: 100%;
   flex: 1;
-  background: ${colors.grey900};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
 `;
 
 const Container = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  background: ${colors.grey900};
+  max-width: 380px;
 `;

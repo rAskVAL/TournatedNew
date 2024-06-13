@@ -35,6 +35,8 @@ export const colors = {
   grey800: "#141414",
   grey700: "#333",
   grey400: "#C3C3C3",
+  grey200: "#AAAAAA",
+  grey200Transparent: "rgba(170, 170, 170, 0.10);",
   white: "#FFF",
   whiteHover: "#C4C4C4",
   grey900: "#1D1D1D",
