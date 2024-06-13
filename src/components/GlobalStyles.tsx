@@ -6,6 +6,10 @@ const GlobalStyle = createGlobalStyle`
       padding: 0;
       font-family: "Space Grotesk", sans-serif;
   }
+  
+  #root {
+    width: 100%;
+  }
 `;
 
 export const containerStyles = css`

@@ -36,6 +36,8 @@ const TournamentCard = () => (
       <Tag>Boys Singles [U-18]</Tag>
       <Tag>Boys Singles [U-18]</Tag>
       <Tag>Boys Singles [U-18]</Tag>
+      <Tag>Boys Singles [U-18]</Tag>
+      <Tag>Boys Singles [U-18]</Tag>
     </Tags>
   </CardContainer>
 );

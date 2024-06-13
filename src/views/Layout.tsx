@@ -15,7 +15,6 @@ const Layout = () => {
 export default Layout;
 
 const Container = styled.main`
-  width: 100vw;
   min-height: 100vh;
   overflow: hidden;
   background: ${colors.grey800};
