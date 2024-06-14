@@ -56,5 +56,8 @@ const Overflow = styled.div`
   display: flex;
   justify-content: center;
   height: 100%;
-  overflow: hidden;
+
+  @media (min-width: ${breakpoint.l}px) {
+    overflow: hidden;
+  }
 `;
