@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 import { ReactElement, ReactNode } from "react";
-import { colors, typography } from "../../../components/GlobalStyles.tsx";
+import {
+  colors,
+  padding,
+  typography,
+} from "../../../components/GlobalStyles.tsx";
 
 type Type = "league" | "tournament" | "athlete";
 
@@ -61,7 +65,8 @@ const TitleBox = styled.div<{ $type: Type }>`
 `;
 
 const Content = styled.div`
-  padding: 20px;
+  padding: ${padding.m};
+  padding-bottom: 0;
   width: 100%;
   flex: 1;
   display: flex;

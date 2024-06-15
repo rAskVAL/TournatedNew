@@ -14,6 +14,7 @@ import {
 import { useMediaQuery } from "@react-hookz/web";
 import BurgerIcon from "../../assets/Icons/burger.svg?react";
 import Elipse from "../../assets/Icons/elipse.svg?react";
+import { FEATUREBASE_LINK } from "../../consts.ts";
 
 const Navbar = () => {
   const isNarrow = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
@@ -29,7 +30,7 @@ const Navbar = () => {
           <Elipse />
           <a>Find documentation</a>
           <Elipse />
-          <a>Submit feedback</a>
+          <a href={FEATUREBASE_LINK}>Submit feedback</a>
         </InfoContainer>
       )}
       <Container>

@@ -36,6 +36,8 @@ export const colors = {
   orange300: "#FFE1CB",
   brown400: "#723F19",
   brown500: "#8B3A00",
+  grey1000: "#2A2A2A",
+  grey900: "#1D1D1D",
   grey800: "#141414",
   grey700: "#333",
   grey400: "#C3C3C3",
@@ -43,7 +45,6 @@ export const colors = {
   grey200Transparent: "rgba(170, 170, 170, 0.10);",
   white: "#FFF",
   whiteHover: "#C4C4C4",
-  grey900: "#1D1D1D",
   purple400: "#6772E5",
   red700: "#8C2135",
 };
@@ -90,6 +91,10 @@ export const typography = {
   bold500: css`
     font-weight: 500;
   `,
+};
+
+export const padding = {
+  m: "20px",
 };
 
 export default GlobalStyle;

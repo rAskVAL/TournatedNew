@@ -5,3 +5,5 @@ export const navigation = [
   { title: "Browse", to: "#" },
   { title: "More", to: "#" },
 ];
+
+export const FEATUREBASE_LINK = "https://tournated.featurebase.app/";

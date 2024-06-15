@@ -1,9 +1,19 @@
+/// <reference types="vite-plugin-svgr/client" />
+
+import CategoriesIcon from "../../../assets/Icons/categories.svg?react";
+import EntriesIcon from "../../../assets/Icons/entries.svg?react";
 import CardContainer from "./CardContainer.tsx";
 import styled from "styled-components";
-import { colors, typography } from "../../../components/GlobalStyles.tsx";
+import {
+  colors,
+  padding,
+  typography,
+} from "../../../components/GlobalStyles.tsx";
 import ReactCountryFlag from "react-country-flag";
 import Tag from "../../../components/Tag.tsx";
 import ScrollContainer from "react-indiana-drag-scroll";
+import Stat from "../../../components/Stat.tsx";
+import Organizer from "./Organizer.tsx";
 
 const TournamentCard = () => (
   <CardContainer
@@ -33,12 +43,28 @@ const TournamentCard = () => (
       </Details>
     </TitleBox>
     <Tags>
-      <Tag>Boys Singles [U-18]</Tag>
-      <Tag>Boys Singles [U-18]</Tag>
-      <Tag>Boys Singles [U-18]</Tag>
-      <Tag>Boys Singles [U-18]</Tag>
-      <Tag>Boys Singles [U-18]</Tag>
+      <Tag variant="primary">Boys Singles [U-18]</Tag>
+      <Tag variant="secondary">Boys Singles [U-18]</Tag>
+      <Tag variant="secondary">Boys Singles [U-18]</Tag>
+      <Tag variant="secondary">Boys Singles [U-18]</Tag>
+      <Tag variant="secondary">Boys Singles [U-18]</Tag>
     </Tags>
+    <Stats>
+      <Stat icon={<CategoriesIcon />} stat={7} name="Categories" />
+      <Stat icon={<EntriesIcon />} stat={12} name="Events" />
+    </Stats>
+    <Participants>
+      <Avatars>
+        <UserAvatar src="https://i.pravatar.cc/150?img=1" />
+        <UserAvatar src="https://i.pravatar.cc/150?img=2" />
+        <UserAvatar src="https://i.pravatar.cc/150?img=3" />
+      </Avatars>
+      <div>
+        <p>Aleksiej, Anastasija, Greta</p>
+        <SubText>and 29 others are confirmed</SubText>
+      </div>
+    </Participants>
+    <Organizer title="LTS" avatar="https://i.imgur.com/Tb7pS83.png" />
   </CardContainer>
 );
 
@@ -106,4 +132,42 @@ const Tags = styled(ScrollContainer)`
   cursor: grab;
   display: flex;
   gap: 8px;
+`;
+
+const Stats = styled.div`
+  margin-top: 20px;
+  display: flex;
+  gap: 16px;
+`;
+
+const Participants = styled.div`
+  width: calc(100% + ${padding.m} * 2);
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 30px;
+  padding-block: 10px;
+  padding-inline: 20px;
+  ${typography.grotesk16};
+  color: ${colors.white};
+  border-block: 1px solid ${colors.grey1000};
+`;
+
+const UserAvatar = styled.img`
+  height: 24px;
+  width: 25px;
+  border-radius: 999px;
+`;
+
+const Avatars = styled.div`
+  display: flex;
+
+  :not(:first-child) {
+    margin-left: -4px;
+  }
+`;
+
+const SubText = styled.p`
+  color: ${colors.grey400};
 `;
