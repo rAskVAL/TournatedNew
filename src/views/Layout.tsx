@@ -16,6 +16,5 @@ export default Layout;
 
 const Container = styled.main`
   min-height: 100vh;
-  overflow: hidden;
   background: ${colors.grey800};
 `;

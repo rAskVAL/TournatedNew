@@ -21,7 +21,7 @@ const Navbar = () => {
   const isMoble = useMediaQuery(`(max-width: ${breakpoint.sm}px)`);
 
   return (
-    <>
+    <Nav>
       {!isMoble && (
         <InfoContainer>
           <p>We are live</p>
@@ -50,12 +50,12 @@ const Navbar = () => {
           )}
         </Wrapper>
       </Container>
-    </>
+    </Nav>
   );
 };
 export default Navbar;
 
-const Container = styled.nav`
+const Container = styled.div`
   height: 88px;
   width: 100%;
   background: #1d1d1d;
@@ -106,4 +106,10 @@ const InfoContainer = styled.div`
     color: ${colors.grey800};
     font-weight: 500;
   }
+`;
+
+const Nav = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 999;
 `;
