@@ -33,6 +33,7 @@ export const colors = {
   secondary: "#373737",
   secondaryHover: "#292929",
   black: "#000",
+  blackTransparent: "rgba(0, 0, 0, 0.42)",
   orange300: "#FFE1CB",
   brown400: "#723F19",
   brown500: "#8B3A00",
@@ -42,7 +43,7 @@ export const colors = {
   grey700: "#333",
   grey400: "#C3C3C3",
   grey200: "#AAAAAA",
-  grey200Transparent: "rgba(170, 170, 170, 0.10);",
+  grey200Transparent: "rgba(170, 170, 170, 0.10)",
   white: "#FFF",
   whiteHover: "#C4C4C4",
   purple400: "#6772E5",
@@ -50,6 +51,13 @@ export const colors = {
 };
 
 export const typography = {
+  grotesk12: css`
+    font-family: "Familjen Grotesk", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+  `,
   grotesk14: css`
     font-family: "Familjen Grotesk", sans-serif;
     font-size: 14px;

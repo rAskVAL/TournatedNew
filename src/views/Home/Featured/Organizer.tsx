@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { colors, typography } from "../../../components/GlobalStyles.tsx";
+import {
+  colors,
+  padding,
+  typography,
+} from "../../../components/GlobalStyles.tsx";
 
 type Props = {
   title: string;
@@ -20,12 +24,14 @@ export default Organizer;
 
 const Container = styled.div`
   height: 52px;
-  width: 100%;
+  width: calc(100% + ${padding.m} * 2);
   display: flex;
   justify-content: space-between;
   align-items: center;
   ${typography.grotesk16};
   color: ${colors.grey400};
+  border-top: 1px solid ${colors.grey1000};
+  padding-inline: 20px;
 `;
 
 const Logo = styled.img`

@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { ReactElement, ReactNode } from "react";
 import {
+  breakpoint,
   colors,
   padding,
   typography,
@@ -80,5 +81,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   background: ${colors.grey900};
-  max-width: 380px;
+  width: 100%;
+
+  @media (min-width: ${breakpoint.l}px) {
+    max-width: 380px;
+  }
 `;

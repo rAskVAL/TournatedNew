@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 import { colors, typography } from "./GlobalStyles.tsx";
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
-type Variant = "primary" | "secondary";
+type Variant = "primary" | "secondary" | "dark";
 type Size = "small";
 
 type Props = {
   children: ReactNode;
-  leftIcon?: string;
+  leftIcon?: ReactElement;
   variant: Variant;
   size?: Size;
 };
@@ -25,8 +25,10 @@ const perVariant = <T,>(styles: { [value in Variant]: T }, style: Variant): T =>
 
 const Container = styled.div<{ $variant: Variant; $size?: Size }>`
   display: flex;
-  padding: 5px;
+  padding-block: 5px;
+  padding-inline: 8px;
   gap: 6px;
+  align-items: center;
 
   ${({ $variant }) =>
     perVariant(
@@ -38,6 +40,10 @@ const Container = styled.div<{ $variant: Variant; $size?: Size }>`
         secondary: css`
           background: ${colors.grey200Transparent};
           color: ${colors.grey200};
+        `,
+        dark: css`
+          background: ${colors.blackTransparent};
+          color: ${colors.white};
         `,
       },
       $variant,

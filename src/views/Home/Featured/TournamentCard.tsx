@@ -2,6 +2,7 @@
 
 import CategoriesIcon from "../../../assets/Icons/categories.svg?react";
 import EntriesIcon from "../../../assets/Icons/entries.svg?react";
+import TennisIcon from "../../../assets/Icons/teniss.svg?react";
 import CardContainer from "./CardContainer.tsx";
 import styled from "styled-components";
 import {
@@ -43,7 +44,9 @@ const TournamentCard = () => (
       </Details>
     </TitleBox>
     <Tags>
-      <Tag variant="primary">Boys Singles [U-18]</Tag>
+      <Tag variant="primary" leftIcon={<TennisIcon />}>
+        LTS
+      </Tag>
       <Tag variant="secondary">Boys Singles [U-18]</Tag>
       <Tag variant="secondary">Boys Singles [U-18]</Tag>
       <Tag variant="secondary">Boys Singles [U-18]</Tag>
@@ -151,7 +154,7 @@ const Participants = styled.div`
   padding-inline: 20px;
   ${typography.grotesk16};
   color: ${colors.white};
-  border-block: 1px solid ${colors.grey1000};
+  border-top: 1px solid ${colors.grey1000};
 `;
 
 const UserAvatar = styled.img`
