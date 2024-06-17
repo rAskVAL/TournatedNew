@@ -17,7 +17,7 @@ import Stat from "../../../components/Stat.tsx";
 import Organizer from "./Organizer.tsx";
 
 const TournamentCard = () => (
-  <CardContainer
+  <Container
     type="tournament"
     noPaddingZone={
       <BannerContainer>
@@ -68,7 +68,7 @@ const TournamentCard = () => (
       </div>
     </Participants>
     <Organizer title="LTS" avatar="https://i.imgur.com/Tb7pS83.png" />
-  </CardContainer>
+  </Container>
 );
 
 export default TournamentCard;
@@ -173,4 +173,8 @@ const Avatars = styled.div`
 
 const SubText = styled.p`
   color: ${colors.grey400};
+`;
+
+const Container = styled(CardContainer)`
+  justify-content: space-between;
 `;
