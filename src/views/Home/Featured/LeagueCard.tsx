@@ -97,4 +97,5 @@ const Stats = styled(ScrollContainer)`
 
 const Container = styled(CardContainer)`
   justify-content: space-between;
+  height: 100%;
 `;

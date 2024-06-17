@@ -18,11 +18,11 @@ import { FEATUREBASE_LINK } from "../../consts.ts";
 
 const Navbar = () => {
   const isNarrow = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
-  const isMoble = useMediaQuery(`(max-width: ${breakpoint.sm}px)`);
+  const isMobile = useMediaQuery(`(max-width: ${breakpoint.sm}px)`);
 
   return (
     <Nav>
-      {!isMoble && (
+      {!isMobile && (
         <InfoContainer>
           <p>We are live</p>
           <Elipse />
