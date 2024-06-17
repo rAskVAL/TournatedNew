@@ -41,8 +41,10 @@ const AthleteCard = () => (
 export default AthleteCard;
 
 const Avatar = styled.div`
-  height: 86px;
-  width: 86px;
+  min-height: 86px;
+  min-width: 86px;
+  max-height: 86px;
+  max-width: 86px;
   background: ${colors.grey700};
 `;
 

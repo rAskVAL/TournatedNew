@@ -10,6 +10,7 @@ import MembersIcon from "../../../assets/Icons/members.svg?react";
 import ReactCountryFlag from "react-country-flag";
 import Stat from "../../../components/Stat.tsx";
 import Organizer from "./Organizer.tsx";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 const LeagueCard = () => (
   <Container type="league">
@@ -50,8 +51,10 @@ const LeagueCard = () => (
 export default LeagueCard;
 
 const Avatar = styled.div`
-  height: 86px;
-  width: 86px;
+  min-height: 86px;
+  min-width: 86px;
+  max-height: 86px;
+  max-width: 86px;
   background: ${colors.grey700};
 `;
 
@@ -63,6 +66,7 @@ const TitleBox = styled.div`
   color: ${colors.white};
   ${typography.grotesk24};
   line-clamp: 2;
+  overflow: hidden;
 `;
 
 const InfoBox = styled.div`
@@ -77,12 +81,12 @@ const Title = styled.p`
   padding-right: 30px;
 `;
 
-const Tags = styled.div`
+const Tags = styled(ScrollContainer)`
   display: flex;
   gap: 11px;
 `;
 
-const Stats = styled.div`
+const Stats = styled(ScrollContainer)`
   width: 100%;
   margin-top: 27px;
   display: flex;

@@ -2,15 +2,16 @@ import { ReactNode } from "react";
 import styled, { css, RuleSet } from "styled-components";
 import { colors } from "./GlobalStyles.tsx";
 
-type Styles = "primary" | "outline" | "brand";
+type Styles = "primary" | "outline" | "brand" | "dark";
 
 type Props = {
   children: ReactNode;
   style: Styles;
+  className?: string;
 };
-const Button = ({ children, style }: Props) => {
+const Button = ({ children, style, className }: Props) => {
   return (
-    <Container $style={style}>
+    <Container $style={style} className={className}>
       <Children>{children}</Children>
     </Container>
   );
@@ -24,6 +25,7 @@ const perVariant = (
 ): RuleSet => styles[style];
 
 const Children = styled.div`
+  width: 100%;
   transition: all 0.1s;
   z-index: 1;
 `;
@@ -52,6 +54,9 @@ const Container = styled.button<{ $style: Styles }>`
       {
         primary: css`
           background: ${colors.secondary};
+        `,
+        dark: css`
+          background: ${colors.grey900};
         `,
         outline: css`
           border: 1px solid #ff720b;
@@ -82,6 +87,9 @@ const Container = styled.button<{ $style: Styles }>`
           primary: css`
             background: ${colors.secondaryHover};
           `,
+          dark: css`
+            background: ${colors.secondary};
+          `,
           outline: css`
             background: ${colors.brown400};
           `,
@@ -110,12 +118,18 @@ const Container = styled.button<{ $style: Styles }>`
           brand: css`
             background: ${colors.white};
           `,
+          dark: css`
+            background: ${colors.white};
+          `,
         },
         $style,
       )}
   }
 
   &:active ${Children} {
-    color: black;
+    color: ${colors.black};
+    svg * {
+      stroke: ${colors.black};
+    }
   }
 `;

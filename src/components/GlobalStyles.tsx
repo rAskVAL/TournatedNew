@@ -70,14 +70,18 @@ export const typography = {
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
-    text-align: left;
+  `,
+  grotesk18: css`
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
   `,
   grotesk24: css`
     font-family: "Familjen Grotesk", sans-serif;
     font-size: 24px;
     font-weight: 400;
     line-height: 24px;
-    text-align: left;
   `,
   grotesk40: css`
     font-family: "Familjen Grotesk", sans-serif;
@@ -86,12 +90,18 @@ export const typography = {
     font-weight: 400;
     line-height: 40px;
   `,
+  grotesk48: css`
+    font-family: "Familjen Grotesk", sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+  `,
   grotesk80: css`
     font-family: "Familjen Grotesk", sans-serif;
     font-size: 80px;
     font-weight: 400;
     line-height: 80px;
-    text-align: left;
   `,
   italic: css`
     font-style: italic;
