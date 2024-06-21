@@ -8,12 +8,13 @@ import {
 import logo from "../../assets/logo.svg";
 import Close from "../../assets/Icons/close.svg?react";
 import { AnimatePresence, motion } from "framer-motion";
-import data from "./data.ts";
+import data from "./data.tsx";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ChevronDown from "../../assets/Icons/chevronDown.svg?react";
 import Button from "../Button.tsx";
 import LanguageSelector from "./LanguageSelector.tsx";
+import HighlightButton from "./HighlightButton.tsx";
 
 type Props = {
   setIsMobileOpen: (state: boolean) => void;
@@ -64,9 +65,18 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
                     animate={{ marginTop: 22, height: "auto" }}
                     exit={{ marginTop: 0, height: 0, opacity: 0 }}
                   >
-                    {submenu.links.map(({ title, to }) => (
-                      <Sublink to={to}>{title}</Sublink>
-                    ))}
+                    {submenu.highlightZone && (
+                      <HighlightZone>
+                        <p>{submenu.highlightZone.title}</p>
+                        {submenu.highlightZone.items.map((data) => (
+                          <HighlightButton data={data} />
+                        ))}
+                      </HighlightZone>
+                    )}
+                    {submenu.links &&
+                      submenu.links.items.map(({ title, to }) => (
+                        <Sublink to={to}>{title}</Sublink>
+                      ))}
                   </Submenu>
                 )}
               </AnimatePresence>
@@ -137,12 +147,12 @@ const Sublink = styled(Link)`
   ${resetStyles};
 
   && {
-    ${typography.grotesk16}
+    ${typography.grotesk16};
+    margin-inline: 14px;
   }
 `;
 
 const Submenu = styled(motion.div)`
-  padding-inline: 14px;
   margin-top: 22px;
   display: flex;
   flex-direction: column;
@@ -176,4 +186,16 @@ const Bottom = styled.div`
 
 const Top = styled.div`
   width: 100%;
+`;
+
+const HighlightZone = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  & > p {
+    ${typography.grotesk12};
+    margin-bottom: 2px;
+    color: ${colors.grey400};
+  }
 `;

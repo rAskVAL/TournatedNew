@@ -5,7 +5,7 @@ import { colors, typography } from "./GlobalStyles.tsx";
 import { useState } from "react";
 import ChevronDown from "../assets/Icons/chevronDown.svg?react";
 import Submenu from "./Navbar/Submenu.tsx";
-import data from "./Navbar/data.ts";
+import data from "./Navbar/data.tsx";
 
 type Props = {
   title: string;
@@ -48,7 +48,7 @@ const NavItem = ({ title, to, className, submenu }: Props) => {
         {title} <Chevron />
       </Title>
       {submenu && isSubmenuOpen && (
-        <Submenu title={title} ref={submenuRef} submenu={submenu} />
+        <Submenu ref={submenuRef} submenu={submenu} />
       )}
     </Item>
   );

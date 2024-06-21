@@ -61,6 +61,7 @@ export const colors = {
   whiteHover: "#C4C4C4",
   purple400: "#6772E5",
   red700: "#8C2135",
+  success: "#69AD49",
 };
 
 export const typography = {

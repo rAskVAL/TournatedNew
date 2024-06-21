@@ -3,26 +3,39 @@ import styled from "styled-components";
 import { colors, typography } from "../GlobalStyles.tsx";
 import { Link } from "react-router-dom";
 import ArrowRight from "../../assets/Icons/arrowRight.svg?react";
-import data from "./data.ts";
+import data from "./data.tsx";
+import HighlightButton from "./HighlightButton.tsx";
 
 type Props = {
-  title: string;
   submenu: (typeof data)[number]["submenu"];
 };
 
-const Submenu = forwardRef<HTMLDivElement, Props>(({ title, submenu }, ref) => (
+const Submenu = forwardRef<HTMLDivElement, Props>(({ submenu }, ref) => (
   <Contaier ref={ref}>
-    <Title>{title}</Title>
-    <Content>
-      {submenu &&
-        submenu.links.map((link) => (
-          <Button to={link.to} key={link.title}>
-            <p>{link.title}</p>
-            <Arrow />
-            <Line />
-          </Button>
-        ))}
-    </Content>
+    {submenu?.highlightZone && (
+      <Content>
+        <Title>{submenu.highlightZone.title}</Title>
+        <Links>
+          {submenu.highlightZone.items.map((data) => (
+            <HighlightButton data={data} />
+          ))}
+        </Links>
+      </Content>
+    )}
+    {submenu?.links && (
+      <Content>
+        <Title>{submenu.links.title}</Title>
+        <Links>
+          {submenu.links.items.map((link) => (
+            <Item to={link.to} key={link.title}>
+              <p>{link.title}</p>
+              <Arrow />
+              <Line />
+            </Item>
+          ))}
+        </Links>
+      </Content>
+    )}
   </Contaier>
 ));
 
@@ -35,7 +48,8 @@ const Arrow = styled(ArrowRight)`
 `;
 
 const Contaier = styled.div`
-  min-width: 278px;
+  display: flex;
+  gap: 16px;
   position: absolute;
   top: calc(100% + 19px);
   padding: 16px;
@@ -49,7 +63,7 @@ const Title = styled.p`
   margin-bottom: 30px;
 `;
 
-const Content = styled.div`
+const Links = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -73,12 +87,12 @@ const Line = styled.div`
   }
 `;
 
-const Button = styled(Link)`
+const Item = styled(Link)`
   position: relative;
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding-bottom: 10px;
+  padding-bottom: 14px;
   color: ${colors.grey400};
 
   &:hover,
@@ -92,4 +106,8 @@ const Button = styled(Link)`
   &:hover ${Line}::after {
     width: 75%;
   }
+`;
+
+const Content = styled.div`
+  min-width: 278px;
 `;
