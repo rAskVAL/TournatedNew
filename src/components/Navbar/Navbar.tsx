@@ -15,42 +15,52 @@ import { useMediaQuery } from "@react-hookz/web";
 import BurgerIcon from "../../assets/Icons/burger.svg?react";
 import Elipse from "../../assets/Icons/elipse.svg?react";
 import { FEATUREBASE_LINK } from "../../consts.ts";
+import { useState } from "react";
+import MobileMenu from "./MobileMenu.tsx";
+import { AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const isNarrow = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.sm}px)`);
-
+  const [isMenuOpen, setIsMobileOpen] = useState(false);
   return (
-    <Nav>
-      {!isMobile && (
-        <InfoContainer>
-          <p>We are live</p>
-          <Elipse />
-          <a>Read more</a>
-          <Elipse />
-          <a>Find documentation</a>
-          <Elipse />
-          <a href={FEATUREBASE_LINK}>Submit feedback</a>
-        </InfoContainer>
-      )}
-      <Container>
-        <Wrapper>
-          <Logo src={logo} alt="Logo" />
-          {isNarrow ? (
-            <BurgerIcon />
-          ) : (
-            <>
-              <Menu />
-              <RightContainer>
-                <LanguageSelector />
-                <Button style="outline">Contact Sales</Button>
-                <Button style="primary">Go to platform</Button>
-              </RightContainer>
-            </>
-          )}
-        </Wrapper>
-      </Container>
-    </Nav>
+    <>
+      <Nav>
+        {!isMobile && (
+          <InfoContainer>
+            <p>We are live</p>
+            <Elipse />
+            <a>Read more</a>
+            <Elipse />
+            <a>Find documentation</a>
+            <Elipse />
+            <a href={FEATUREBASE_LINK}>Submit feedback</a>
+          </InfoContainer>
+        )}
+        <Container>
+          <Wrapper>
+            <Logo src={logo} alt="Logo" />
+            {isNarrow ? (
+              <BurgerIcon onClick={() => setIsMobileOpen(true)} />
+            ) : (
+              <>
+                <Menu />
+                <RightContainer>
+                  <LanguageSelector />
+                  <Button style="outline">Contact Sales</Button>
+                  <Button style="primary">Go to platform</Button>
+                </RightContainer>
+              </>
+            )}
+          </Wrapper>
+        </Container>
+      </Nav>
+      <AnimatePresence>
+        {isNarrow && isMenuOpen && (
+          <MobileMenu setIsMobileOpen={setIsMobileOpen} />
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 export default Navbar;

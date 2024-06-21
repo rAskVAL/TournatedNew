@@ -2,12 +2,14 @@ import Hero from "./Hero/Hero.tsx";
 import styled from "styled-components";
 import Featured from "./Featured/Featured.tsx";
 import Promo from "./Promo/Promo.tsx";
+import Features from "./Features/Features.tsx";
 
 const Home = () => (
   <Main>
     <Hero />
     <Featured />
     <Promo />
+    <Features />
   </Main>
 );
 

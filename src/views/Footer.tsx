@@ -173,6 +173,10 @@ const Logo = styled.img`
 
 const FlexItem = styled.div`
   flex: 1;
+
+  p {
+    color: ${colors.white};
+  }
 `;
 
 const Contacts = styled.div`

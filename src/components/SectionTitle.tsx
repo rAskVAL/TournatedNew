@@ -6,9 +6,10 @@ import TournatedShape from "../assets/Icons/tournatedShape.svg?react";
 
 type Props = {
   text: string;
+  className?: string;
 };
-const SectionTitle = ({ text }: Props) => (
-  <Wrapper>
+const SectionTitle = ({ text, className }: Props) => (
+  <Wrapper className={className}>
     <TournatedShape />
     <Text>{text}</Text>
   </Wrapper>
@@ -17,7 +18,6 @@ const SectionTitle = ({ text }: Props) => (
 export default SectionTitle;
 
 const Text = styled.h2`
-  color: ${colors.white};
   ${typography.grotesk16};
 `;
 
@@ -25,4 +25,5 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  color: ${colors.white};
 `;
