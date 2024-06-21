@@ -12,11 +12,14 @@ import AccordionItem from "./AccordionItem.tsx";
 import data from "./data.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Icon1 from "./assets/icon1.svg?react";
+import Icon2 from "./assets/icon2.svg?react";
+import Icon3 from "./assets/icon3.svg?react";
 
 const Features = () => {
   const [activeItem, setActiveItem] = useState(0);
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);
-
+  const [swiperProgress, setSwiperProgress] = useState<number>(0);
   return (
     <Container>
       <TitleBox>
@@ -59,20 +62,53 @@ const Features = () => {
           </Right>
         </DesktopContent>
       ) : (
-        <MobileContent
-          spaceBetween={16}
-          slidesPerView="auto"
-          pagination={{ clickable: true }}
-        >
-          {data.map(({ title, description, banner }, i) => (
-            <Card key={i}>
-              <h3>{title}</h3>
-              <p>{description}</p>
-              <div>{banner}</div>
-            </Card>
-          ))}
-        </MobileContent>
+        <>
+          <MobileContent
+            spaceBetween={16}
+            slidesPerView="auto"
+            pagination={{ clickable: true }}
+            onActiveIndexChange={(swiper) => setSwiperProgress(swiper.progress)}
+          >
+            {data.map(({ title, description, banner }, i) => (
+              <Card key={i}>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <div>{banner}</div>
+              </Card>
+            ))}
+          </MobileContent>
+          <ProgressBar $percentage={swiperProgress && swiperProgress * 100} />
+        </>
       )}
+      <Bottom>
+        <BottomCard>
+          <Icon1 />
+          <h3>Athlete’s Experience</h3>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </p>
+        </BottomCard>
+        <BottomCard>
+          <Icon2 />
+          <h3>Launch your Web Platform & Mobile App</h3>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </p>
+        </BottomCard>
+        <BottomCard>
+          <Icon3 />
+          <h3>Any sport, any format</h3>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </p>
+        </BottomCard>
+      </Bottom>
     </Container>
   );
 };
@@ -129,7 +165,7 @@ const DesktopContent = styled.div`
   display: flex;
   height: 531px;
   width: 100%;
-  max-width: 1100px;
+  ${containerStyles}
 `;
 
 const Left = styled.div`
@@ -201,4 +237,81 @@ const Card = styled(SwiperSlide)`
 const MobileContent = styled(Swiper)`
   ${containerStyles};
   margin-top: 55px;
+`;
+
+const Bottom = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+  margin-bottom: 16px;
+  ${containerStyles};
+
+  @media (max-width: ${breakpoint.l}px) {
+    margin-top: 44px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+`;
+
+const BottomCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 340px;
+
+  h3 {
+    margin-top: 4px;
+    ${typography.grotesk18};
+    color: ${colors.grey900};
+  }
+
+  p {
+    ${typography.grotesk16};
+    color: ${colors.grey600};
+  }
+
+  @media (max-width: ${breakpoint.l}px) {
+    gap: 10px;
+
+    p {
+      ${typography.grotesk14};
+    }
+
+    svg {
+      width: 40px;
+    }
+  }
+`;
+
+const ProgressBar = styled.div<{ $percentage?: number }>`
+  width: 100%;
+  height: 1px;
+  display: flex;
+  justify-content: center;
+  margin-top: 27px;
+  position: relative;
+  max-width: 254px;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: ${colors.grey100};
+    position: absolute;
+    left: 0;
+  }
+
+  &::after {
+    content: "";
+    width: ${({ $percentage }) => $percentage}%;
+    height: 1px;
+    background: ${colors.primary};
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    transition: width 0.3s;
+  }
 `;

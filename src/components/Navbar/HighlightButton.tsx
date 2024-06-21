@@ -31,6 +31,7 @@ const Arrow = styled(ArrowRight)`
 
 const StyledButton = styled(Button)`
   min-height: 96px;
+  padding-inline: 10px;
   flex: 1;
   &:hover ${Arrow} {
     * {
