@@ -2,16 +2,17 @@ import { ReactNode } from "react";
 import styled, { css, RuleSet } from "styled-components";
 import { colors } from "./GlobalStyles.tsx";
 
-type Styles = "primary" | "outline" | "brand" | "dark";
+type Styles = "primary" | "outline" | "brand" | "dark" | "transparent";
 
 type Props = {
   children: ReactNode;
   style: Styles;
+  selected?: boolean;
   className?: string;
 };
-const Button = ({ children, style, className }: Props) => {
+const Button = ({ children, style, className, selected }: Props) => {
   return (
-    <Container $style={style} className={className}>
+    <Container $style={style} className={className} $selected={selected}>
       <Children>{children}</Children>
     </Container>
   );
@@ -25,12 +26,15 @@ const perVariant = (
 ): RuleSet => styles[style];
 
 const Children = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   transition: all 0.1s;
   z-index: 1;
 `;
 
-const Container = styled.button<{ $style: Styles }>`
+const Container = styled.button<{ $style: Styles; $selected?: boolean }>`
   all: unset;
   position: relative;
   color: white;
@@ -70,6 +74,9 @@ const Container = styled.button<{ $style: Styles }>`
         brand: css`
           background: #ff720b;
         `,
+        transparent: css`
+          background: transparent;
+        `,
       },
       $style,
     )}
@@ -77,7 +84,7 @@ const Container = styled.button<{ $style: Styles }>`
   &:after {
     content: "";
     height: 100%;
-    width: 0;
+    width: ${({ $selected }) => ($selected ? "100%" : 0)};
     position: absolute;
     left: 0;
     transition: all 0.2s;
@@ -95,6 +102,9 @@ const Container = styled.button<{ $style: Styles }>`
           `,
           brand: css`
             background: ${colors.primaryHover};
+          `,
+          transparent: css`
+            background: ${colors.grey900};
           `,
         },
         $style,
@@ -119,6 +129,9 @@ const Container = styled.button<{ $style: Styles }>`
             background: ${colors.white};
           `,
           dark: css`
+            background: ${colors.white};
+          `,
+          transparent: css`
             background: ${colors.white};
           `,
         },

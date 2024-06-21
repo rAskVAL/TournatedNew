@@ -18,6 +18,15 @@ export const containerStyles = css`
   padding-inline: 20px;
 `;
 
+export const resetStyles = css`
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    all: unset;
+  }
+`;
+
 export const breakpoint = {
   xs: 400,
   sm: 500,
@@ -38,12 +47,16 @@ export const colors = {
   brown400: "#723F19",
   brown500: "#8B3A00",
   grey1000: "#2A2A2A",
+  grey950: "#242424",
   grey900: "#1D1D1D",
   grey800: "#141414",
   grey700: "#333",
+  grey600: "#5A5A5A",
   grey400: "#C3C3C3",
   grey200: "#AAAAAA",
   grey200Transparent: "rgba(170, 170, 170, 0.10)",
+  grey100: "#C7C7C7",
+  grey50: "#D9D9D9",
   white: "#FFF",
   whiteHover: "#C4C4C4",
   purple400: "#6772E5",
@@ -77,11 +90,24 @@ export const typography = {
     font-weight: 400;
     line-height: 110%;
   `,
+  grotesk20: css`
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+  `,
   grotesk24: css`
     font-family: "Familjen Grotesk", sans-serif;
     font-size: 24px;
     font-weight: 400;
     line-height: 24px;
+  `,
+  grotesk28: css`
+    font-family: "Familjen Grotesk", sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
   `,
   grotesk40: css`
     font-family: "Familjen Grotesk", sans-serif;

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import NavItem from "../NavItem.tsx";
-import { navigation } from "../../consts.ts";
+import data from "./data.ts";
 
 const Menu = () => {
   return (
     <List>
-      {navigation.map(({ title, to }) => (
-        <NavItem to={to}>{title}</NavItem>
+      {data.map(({ title, to, submenu }) => (
+        <NavItem to={to} title={title} submenu={submenu} key={title} />
       ))}
     </List>
   );

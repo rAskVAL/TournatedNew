@@ -18,25 +18,19 @@ const Partners = () => (
     <Title>Partners</Title>
     <Block />
     <List
-      slidesPerView={1.4}
+      slidesPerView="auto"
       freeMode={true}
       breakpoints={{
-        [breakpoint.xs]: {
-          slidesPerView: 2,
-        },
-        [breakpoint.sm]: {
-          slidesPerView: 2.7,
-        },
-        [breakpoint.m]: {
-          slidesPerView: 4,
+        0: {
+          spaceBetween: 50,
         },
         [breakpoint.l]: {
-          slidesPerView: 5,
+          spaceBetween: 100,
         },
       }}
     >
       {[...new Array(12)].map(() => (
-        <SwiperSlide>
+        <SwiperSlide style={{ maxWidth: "150px" }} key={Math.random()}>
           <Logo src={placeholder} />
         </SwiperSlide>
       ))}
