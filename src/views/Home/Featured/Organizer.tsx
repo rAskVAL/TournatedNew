@@ -4,22 +4,26 @@ import {
   padding,
   typography,
 } from "../../../components/GlobalStyles.tsx";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   title: string;
   avatar: string;
 };
 
-const Organizer = ({ title, avatar }: Props) => (
-  <Container>
-    <p>Organized by</p>
-    <Wrapper>
-      <Logo src={avatar} />
-      <p>{title}</p>
-    </Wrapper>
-  </Container>
-);
+const Organizer = ({ title, avatar }: Props) => {
+  const { t } = useTranslation();
 
+  return (
+    <Container>
+      <p>{t("organizedBy")}</p>
+      <Wrapper>
+        <Logo src={avatar} />
+        <p>{title}</p>
+      </Wrapper>
+    </Container>
+  );
+};
 export default Organizer;
 
 const Container = styled.div`
