@@ -29,20 +29,20 @@ const Left = () => {
       </TitleBox>
       <Stats>
         <Stat>
-          <StatTitle>{t("stats.organizations")}</StatTitle>
-          <StatSubtitle>{t("organizations")}</StatSubtitle>
+          <StatTitle>200+</StatTitle>
+          <StatSubtitle>{t("stats.organizations")}</StatSubtitle>
         </Stat>
         <Stat>
-          <StatTitle>{t("stats.athletes")}</StatTitle>
-          <StatSubtitle>{t("athletes")}</StatSubtitle>
+          <StatTitle>20k+</StatTitle>
+          <StatSubtitle>{t("stats.athletes")}</StatSubtitle>
         </Stat>
         <Stat>
-          <StatTitle>{t("stats.tournaments")}</StatTitle>
-          <StatSubtitle>{t("tournaments")}</StatSubtitle>
+          <StatTitle>3k+</StatTitle>
+          <StatSubtitle>{t("stats.tournaments")}</StatSubtitle>
         </Stat>
         <Stat>
-          <StatTitle>{t("stats.entries")}</StatTitle>
-          <StatSubtitle>{t("entries")}</StatSubtitle>
+          <StatTitle>100k+</StatTitle>
+          <StatSubtitle>{t("stats.entries")}</StatSubtitle>
         </Stat>
       </Stats>
       <Buttons>
