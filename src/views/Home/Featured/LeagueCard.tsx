@@ -1,62 +1,58 @@
-/// <reference types="vite-plugin-svgr/client" />
+// src/views/leagueCard/LeagueCard.tsx
 
 import { useTranslation } from "react-i18next";
 import CardContainer from "./CardContainer.tsx";
 import styled from "styled-components";
-import { colors, typography } from "../../../components/GlobalStyles.tsx";
+import {
+  colors,
+  resetStyles,
+  typography,
+} from "../../../components/GlobalStyles.tsx";
 import Tag from "../../../components/Tag.tsx";
-import ChessIcon from "../../../assets/Icons/chess.svg?react";
-import TrophyIcon from "../../../assets/Icons/trophy.svg?react";
-import MembersIcon from "../../../assets/Icons/members.svg?react";
-import ReactCountryFlag from "react-country-flag";
 import Stat from "../../../components/Stat.tsx";
 import Organizer from "./Organizer.tsx";
 import ScrollContainer from "react-indiana-drag-scroll";
+import { leagueCardData } from "./data.tsx";
+import { SupportedLanguages } from "../../../App.tsx";
+import { Link } from "react-router-dom";
 
-const LeagueCard = () => {
-  const { t } = useTranslation();
+const LeagueCard = ({ data }: { data: typeof leagueCardData }) => {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language as SupportedLanguages;
 
   return (
-    <Container type="league">
+    <Container type={data.type}>
       <InfoBox>
-        <Avatar />
+        <Avatar>
+          <img src={data.logo} alt={data.title.en} />
+        </Avatar>
         <TitleBox>
-          <Title>{t("leagueCard.title")}</Title>
+          <Title to={data.link}>{data.title[currentLanguage]}</Title>
           <Tags>
-            <Tag variant="secondary" leftIcon={<ChessIcon />}>
-              {t("leagueCard.chess")}
-            </Tag>
-            <Tag
-              variant="dark"
-              leftIcon={
-                <ReactCountryFlag
-                  countryCode="LV"
-                  svg
-                  style={{
-                    height: "12px",
-                  }}
-                  title="LV"
-                />
-              }
-            >
-              {t("leagueCard.nationalLeague")}
-            </Tag>
+            {data.tags.map((tag, index) => (
+              <Tag key={index} variant={tag.variant} leftIcon={tag.leftIcon}>
+                {t(tag.textKey)}
+              </Tag>
+            ))}
           </Tags>
         </TitleBox>
       </InfoBox>
       <Stats>
-        <Stat
-          icon={<TrophyIcon />}
-          stat="500+"
-          name={t("leagueCard.tournaments")}
-        />
-        <Stat
-          icon={<MembersIcon />}
-          stat="1200"
-          name={t("leagueCard.members")}
-        />
+        {data.stats.map((stat, index) => (
+          <Stat
+            key={index}
+            icon={stat.icon}
+            stat={stat.stat}
+            name={t(stat.nameKey)}
+          />
+        ))}
       </Stats>
-      <Organizer title="LTS" avatar="https://i.imgur.com/Tb7pS83.png" />
+      {data.type === "league" && (
+        <Organizer
+          title={data.organizer.title}
+          avatar={data.organizer.avatar}
+        />
+      )}
     </Container>
   );
 };
@@ -69,6 +65,14 @@ const Avatar = styled.div`
   max-height: 86px;
   max-width: 86px;
   background: ${colors.grey700};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    height: 58px;
+    width: 58px;
+  }
 `;
 
 const TitleBox = styled.div`
@@ -89,9 +93,13 @@ const InfoBox = styled.div`
   justify-content: space-between;
 `;
 
-const Title = styled.p`
-  flex: 1;
-  padding-right: 30px;
+const Title = styled(Link)`
+  ${resetStyles};
+  && {
+    flex: 1;
+    padding-right: 30px;
+    cursor: pointer;
+  }
 `;
 
 const Tags = styled(ScrollContainer)`

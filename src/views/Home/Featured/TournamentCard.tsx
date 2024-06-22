@@ -1,13 +1,11 @@
 /// <reference types="vite-plugin-svgr/client" />
 
-import CategoriesIcon from "../../../assets/Icons/categories.svg?react";
-import EntriesIcon from "../../../assets/Icons/entries.svg?react";
-import TennisIcon from "../../../assets/Icons/teniss.svg?react";
 import CardContainer from "./CardContainer.tsx";
 import styled from "styled-components";
 import {
   colors,
   padding,
+  resetStyles,
   typography,
 } from "../../../components/GlobalStyles.tsx";
 import ReactCountryFlag from "react-country-flag";
@@ -17,76 +15,73 @@ import Stat from "../../../components/Stat.tsx";
 import Organizer from "./Organizer.tsx";
 
 import { useTranslation } from "react-i18next";
+import { tournamentData as data } from "./data.tsx";
+import { SupportedLanguages } from "../../../App.tsx";
+import { Link } from "react-router-dom";
 
 const TournamentCard = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language as SupportedLanguages;
 
   return (
     <Container
-      type="tournament"
+      type={data.type}
       noPaddingZone={
         <BannerContainer>
-          <Banner src="https://firebasestorage.googleapis.com/v0/b/vertexo-sports.appspot.com/o/tournated_media%2Falbum-131%2Fphoto-131-WFKg-cbRePh_7MS9kAxAd.jpeg?alt=media&token=fdad21dd-dc5e-4800-a7f0-e0edd6d665ec" />
+          <Banner src={data.bannerSrc} />
           <Avatar>
-            <Logo src="https://i.imgur.com/Tb7pS83.png" />
+            <Logo src={data.logoSrc} />
           </Avatar>
         </BannerContainer>
       }
     >
       <TitleBox>
-        <Title>Saulkrastu Tenisa Kortu Balvas</Title>
+        <Title to={data.link}>{data.title[currentLanguage]}</Title>
         <Details>
-          <p>14-15.06.2024 ・</p>
+          <p>{data.date} ・</p>
           <ReactCountryFlag
-            countryCode="LV"
+            countryCode={data.countryCode}
             svg
-            style={{
-              height: "12px",
-            }}
-            title="US"
+            style={{ height: "12px" }}
+            title={data.countryCode}
           />
-          <p>Saulkrasti</p>
+          <p>{data.location}</p>
         </Details>
       </TitleBox>
       <Tags>
-        <Tag variant="primary" leftIcon={<TennisIcon />}>
-          LTS
-        </Tag>
-        <Tag variant="secondary">Boys Singles [U-18]</Tag>
-        <Tag variant="secondary">Boys Singles [U-18]</Tag>
-        <Tag variant="secondary">Boys Singles [U-18]</Tag>
-        <Tag variant="secondary">Boys Singles [U-18]</Tag>
+        {data.tags.map((tag, index) => (
+          <Tag key={index} variant={tag.variant} leftIcon={tag.leftIcon}>
+            {tag.text}
+          </Tag>
+        ))}
       </Tags>
       <Stats>
-        <Stat
-          icon={<CategoriesIcon />}
-          stat={7}
-          name={t("tournamentCard.Categories")}
-        />
-        <Stat
-          icon={<EntriesIcon />}
-          stat={12}
-          name={t("tournamentCard.Events")}
-        />
+        {data.stats.map((stat, index) => (
+          <Stat
+            key={index}
+            icon={stat.icon}
+            stat={stat.stat}
+            name={t(stat.nameKey)}
+          />
+        ))}
       </Stats>
       <Participants>
         <Avatars>
-          <UserAvatar src="https://i.pravatar.cc/150?img=1" />
-          <UserAvatar src="https://i.pravatar.cc/150?img=2" />
-          <UserAvatar src="https://i.pravatar.cc/150?img=3" />
+          {data.participants.map((src, index) => (
+            <UserAvatar key={index} src={src} />
+          ))}
         </Avatars>
         <div>
           <p>Aleksiej, Anastasija, Greta</p>
           <SubText>
-            {t("tournamentCard.and others are confirmed", { count: 29 })}
+            {t("tournamentCard.and others are confirmed", { count: 77 })}
           </SubText>
         </div>
       </Participants>
-      <Organizer title="LTS" avatar="https://i.imgur.com/Tb7pS83.png" />
+      <Organizer title={data.organizer.title} avatar={data.organizer.avatar} />
     </Container>
   );
 };
-
 export default TournamentCard;
 
 const Avatar = styled.div`
@@ -130,10 +125,15 @@ const TitleBox = styled.div`
   max-width: 230px;
 `;
 
-const Title = styled.h3`
-  color: ${colors.white};
-  ${typography.grotesk24};
-  text-align: center;
+const Title = styled(Link)`
+  ${resetStyles};
+
+  && {
+    color: ${colors.white};
+    ${typography.grotesk24};
+    text-align: center;
+    cursor: pointer;
+  }
 `;
 
 const Details = styled.div`
@@ -142,6 +142,7 @@ const Details = styled.div`
   align-items: center;
   ${typography.grotesk14};
   color: ${colors.grey400};
+  white-space: nowrap;
 `;
 
 const Tags = styled(ScrollContainer)`

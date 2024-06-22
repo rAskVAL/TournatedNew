@@ -8,7 +8,7 @@ import {
   typography,
 } from "../../../components/GlobalStyles.tsx";
 
-type Type = "league" | "tournament" | "athlete";
+type Type = "league" | "tournament" | "athlete" | "organization";
 
 const perType = <T,>(styles: { [value in Type]: T }, style: Type): T =>
   styles[style];
@@ -31,6 +31,7 @@ const CardContainer = ({ children, noPaddingZone, type, className }: Props) => {
             athlete: t("featuredTitles.athlete"),
             league: t("featuredTitles.league"),
             tournament: t("featuredTitles.tournament"),
+            organization: t("featuredTitles.organization"),
           },
           type,
         )}
@@ -62,6 +63,10 @@ const TitleBox = styled.div<{ $type: Type }>`
         athlete: css`
           color: ${colors.black};
           background: ${colors.primary};
+        `,
+        organization: css`
+          color: ${colors.white};
+          background: ${colors.grey700};
         `,
       },
       $type,

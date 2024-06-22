@@ -1,9 +1,8 @@
 export default {
-  partners: {
-    title: "Partners",
-  },
   translation: {
-    title: "Partners",
+    partners: {
+      title: "Partners",
+    },
     stats: {
       entries: "Entries",
       organizations: "Organizations",
@@ -94,12 +93,14 @@ export default {
       Categories: "Categories",
       Events: "Events",
       "and others are confirmed": "and {{count}} others are confirmed",
+      Participants: "Participants",
     },
     featuredTitles: {
       title: "Featured",
       athlete: "Athlete",
       league: "League",
       tournament: "Tournament",
+      organization: "Organization",
     },
     promo: {
       launch_your_own: "Launch your own",

@@ -95,12 +95,14 @@ export default {
       Categories: "Kategorijas",
       Events: "Pasākumi",
       "and others are confirmed": "un {{count}} citi ir apstiprināti",
+      Participants: "Dalibnieki",
     },
     featuredTitles: {
       title: "Piedāvātās",
       athlete: "Sportists",
       league: "Līga",
       tournament: "Turnīrs",
+      organization: "Organizācija",
     },
     promo: {
       launch_your_own: "Palaidiet savu",
