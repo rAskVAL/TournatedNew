@@ -14,27 +14,29 @@ import {
 import { useMediaQuery } from "@react-hookz/web";
 import BurgerIcon from "../../assets/Icons/burger.svg?react";
 import Elipse from "../../assets/Icons/elipse.svg?react";
-import { FEATUREBASE_LINK } from "../../consts.ts";
+import { CALENDLY_URL, FEATUREBASE_LINK, PLATFORM_URL } from "../../consts.ts";
 import { useState } from "react";
 import MobileMenu from "./MobileMenu.tsx";
 import { AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const isNarrow = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.sm}px)`);
   const [isMenuOpen, setIsMobileOpen] = useState(false);
+  const { t } = useTranslation();
   return (
     <>
       <Nav>
         {!isMobile && (
           <InfoContainer>
-            <p>We are live</p>
+            <p>{t("live")}</p>
+            {/*<Elipse />*/}
+            {/*<a>{t("read_more")}</a>*/}
             <Elipse />
-            <a>Read more</a>
+            <a>{t("docs")}</a>
             <Elipse />
-            <a>Find documentation</a>
-            <Elipse />
-            <a href={FEATUREBASE_LINK}>Submit feedback</a>
+            <a href={FEATUREBASE_LINK}>{t("feedback")}</a>
           </InfoContainer>
         )}
         <Container>
@@ -47,8 +49,18 @@ const Navbar = () => {
                 <Menu />
                 <RightContainer>
                   <LanguageSelector />
-                  <Button style="outline">Contact Sales</Button>
-                  <Button style="primary">Go to platform</Button>
+                  <Button
+                    onClick={() => window.open(CALENDLY_URL)}
+                    style="outline"
+                  >
+                    {t("contact_sales")}
+                  </Button>
+                  <Button
+                    onClick={() => window.open(PLATFORM_URL)}
+                    style="primary"
+                  >
+                    {t("go_platform")}
+                  </Button>
                 </RightContainer>
               </>
             )}

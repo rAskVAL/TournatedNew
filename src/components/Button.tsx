@@ -9,10 +9,16 @@ type Props = {
   style: Styles;
   selected?: boolean;
   className?: string;
+  onClick?: () => void;
 };
-const Button = ({ children, style, className, selected }: Props) => {
+const Button = ({ children, style, className, selected, onClick }: Props) => {
   return (
-    <Container $style={style} className={className} $selected={selected}>
+    <Container
+      $style={style}
+      className={className}
+      $selected={selected}
+      onClick={onClick}
+    >
       <Children>{children}</Children>
     </Container>
   );

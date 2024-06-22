@@ -15,18 +15,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Icon1 from "./assets/icon1.svg?react";
 import Icon2 from "./assets/icon2.svg?react";
 import Icon3 from "./assets/icon3.svg?react";
+import { Trans, useTranslation } from "react-i18next";
+import { SupportedLanguages } from "../../../App.tsx";
 
 const Features = () => {
+  const { t, i18n } = useTranslation();
   const [activeItem, setActiveItem] = useState(0);
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);
   const [swiperProgress, setSwiperProgress] = useState<number>(0);
+
+  const currentLanguage = i18n.language as SupportedLanguages;
+
   return (
     <Container>
       <TitleBox>
-        <StyledSectionTitle text="Features" />
+        <StyledSectionTitle text={t("features")} />
         <Title>
-          Streamline Your Sports Tournaments with Our{" "}
-          <Italic>All-In-One CRM Solution</Italic>
+          <Trans i18nKey="streamline_tournaments" components={{ br: <br /> }} />{" "}
+          <Italic>{t("all_in_one_crm")}</Italic>
         </Title>
       </TitleBox>
       {isDesktop ? (
@@ -35,11 +41,11 @@ const Features = () => {
             {data.map((feature, index) => (
               <AccordionItem
                 key={index}
-                text={feature.description}
+                text={feature.description[currentLanguage]}
                 active={activeItem === index}
                 onClick={() => setActiveItem(index)}
               >
-                {feature.title}
+                {feature.title[currentLanguage]}
               </AccordionItem>
             ))}
           </Left>
@@ -71,8 +77,8 @@ const Features = () => {
           >
             {data.map(({ title, description, banner }, i) => (
               <Card key={i}>
-                <h3>{title}</h3>
-                <p>{description}</p>
+                <h3>{title[currentLanguage]}</h3>
+                <p>{description[currentLanguage]}</p>
                 <div>{banner}</div>
               </Card>
             ))}
@@ -83,30 +89,18 @@ const Features = () => {
       <Bottom>
         <BottomCard>
           <Icon1 />
-          <h3>Athlete’s Experience</h3>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s
-          </p>
+          <h3>{t("athlete_experience")}</h3>
+          <p>{t("athlete_experience_description")}</p>
         </BottomCard>
         <BottomCard>
           <Icon2 />
-          <h3>Launch your Web Platform & Mobile App</h3>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s
-          </p>
+          <h3>{t("launch_platform_app")}</h3>
+          <p>{t("launch_platform_app_description")}</p>
         </BottomCard>
         <BottomCard>
           <Icon3 />
-          <h3>Any sport, any format</h3>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s
-          </p>
+          <h3>{t("any_sport_format")}</h3>
+          <p>{t("any_sport_format_description")}</p>
         </BottomCard>
       </Bottom>
     </Container>

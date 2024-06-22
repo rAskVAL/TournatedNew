@@ -16,60 +16,76 @@ import ScrollContainer from "react-indiana-drag-scroll";
 import Stat from "../../../components/Stat.tsx";
 import Organizer from "./Organizer.tsx";
 
-const TournamentCard = () => (
-  <Container
-    type="tournament"
-    noPaddingZone={
-      <BannerContainer>
-        <Banner src="https://firebasestorage.googleapis.com/v0/b/vertexo-sports.appspot.com/o/tournated_media%2Falbum-131%2Fphoto-131-WFKg-cbRePh_7MS9kAxAd.jpeg?alt=media&token=fdad21dd-dc5e-4800-a7f0-e0edd6d665ec" />
-        <Avatar>
-          <Logo src="https://i.imgur.com/Tb7pS83.png" />
-        </Avatar>
-      </BannerContainer>
-    }
-  >
-    <TitleBox>
-      <Title>Saulkrastu Tenisa Kortu Balvas</Title>
-      <Details>
-        <p>14-15.06.2024 ・</p>
-        <ReactCountryFlag
-          countryCode="LV"
-          svg
-          style={{
-            height: "12px",
-          }}
-          title="US"
+import { useTranslation } from "react-i18next";
+
+const TournamentCard = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Container
+      type="tournament"
+      noPaddingZone={
+        <BannerContainer>
+          <Banner src="https://firebasestorage.googleapis.com/v0/b/vertexo-sports.appspot.com/o/tournated_media%2Falbum-131%2Fphoto-131-WFKg-cbRePh_7MS9kAxAd.jpeg?alt=media&token=fdad21dd-dc5e-4800-a7f0-e0edd6d665ec" />
+          <Avatar>
+            <Logo src="https://i.imgur.com/Tb7pS83.png" />
+          </Avatar>
+        </BannerContainer>
+      }
+    >
+      <TitleBox>
+        <Title>Saulkrastu Tenisa Kortu Balvas</Title>
+        <Details>
+          <p>14-15.06.2024 ・</p>
+          <ReactCountryFlag
+            countryCode="LV"
+            svg
+            style={{
+              height: "12px",
+            }}
+            title="US"
+          />
+          <p>Saulkrasti</p>
+        </Details>
+      </TitleBox>
+      <Tags>
+        <Tag variant="primary" leftIcon={<TennisIcon />}>
+          LTS
+        </Tag>
+        <Tag variant="secondary">Boys Singles [U-18]</Tag>
+        <Tag variant="secondary">Boys Singles [U-18]</Tag>
+        <Tag variant="secondary">Boys Singles [U-18]</Tag>
+        <Tag variant="secondary">Boys Singles [U-18]</Tag>
+      </Tags>
+      <Stats>
+        <Stat
+          icon={<CategoriesIcon />}
+          stat={7}
+          name={t("tournamentCard.Categories")}
         />
-        <p>Saulkrasti</p>
-      </Details>
-    </TitleBox>
-    <Tags>
-      <Tag variant="primary" leftIcon={<TennisIcon />}>
-        LTS
-      </Tag>
-      <Tag variant="secondary">Boys Singles [U-18]</Tag>
-      <Tag variant="secondary">Boys Singles [U-18]</Tag>
-      <Tag variant="secondary">Boys Singles [U-18]</Tag>
-      <Tag variant="secondary">Boys Singles [U-18]</Tag>
-    </Tags>
-    <Stats>
-      <Stat icon={<CategoriesIcon />} stat={7} name="Categories" />
-      <Stat icon={<EntriesIcon />} stat={12} name="Events" />
-    </Stats>
-    <Participants>
-      <Avatars>
-        <UserAvatar src="https://i.pravatar.cc/150?img=1" />
-        <UserAvatar src="https://i.pravatar.cc/150?img=2" />
-        <UserAvatar src="https://i.pravatar.cc/150?img=3" />
-      </Avatars>
-      <div>
-        <p>Aleksiej, Anastasija, Greta</p>
-        <SubText>and 29 others are confirmed</SubText>
-      </div>
-    </Participants>
-    <Organizer title="LTS" avatar="https://i.imgur.com/Tb7pS83.png" />
-  </Container>
-);
+        <Stat
+          icon={<EntriesIcon />}
+          stat={12}
+          name={t("tournamentCard.Events")}
+        />
+      </Stats>
+      <Participants>
+        <Avatars>
+          <UserAvatar src="https://i.pravatar.cc/150?img=1" />
+          <UserAvatar src="https://i.pravatar.cc/150?img=2" />
+          <UserAvatar src="https://i.pravatar.cc/150?img=3" />
+        </Avatars>
+        <div>
+          <p>Aleksiej, Anastasija, Greta</p>
+          <SubText>
+            {t("tournamentCard.and others are confirmed", { count: 29 })}
+          </SubText>
+        </div>
+      </Participants>
+      <Organizer title="LTS" avatar="https://i.imgur.com/Tb7pS83.png" />
+    </Container>
+  );
+};
 
 export default TournamentCard;
 

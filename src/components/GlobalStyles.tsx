@@ -31,7 +31,7 @@ export const breakpoint = {
   xs: 400,
   sm: 500,
   m: 760,
-  l: 1120,
+  l: 1160,
   xl: 1200,
 };
 
@@ -62,6 +62,7 @@ export const colors = {
   purple400: "#6772E5",
   red700: "#8C2135",
   success: "#69AD49",
+  warning: "#FFE633",
 };
 
 export const typography = {

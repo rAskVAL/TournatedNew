@@ -8,6 +8,7 @@ import {
 } from "../../../components/GlobalStyles.tsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMediaQuery } from "@react-hookz/web";
+import { useTranslation } from "react-i18next";
 
 type Colors = "red" | "blue" | "orange";
 
@@ -20,13 +21,14 @@ const platformImages = {
 const Right = () => {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);
   const [selectedColor, setSelectedColor] = useState<Colors>("orange");
+  const { t } = useTranslation();
   return (
     <Container>
       <Wrapper>
         <Background src={bg} />
         {isDesktop && (
           <SelectorWrapper>
-            <SelectorTitle>Customize</SelectorTitle>
+            <SelectorTitle>{t("customize")}</SelectorTitle>
             <Selector>
               <Color
                 $color={"orange"}

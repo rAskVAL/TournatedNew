@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { ReactElement, ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import {
   breakpoint,
   colors,
@@ -19,22 +20,26 @@ type Props = {
   className?: string;
 };
 
-const CardContainer = ({ children, noPaddingZone, type, className }: Props) => (
-  <Container>
-    <TitleBox $type={type}>
-      {perType(
-        {
-          athlete: "Athlete",
-          league: "League",
-          tournament: "Tournament",
-        },
-        type,
-      )}
-    </TitleBox>
-    {noPaddingZone}
-    <Content className={className}>{children}</Content>
-  </Container>
-);
+const CardContainer = ({ children, noPaddingZone, type, className }: Props) => {
+  const { t } = useTranslation();
+
+  return (
+    <Container>
+      <TitleBox $type={type}>
+        {perType(
+          {
+            athlete: t("featuredTitles.athlete"),
+            league: t("featuredTitles.league"),
+            tournament: t("featuredTitles.tournament"),
+          },
+          type,
+        )}
+      </TitleBox>
+      {noPaddingZone}
+      <Content className={className}>{children}</Content>
+    </Container>
+  );
+};
 
 export default CardContainer;
 
@@ -62,6 +67,7 @@ const TitleBox = styled.div<{ $type: Type }>`
       $type,
     )}
   padding-inline: 8px;
+  padding-bottom: 1px;
   ${typography.grotesk14};
 `;
 

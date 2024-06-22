@@ -1,5 +1,6 @@
 /// <reference types="vite-plugin-svgr/client" />
 
+import { useTranslation } from "react-i18next";
 import CardContainer from "./CardContainer.tsx";
 import styled from "styled-components";
 import {
@@ -14,29 +15,46 @@ import MembersIcon from "../../../assets/Icons/members.svg?react";
 import MatchesIcon from "../../../assets/Icons/matches.svg?react";
 import Stat from "../../../components/Stat.tsx";
 
-const AthleteCard = () => (
-  <Container type="athlete">
-    <InfoBox>
-      <Avatar />
-      <TitleBox>
-        <Title>Nikita Ribakovs</Title>
-        <Tags>
-          <Tag variant="secondary" leftIcon={<TennisIcon />}>
-            Tennis
-          </Tag>
-        </Tags>
-      </TitleBox>
-    </InfoBox>
-    <Info>
-      <Stat stat="500+" name="Tournaments" type="two-line" />
-      <Stat icon={<MembersIcon />} stat="1200" name="Members" type="two-line" />
-    </Info>
-    <Stats>
-      <Stat icon={<TrophyIcon />} stat="24" name="Tournaments" />
-      <Stat icon={<MatchesIcon />} stat="56" name="Matches" />
-    </Stats>
-  </Container>
-);
+const AthleteCard = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Container type="athlete">
+      <InfoBox>
+        <Avatar />
+        <TitleBox>
+          <Title>Nikita Ribakovs</Title>
+          <Tags>
+            <Tag variant="secondary" leftIcon={<TennisIcon />}>
+              {t("athleteCard.tennis")}
+            </Tag>
+          </Tags>
+        </TitleBox>
+      </InfoBox>
+      <Info>
+        <Stat stat="500+" name={t("athleteCard.tournaments")} type="two-line" />
+        <Stat
+          icon={<MembersIcon />}
+          stat="1200"
+          name={t("athleteCard.members")}
+          type="two-line"
+        />
+      </Info>
+      <Stats>
+        <Stat
+          icon={<TrophyIcon />}
+          stat="24"
+          name={t("athleteCard.tournaments")}
+        />
+        <Stat
+          icon={<MatchesIcon />}
+          stat="56"
+          name={t("athleteCard.matches")}
+        />
+      </Stats>
+    </Container>
+  );
+};
 
 export default AthleteCard;
 

@@ -1,5 +1,6 @@
 /// <reference types="vite-plugin-svgr/client" />
 
+import { useTranslation } from "react-i18next";
 import CardContainer from "./CardContainer.tsx";
 import styled from "styled-components";
 import { colors, typography } from "../../../components/GlobalStyles.tsx";
@@ -12,41 +13,53 @@ import Stat from "../../../components/Stat.tsx";
 import Organizer from "./Organizer.tsx";
 import ScrollContainer from "react-indiana-drag-scroll";
 
-const LeagueCard = () => (
-  <Container type="league">
-    <InfoBox>
-      <Avatar />
-      <TitleBox>
-        <Title>Baltic Chess Academy</Title>
-        <Tags>
-          <Tag variant="secondary" leftIcon={<ChessIcon />}>
-            Chess
-          </Tag>
-          <Tag
-            variant="dark"
-            leftIcon={
-              <ReactCountryFlag
-                countryCode="LV"
-                svg
-                style={{
-                  height: "12px",
-                }}
-                title="US"
-              />
-            }
-          >
-            National League
-          </Tag>
-        </Tags>
-      </TitleBox>
-    </InfoBox>
-    <Stats>
-      <Stat icon={<TrophyIcon />} stat="500+" name="Tournaments" />
-      <Stat icon={<MembersIcon />} stat="1200" name="Members" />
-    </Stats>
-    <Organizer title="LTS" avatar="https://i.imgur.com/Tb7pS83.png" />
-  </Container>
-);
+const LeagueCard = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Container type="league">
+      <InfoBox>
+        <Avatar />
+        <TitleBox>
+          <Title>{t("leagueCard.title")}</Title>
+          <Tags>
+            <Tag variant="secondary" leftIcon={<ChessIcon />}>
+              {t("leagueCard.chess")}
+            </Tag>
+            <Tag
+              variant="dark"
+              leftIcon={
+                <ReactCountryFlag
+                  countryCode="LV"
+                  svg
+                  style={{
+                    height: "12px",
+                  }}
+                  title="LV"
+                />
+              }
+            >
+              {t("leagueCard.nationalLeague")}
+            </Tag>
+          </Tags>
+        </TitleBox>
+      </InfoBox>
+      <Stats>
+        <Stat
+          icon={<TrophyIcon />}
+          stat="500+"
+          name={t("leagueCard.tournaments")}
+        />
+        <Stat
+          icon={<MembersIcon />}
+          stat="1200"
+          name={t("leagueCard.members")}
+        />
+      </Stats>
+      <Organizer title="LTS" avatar="https://i.imgur.com/Tb7pS83.png" />
+    </Container>
+  );
+};
 
 export default LeagueCard;
 

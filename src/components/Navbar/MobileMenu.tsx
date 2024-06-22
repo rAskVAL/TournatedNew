@@ -15,6 +15,8 @@ import ChevronDown from "../../assets/Icons/chevronDown.svg?react";
 import Button from "../Button.tsx";
 import LanguageSelector from "./LanguageSelector.tsx";
 import HighlightButton from "./HighlightButton.tsx";
+import { useTranslation } from "react-i18next";
+import { SupportedLanguages } from "../../App.tsx";
 
 type Props = {
   setIsMobileOpen: (state: boolean) => void;
@@ -22,6 +24,8 @@ type Props = {
 
 const MobileMenu = ({ setIsMobileOpen }: Props) => {
   const [openedMenuIndex, setOpenedMenuIndex] = useState<number>();
+  const { t, i18n } = useTranslation();
+
   useEffect(() => {
     // Disable scrolling
     document.body.style.overflow = "hidden";
@@ -32,6 +36,8 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
     };
   }, []);
 
+  const currentLanguage = i18n.language as SupportedLanguages;
+
   return (
     <MobileMenuContainer
       initial={{ opacity: 0 }}
@@ -40,18 +46,18 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
     >
       <Top>
         <Wrapper>
-          <Logo src={logo} alt="Logo" />
+          <Logo src={logo} alt={t("logo_alt")} />
           <CloseIcon onClick={() => setIsMobileOpen(false)} />
         </Wrapper>
         <Links>
           {data.map(({ title, submenu }, i) => (
-            <Item $active={openedMenuIndex === i} key={title}>
+            <Item $active={openedMenuIndex === i} key={title.en}>
               <ItemTitle
                 onClick={() =>
                   setOpenedMenuIndex((curr) => (curr === i ? undefined : i))
                 }
               >
-                <p>{title}</p>
+                <p>{title[currentLanguage]}</p>
                 {submenu && (
                   <Icon animate={{ rotateZ: openedMenuIndex === i ? 180 : 0 }}>
                     <ChevronDown />
@@ -67,7 +73,7 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
                   >
                     {submenu.highlightZone && (
                       <HighlightZone>
-                        <p>{submenu.highlightZone.title}</p>
+                        <p>{submenu.highlightZone.title[currentLanguage]}</p>
                         {submenu.highlightZone.items.map((data) => (
                           <HighlightButton data={data} />
                         ))}
@@ -75,7 +81,7 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
                     )}
                     {submenu.links &&
                       submenu.links.items.map(({ title, to }) => (
-                        <Sublink to={to}>{title}</Sublink>
+                        <Sublink to={to}>{title[currentLanguage]}</Sublink>
                       ))}
                   </Submenu>
                 )}
@@ -85,8 +91,8 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
         </Links>
       </Top>
       <Bottom>
-        <Button style="outline">Contact Sales</Button>
-        <Button style="primary">Go to platform</Button>
+        <Button style="outline">{t("contact_sales")}</Button>
+        <Button style="primary">{t("go_platform")}</Button>
         <LanguageSelector mobile={true} />
       </Bottom>
     </MobileMenuContainer>

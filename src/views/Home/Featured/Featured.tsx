@@ -8,14 +8,15 @@ import TournamentCard from "./TournamentCard.tsx";
 import LeagueCard from "./LeagueCard.tsx";
 import AthleteCard from "./AthleteCard.tsx";
 import { useMediaQuery } from "@react-hookz/web";
+import { useTranslation } from "react-i18next";
 
 const Featured = () => {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);
-  console.log(isDesktop);
+  const { t } = useTranslation();
   return (
     <Container>
       <Content>
-        <SectionTitle text="Featured" />
+        <SectionTitle text={t("featuredTitles.title")} />
         <Wrapper>
           <CardsWrapper>
             <LeagueCard />

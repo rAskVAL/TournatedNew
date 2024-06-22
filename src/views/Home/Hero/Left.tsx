@@ -6,43 +6,59 @@ import {
 } from "../../../components/GlobalStyles.tsx";
 import Button from "../../../components/Button.tsx";
 import DynamicText from "./DynamicText.tsx";
+import { Trans, useTranslation } from "react-i18next";
+import { PLATFORM_URL } from "../../../consts.ts";
 
-const Left = () => (
-  <Container>
-    <TitleBox>
-      <Headline>
-        <p>Start managing</p>
-        <DynamicText />
-        <p>for free</p>
-      </Headline>
-      <Subtitle>
-        Or launch your own custom web platform  and mobile app for any sport
-      </Subtitle>
-    </TitleBox>
-    <Stats>
-      <Stat>
-        <StatTitle>200+</StatTitle>
-        <StatSubtitle>Organizations</StatSubtitle>
-      </Stat>
-      <Stat>
-        <StatTitle>20k+</StatTitle>
-        <StatSubtitle>Athletes</StatSubtitle>
-      </Stat>
-      <Stat>
-        <StatTitle>2k</StatTitle>
-        <StatSubtitle>Tournaments</StatSubtitle>
-      </Stat>
-      <Stat>
-        <StatTitle>100k+</StatTitle>
-        <StatSubtitle>Entries</StatSubtitle>
-      </Stat>
-    </Stats>
-    <Buttons>
-      <Button style="brand">Start for free</Button>
-      <Button style="primary">Go to platform</Button>
-    </Buttons>
-  </Container>
-);
+const Left = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Container>
+      <TitleBox>
+        <Headline>
+          <p>{t("start_managing")}</p>
+          <DynamicText />
+          <p>{t("for_free")}</p>
+        </Headline>
+        <Subtitle>
+          <Trans
+            i18nKey="launch_custom_platform"
+            components={{ span: <span className="highlight" /> }}
+          />
+        </Subtitle>
+      </TitleBox>
+      <Stats>
+        <Stat>
+          <StatTitle>{t("stats.organizations")}</StatTitle>
+          <StatSubtitle>{t("organizations")}</StatSubtitle>
+        </Stat>
+        <Stat>
+          <StatTitle>{t("stats.athletes")}</StatTitle>
+          <StatSubtitle>{t("athletes")}</StatSubtitle>
+        </Stat>
+        <Stat>
+          <StatTitle>{t("stats.tournaments")}</StatTitle>
+          <StatSubtitle>{t("tournaments")}</StatSubtitle>
+        </Stat>
+        <Stat>
+          <StatTitle>{t("stats.entries")}</StatTitle>
+          <StatSubtitle>{t("entries")}</StatSubtitle>
+        </Stat>
+      </Stats>
+      <Buttons>
+        <Button
+          onClick={() => window.open(`${PLATFORM_URL}/pricing`)}
+          style="brand"
+        >
+          {t("start_for_free")}
+        </Button>
+        <Button onClick={() => window.open(PLATFORM_URL)} style="primary">
+          {t("go_to_platform")}
+        </Button>
+      </Buttons>
+    </Container>
+  );
+};
 
 export default Left;
 
@@ -54,7 +70,7 @@ const Container = styled.div`
   justify-content: center;
   gap: 40px;
 
-  @media screen and (width <= ${breakpoint.l}px) {
+  @media (max-width: ${breakpoint.l}px) {
     margin-block: 20px;
   }
 `;
@@ -72,7 +88,11 @@ const Subtitle = styled.p`
   text-align: left;
   color: ${colors.grey400};
 
-  @media screen and (width <= ${breakpoint.l}px) {
+  .highlight {
+    color: ${colors.primary};
+  }
+
+  @media (max-width: ${breakpoint.l}px) {
     ${typography.grotesk14};
     max-width: 335px;
   }

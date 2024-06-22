@@ -7,3 +7,6 @@ export const navigation = [
 ];
 
 export const FEATUREBASE_LINK = "https://tournated.featurebase.app/";
+export const PLATFORM_URL = "https://tournated.net";
+export const CALENDLY_URL =
+  "https://calendly.com/nick-tournated/30min?month=2024-06";

@@ -5,38 +5,52 @@ import {
   containerStyles,
   typography,
 } from "../../../components/GlobalStyles";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import placeholder from "../../../assets/partner-placeholder.png";
-
-// Import Swiper styles
 import "swiper/css";
+import { useTranslation } from "react-i18next";
+import { partners } from "./data"; // Import the partners data
 
-const Partners = () => (
-  <Container>
-    <Title>Partners</Title>
-    <Block />
-    <List
-      slidesPerView="auto"
-      freeMode={true}
-      breakpoints={{
-        0: {
-          spaceBetween: 50,
-        },
-        [breakpoint.l]: {
-          spaceBetween: 100,
-        },
-      }}
-    >
-      {[...new Array(12)].map(() => (
-        <SwiperSlide style={{ maxWidth: "150px" }} key={Math.random()}>
-          <Logo src={placeholder} />
-        </SwiperSlide>
-      ))}
-    </List>
-  </Container>
-);
+const Partners = () => {
+  const { t } = useTranslation();
+
+  const handleClick = (url: string) => {
+    window.location.href = url;
+  };
+
+  // Repeat partners until there are at least 8
+  const repeatedPartners = Array.from({ length: 8 }, () => partners)
+    .flat()
+    .slice(0, 8);
+
+  return (
+    <Container>
+      <Title>{t("partners.title")}</Title>
+      <Block />
+      <List
+        slidesPerView="auto"
+        freeMode={true}
+        breakpoints={{
+          0: {
+            spaceBetween: 50,
+          },
+          [breakpoint.l]: {
+            spaceBetween: 100,
+          },
+        }}
+      >
+        {repeatedPartners.map((partner) => (
+          <SwiperSlide
+            style={{ maxWidth: "150px" }}
+            key={partner.id}
+            onClick={() => handleClick(partner.url)}
+          >
+            <Logo src={partner.logo} alt={partner.name} />
+          </SwiperSlide>
+        ))}
+      </List>
+    </Container>
+  );
+};
 
 export default Partners;
 

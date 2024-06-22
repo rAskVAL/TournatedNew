@@ -3,13 +3,20 @@ import { breakpoint, typography } from "../../../components/GlobalStyles";
 import { useIntervalEffect } from "@react-hookz/web";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-type Text = "Tournaments" | "Leagues" | "Events" | "Clubs";
-const TEXTS = ["Tournaments", "Leagues", "Events", "Clubs"];
 const DynamicText = () => {
+  const { t } = useTranslation();
   const [selectedTextIndex, setSelectedTextIndex] = useState(0);
+  const TEXT_KEYS = [
+    "dynamic.tournaments",
+    "dynamic.leagues",
+    "dynamic.events",
+    "dynamic.clubs",
+  ];
+
   useIntervalEffect(() => {
-    if (selectedTextIndex + 1 < TEXTS.length) {
+    if (selectedTextIndex + 1 < TEXT_KEYS.length) {
       setSelectedTextIndex((curr) => curr + 1);
     } else {
       setSelectedTextIndex(0);
@@ -26,7 +33,7 @@ const DynamicText = () => {
             exit={{ translateX: 50, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {TEXTS[0]}
+            {t(TEXT_KEYS[0])}
           </Text>
         )}
       </AnimatePresence>
@@ -38,7 +45,7 @@ const DynamicText = () => {
             exit={{ translateX: 50, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {TEXTS[1]}
+            {t(TEXT_KEYS[1])}
           </Text>
         )}
       </AnimatePresence>
@@ -50,7 +57,7 @@ const DynamicText = () => {
             exit={{ translateX: 50, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {TEXTS[2]}
+            {t(TEXT_KEYS[2])}
           </Text>
         )}
       </AnimatePresence>
@@ -62,7 +69,7 @@ const DynamicText = () => {
             exit={{ translateX: 50, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {TEXTS[3]}
+            {t(TEXT_KEYS[3])}
           </Text>
         )}
       </AnimatePresence>

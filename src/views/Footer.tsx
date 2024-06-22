@@ -3,6 +3,7 @@ import {
   breakpoint,
   colors,
   containerStyles,
+  resetStyles,
   typography,
 } from "../components/GlobalStyles.tsx";
 import logo from "../assets/logo.svg";
@@ -14,9 +15,13 @@ import stripe from "../assets/stripe.png";
 import visa from "../assets/visa.png";
 import mastercard from "../assets/mastercard.png";
 import { useMediaQuery } from "@react-hookz/web";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { PLATFORM_URL } from "../consts.ts";
 
 const Footer = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
+  const { t } = useTranslation();
 
   return (
     <Container>
@@ -26,21 +31,17 @@ const Footer = () => {
             <Logo src={logo} alt="Logo" />
           </FlexItem>
           <FlexItem>
-            <p>
-              Our mission is to help emerging sports and its
-              organisations/individuals to modernise management of leagues,
-              tournaments and other sport-related events.
-            </p>
+            <p>{t("mission_statement")}</p>
           </FlexItem>
           {isMobile && (
             <Socials>
-              <a href="#">
+              <a href="https://www.facebook.com/tournated">
                 <Facebook />
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/tournated">
                 <Instagram />
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/company/tournated">
                 <Linkedin />
               </a>
             </Socials>
@@ -49,47 +50,48 @@ const Footer = () => {
         <Bottom>
           <Menus>
             <Menu>
-              <MenuTitle>Sports</MenuTitle>
-              <MenuItem>Tennis</MenuItem>
-              <MenuItem>Beach Tennis</MenuItem>
-              <MenuItem>Beach Volleyball</MenuItem>
-              <MenuItem>Sport Fishing</MenuItem>
-              <MenuItem>Pickleball</MenuItem>
-              <MenuItem>Padel</MenuItem>
+              <MenuTitle>{t("support")}</MenuTitle>
+              <MenuItem to="">{t("documents")}</MenuItem>
+              <MenuItem to="">{t("feedback")}</MenuItem>
+              <MenuItem to="https://discord.gg/E2MEXghwdx">
+                {t("submit_ticket")}
+              </MenuItem>
             </Menu>
             <Menu>
-              <MenuTitle>Site</MenuTitle>
-              <MenuItem>Organizations</MenuItem>
-              <MenuItem>Features</MenuItem>
-              <MenuItem>Pricing</MenuItem>
-              <MenuItem>Testimonials</MenuItem>
-              <MenuItem>News</MenuItem>
-              <MenuItem>Team</MenuItem>
+              <MenuTitle>{t("site")}</MenuTitle>
+              <MenuItem to="">{t("organizations")}</MenuItem>
+              <MenuItem to="">{t("features")}</MenuItem>
+              <MenuItem to={`${PLATFORM_URL}/pricing`}>{t("pricing")}</MenuItem>
+              <MenuItem to="">{t("testimonials")}</MenuItem>
+              <MenuItem to="">{t("news")}</MenuItem>
+              <MenuItem to="">{t("team")}</MenuItem>
             </Menu>
             <Menu>
-              <MenuTitle>Legal</MenuTitle>
-              <MenuItem>Terms&Conditions</MenuItem>
-              <MenuItem>Privacy Policy</MenuItem>
+              <MenuTitle>{t("legal")}</MenuTitle>
+              <MenuItem to="">{t("terms_conditions")}</MenuItem>
+              <MenuItem to="">{t("privacy_policy")}</MenuItem>
             </Menu>
           </Menus>
           <Contacts>
             {!isMobile && (
               <Socials>
-                <a href="#">
+                <a href="https://www.facebook.com/tournated">
                   <Facebook />
                 </a>
-                <a href="#">
+                <a href="https://www.instagram.com/tournated">
                   <Instagram />
                 </a>
-                <a href="#">
+                <a href="https://www.linkedin.com/company/tournated">
                   <Linkedin />
                 </a>
               </Socials>
             )}
             <Payments>
-              <img src={mastercard} alt="stripe" />
-              <img src={visa} alt="stripe" />
-              <img src={stripe} alt="stripe" />
+              <img src={mastercard} alt="Mastercard" />
+              <img src={visa} alt="Visa" />
+              <img src={stripe} alt="Stripe" />
+              {/*<img src={googlePay} alt="Google Pay" />*/}
+              {/*<img src={applePay} alt="Apple Pay" />*/}
             </Payments>
             <Pattern src={pattern} />
           </Contacts>
@@ -98,7 +100,6 @@ const Footer = () => {
     </Container>
   );
 };
-
 export default Footer;
 
 const Container = styled.div`
@@ -212,8 +213,20 @@ const MenuTitle = styled.p`
   color: ${colors.grey200};
 `;
 
-const MenuItem = styled.a`
-  color: ${colors.white};
+const MenuItem = styled(Link)`
+  ${resetStyles};
+  && {
+    cursor: pointer;
+    color: ${colors.white};
+
+    &:hover {
+      color: ${colors.primary};
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
 `;
 
 const Socials = styled.div`

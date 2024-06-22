@@ -8,53 +8,67 @@ import Button from "../../../components/Button.tsx";
 import ArrowRight from "../../../assets/Icons/arrowRight.svg?react";
 import pattern from "../../../assets/promo_pattern.png";
 import mobile from "../../../assets/promo_mobile.png";
+import { useTranslation } from "react-i18next";
+import { CALENDLY_URL, PLATFORM_URL } from "../../../consts.ts";
 
-const Promo = () => (
-  <Container $image="https://i.ytimg.com/vi/XkBT5gC-ksI/maxresdefault.jpg">
-    <Box>
-      <Content>
-        <Left>
-          <Wrapper>
-            <Title>
-              <Italic>Launch your own</Italic> web platform and mobile app
-            </Title>
-            <Par>
-              Your sports organization deserves your own solution. With your
-              domain, branding, and data under your control.
-              <br />
-              <Italic>Fully customizable</Italic>: choose the sports, features,
-              and formats you need.
-            </Par>
-          </Wrapper>
-          <StartButton style="brand">Start for free</StartButton>
-        </Left>
-        <Right>
-          <Pattern src={pattern} />
-          <Mobile src={mobile} />
-        </Right>
-      </Content>
-      <Buttons>
-        <StyledButton style="dark">
-          <ButtonContent>
-            <p>Launch your own web platform and mobile app</p>
-            <div>
-              <ArrowRight />
-            </div>
-          </ButtonContent>
-        </StyledButton>
-        <StyledButton style="dark">
-          <ButtonContent>
-            <p>Launch your own web platform and mobile app</p>
-            <div>
-              <ArrowRight />
-            </div>
-          </ButtonContent>
-        </StyledButton>
-      </Buttons>
-    </Box>
-  </Container>
-);
+const Promo = () => {
+  const { t } = useTranslation();
 
+  return (
+    <Container $image="https://i.imgur.com/MVZooyX.jpeg">
+      <Box>
+        <Content>
+          <Left>
+            <Wrapper>
+              <Title>
+                <Italic>{t("promo.launch_your_own")}</Italic>{" "}
+                {t("promo.web_platform_and_mobile_app")}
+              </Title>
+              <Par>
+                {t("promo.your_sports_organization")}
+                <br />
+                <Italic>{t("promo.fully_customizable")}</Italic>:{" "}
+                {t("promo.choose_sports_features")}
+              </Par>
+            </Wrapper>
+            <StartButton
+              onClick={() =>
+                window.open(`${PLATFORM_URL}/pricing?plan=manager`)
+              }
+              style="brand"
+            >
+              {t("promo.start_for_free")}
+            </StartButton>
+          </Left>
+          <Right>
+            <Pattern src={pattern} />
+            <Mobile src={mobile} />
+          </Right>
+        </Content>
+        <Buttons>
+          <StyledButton style="dark">
+            <ButtonContent
+              onClick={() => window.open(`${PLATFORM_URL}/pricing?plan=custom`)}
+            >
+              <p>{t("promo.launch_message_1")}</p>
+              <div>
+                <ArrowRight />
+              </div>
+            </ButtonContent>
+          </StyledButton>
+          <StyledButton style="dark">
+            <ButtonContent onClick={() => window.open(CALENDLY_URL)}>
+              <p>{t("promo.launch_message_2")}</p>
+              <div>
+                <ArrowRight />
+              </div>
+            </ButtonContent>
+          </StyledButton>
+        </Buttons>
+      </Box>
+    </Container>
+  );
+};
 export default Promo;
 
 const Container = styled.div<{ $image: string }>`

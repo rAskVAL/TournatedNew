@@ -6,7 +6,7 @@ const Menu = () => {
   return (
     <List>
       {data.map(({ title, to, submenu }) => (
-        <NavItem to={to} title={title} submenu={submenu} key={title} />
+        <NavItem to={to} title={title} submenu={submenu} key={title.en} />
       ))}
     </List>
   );

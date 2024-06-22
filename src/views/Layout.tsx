@@ -1,10 +1,26 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar.tsx";
 import styled from "styled-components";
 import { colors } from "../components/GlobalStyles.tsx";
 import Footer from "./Footer.tsx";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const Layout = () => {
+  const { lang } = useParams();
+  const navigate = useNavigate();
+  const {
+    i18n: { changeLanguage },
+  } = useTranslation();
+
+  useEffect(() => {
+    if (lang) {
+      void changeLanguage(lang);
+    } else {
+      navigate("/en");
+    }
+  }, [lang]);
+
   return (
     <Container>
       <Navbar />

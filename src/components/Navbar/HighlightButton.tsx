@@ -3,23 +3,35 @@ import Button from "../Button.tsx";
 import { colors, typography } from "../GlobalStyles.tsx";
 import ArrowRight from "../../assets/Icons/arrowRight.svg?react";
 import { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
+import { SupportedLanguages } from "../../App.tsx";
 
 type Props = {
-  data: { title: string; icon: ReactNode; label: string; labelColor: string };
+  data: {
+    title: { en: string; lv: string };
+    icon: ReactNode;
+    label: { en: string; lv: string };
+    labelColor: string;
+  };
 };
 
 const HighlightButton = ({
   data: { title, icon, label, labelColor },
-}: Props) => (
-  <StyledButton style="dark">
-    <div>{icon}</div>
-    <TitleZone>
-      <p>{title}</p>
-      <Arrow />
-    </TitleZone>
-    <Label style={{ background: labelColor }}>{label}</Label>
-  </StyledButton>
-);
+}: Props) => {
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.language as SupportedLanguages;
+
+  return (
+    <StyledButton style="dark">
+      <div>{icon}</div>
+      <TitleZone>
+        <p>{title[currentLanguage]}</p>
+        <Arrow />
+      </TitleZone>
+      <Label style={{ background: labelColor }}>{label[currentLanguage]}</Label>
+    </StyledButton>
+  );
+};
 
 export default HighlightButton;
 

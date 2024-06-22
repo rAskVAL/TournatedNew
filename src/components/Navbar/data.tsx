@@ -1,60 +1,44 @@
 import TournamentsIcon from "./Assets/tournaments.svg?react";
 import LeaguesIcon from "./Assets/leagues.svg?react";
-
 import { colors } from "../GlobalStyles.tsx";
+import { PLATFORM_URL } from "../../consts.ts";
 
 const menu = [
   {
     to: "#",
-    title: "Products",
+    title: { en: "Products", lv: "Produkti" },
     icon: "",
     submenu: {
       highlightZone: {
-        title: "Highlight Zone",
+        title: { en: "Management of", lv: "Pārvaldība" },
         items: [
           {
             to: "#",
-            title: "Tournaments",
-            label: "Free",
+            title: { en: "Tournaments", lv: "Turnīri" },
+            label: { en: "Free", lv: "Bezmaksas" },
             labelColor: colors.success,
             icon: <TournamentsIcon />,
           },
           {
             to: "#",
-            title: "Leagues",
-            label: "Free trial",
+            title: { en: "Leagues", lv: "Līgas" },
+            label: { en: "Free Trial", lv: "Bezmaksas izmēģinājums" },
             labelColor: colors.success,
             icon: <LeaguesIcon />,
           },
-        ],
-      },
-      links: {
-        title: "Links",
-        items: [
           {
-            title: "Clubs",
             to: "#",
-            icon: "",
+            title: { en: "Clubs", lv: "Klubi" },
+            label: { en: "Coming soon", lv: "Drīzumā" },
+            labelColor: colors.grey700,
+            icon: <TournamentsIcon />,
           },
           {
-            title: "Events",
             to: "#",
-            icon: "",
-          },
-          {
-            title: "Coaches",
-            to: "#",
-            icon: "",
-          },
-          {
-            title: "Athletes",
-            to: "#",
-            icon: "",
-          },
-          {
-            title: "White-labeling",
-            to: "#",
-            icon: "",
+            title: { en: "Events", lv: "Pasākumi" },
+            label: { en: "Coming soon", lv: "Drīzumā" },
+            labelColor: colors.grey700,
+            icon: <TournamentsIcon />,
           },
         ],
       },
@@ -62,29 +46,29 @@ const menu = [
   },
   {
     to: "#",
-    title: "Solutions",
+    title: { en: "Solutions", lv: "Risinājumi" },
     icon: "",
     submenu: {
       links: {
-        title: "Links",
+        title: { en: "For", lv: "Priekš" },
         items: [
           {
-            title: "Sport ministries",
+            title: { en: "Sport Ministries", lv: "Sporta ministrijas" },
             to: "#",
             icon: "",
           },
           {
-            title: "Federations",
+            title: { en: "Federations", lv: "Federācijas" },
             to: "#",
             icon: "",
           },
           {
-            title: "Clubs",
+            title: { en: "Clubs", lv: "Klubi" },
             to: "#",
             icon: "",
           },
           {
-            title: "Organizers",
+            title: { en: "Organizers", lv: "Organizatori" },
             to: "#",
             icon: "",
           },
@@ -94,39 +78,44 @@ const menu = [
   },
   {
     to: "#",
-    title: "Sports",
+    title: { en: "Sports", lv: "Sports" },
     icon: "",
     submenu: {
       links: {
-        title: "Links",
+        title: { en: "Active ones", lv: "Aktīvās" },
         items: [
           {
-            title: "Tennis",
+            title: { en: "Tennis", lv: "Teniss" },
             to: "#",
             icon: "",
           },
           {
-            title: "Volleyball",
+            title: { en: "Beach Tennis", lv: "Pludmales teniss" },
             to: "#",
             icon: "",
           },
           {
-            title: "Padel",
+            title: { en: "Pickleball", lv: "Pickleball" },
             to: "#",
             icon: "",
           },
           {
-            title: "Pickleball",
+            title: { en: "Padel", lv: "Padel" },
             to: "#",
             icon: "",
           },
           {
-            title: "Chess",
+            title: { en: "Chess", lv: "Šahs" },
             to: "#",
             icon: "",
           },
           {
-            title: "Sport fishing",
+            title: { en: "Sport Fishing", lv: "Sporta makšķerēšana" },
+            to: "#",
+            icon: "",
+          },
+          {
+            title: { en: "Beach Volleyball", lv: "Pludmales volejbols" },
             to: "#",
             icon: "",
           },
@@ -136,14 +125,46 @@ const menu = [
   },
   {
     to: "#",
-    title: "Browse",
+    title: { en: "Browse", lv: "Pārlūkot" },
     icon: "",
+    submenu: {
+      links: {
+        title: { en: "Check out", lv: "Apskatiet" },
+        items: [
+          {
+            title: { en: "Clubs", lv: "Klubi" },
+            to: `${PLATFORM_URL}/clubs`,
+            icon: "",
+          },
+          {
+            title: { en: "Events", lv: "Pasākumi" },
+            to: `${PLATFORM_URL}/tournaments`,
+            icon: "",
+          },
+          {
+            title: { en: "Coaches", lv: "Treneri" },
+            to: `${PLATFORM_URL}/coaches`,
+            icon: "",
+          },
+          {
+            title: { en: "Rankings", lv: "Reitingi" },
+            to: `${PLATFORM_URL}/rankings`,
+            icon: "",
+          },
+          {
+            title: { en: "News", lv: "Ziņas" },
+            to: `${PLATFORM_URL}/news`,
+            icon: "",
+          },
+        ],
+      },
+    },
   },
-  {
-    to: "#",
-    title: "More",
-    icon: "",
-  },
+  // {
+  //   to: "#",
+  //   title: { en: "More", lv: "Vairāk" },
+  //   icon: "",
+  // },
 ];
 
 export default menu;

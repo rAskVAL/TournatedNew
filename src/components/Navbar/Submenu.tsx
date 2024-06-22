@@ -1,43 +1,83 @@
 import { forwardRef } from "react";
 import styled from "styled-components";
-import { colors, typography } from "../GlobalStyles.tsx";
-import { Link } from "react-router-dom";
+import { colors, resetStyles, typography } from "../GlobalStyles.tsx";
 import ArrowRight from "../../assets/Icons/arrowRight.svg?react";
-import data from "./data.tsx";
 import HighlightButton from "./HighlightButton.tsx";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { SupportedLanguages } from "../../App.tsx";
 
-type Props = {
-  submenu: (typeof data)[number]["submenu"];
+export type SubmenuType = {
+  highlightZone?: {
+    title: { en: string; lv: string };
+    items: {
+      to: string;
+      title: { en: string; lv: string };
+      label: { en: string; lv: string };
+      labelColor: string;
+      icon: JSX.Element;
+    }[];
+  };
+  links?: {
+    title: { en: string; lv: string };
+    items: {
+      title: { en: string; lv: string };
+      to?: string;
+      icon?: string;
+      selected?: boolean;
+    }[];
+  };
 };
 
-const Submenu = forwardRef<HTMLDivElement, Props>(({ submenu }, ref) => (
-  <Contaier ref={ref}>
-    {submenu?.highlightZone && (
-      <Content>
-        <Title>{submenu.highlightZone.title}</Title>
-        <Links>
-          {submenu.highlightZone.items.map((data) => (
-            <HighlightButton data={data} />
-          ))}
-        </Links>
-      </Content>
-    )}
-    {submenu?.links && (
-      <Content>
-        <Title>{submenu.links.title}</Title>
-        <Links>
-          {submenu.links.items.map((link) => (
-            <Item to={link.to} key={link.title}>
-              <p>{link.title}</p>
-              <Arrow />
-              <Line />
-            </Item>
-          ))}
-        </Links>
-      </Content>
-    )}
-  </Contaier>
-));
+type Props = {
+  submenu: SubmenuType;
+};
+
+const Submenu = forwardRef<HTMLDivElement, Props>(({ submenu }, ref) => {
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.language as SupportedLanguages;
+
+  return (
+    <Contaier ref={ref}>
+      {submenu?.highlightZone && (
+        <>
+          <Content>
+            <Title>{submenu.highlightZone.title[currentLanguage]}</Title>
+            <Links>
+              {submenu.highlightZone.items.slice(0, 2).map((data) => (
+                <HighlightButton data={data} />
+              ))}
+            </Links>
+          </Content>
+          {submenu.highlightZone.items.slice(2, 4).length > 0 && (
+            <Content>
+              <Title />
+              <Links>
+                {submenu.highlightZone.items.slice(2, 4).map((data) => (
+                  <HighlightButton data={data} />
+                ))}
+              </Links>
+            </Content>
+          )}
+        </>
+      )}
+      {submenu?.links && (
+        <Content>
+          <Title>{submenu.links.title[currentLanguage]}</Title>
+          <Links>
+            {submenu.links.items.map((link) => (
+              <Item to={link.to ?? ""} key={link.title[currentLanguage]}>
+                <p>{link.title[currentLanguage]}</p>
+                <Arrow />
+                <Line />
+              </Item>
+            ))}
+          </Links>
+        </Content>
+      )}
+    </Contaier>
+  );
+});
 
 export default Submenu;
 
@@ -60,6 +100,7 @@ const Contaier = styled.div`
 const Title = styled.p`
   ${typography.grotesk12};
   color: ${colors.grey400};
+  height: 12px;
   margin-bottom: 30px;
 `;
 
@@ -88,23 +129,29 @@ const Line = styled.div`
 `;
 
 const Item = styled(Link)`
-  position: relative;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding-bottom: 14px;
-  color: ${colors.grey400};
+  ${resetStyles};
 
-  &:hover,
-  &:hover ${Arrow} {
-    color: ${colors.white};
-    * {
-      stroke: ${colors.white};
+  && {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    color: ${colors.grey400};
+    cursor: pointer;
+
+    &:hover,
+    &:hover ${Arrow} {
+      color: ${colors.white};
+
+      * {
+        stroke: ${colors.white};
+      }
     }
-  }
 
-  &:hover ${Line}::after {
-    width: 75%;
+    &:hover ${Line}::after {
+      width: 75%;
+    }
   }
 `;
 
