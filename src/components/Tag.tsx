@@ -50,4 +50,21 @@ const Container = styled.div<{ $variant: Variant; $size?: Size }>`
     )}
   ${typography.grotesk14};
   white-space: nowrap;
+
+  svg {
+    height: 12px;
+    width: 12px;
+  }
+
+  svg * {
+    fill: ${({ $variant }) =>
+      perVariant(
+        {
+          primary: colors.primary,
+          secondary: colors.primary,
+          dark: colors.primary,
+        },
+        $variant,
+      )};
+  }
 `;

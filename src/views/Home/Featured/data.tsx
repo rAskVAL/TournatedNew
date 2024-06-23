@@ -2,7 +2,10 @@ import ReactCountryFlag from "react-country-flag";
 // import ChessIcon from "../../../assets/Icons/chess.svg?react";
 import TrophyIcon from "../../../assets/Icons/trophy.svg?react";
 import MembersIcon from "../../../assets/Icons/members.svg?react";
+
+import MatchesIcon from "../../../assets/Icons/matches.svg?react";
 import TennisIcon from "../../../assets/Icons/teniss.svg?react";
+import BeachTennisIcon from "../../../assets/Icons/beachtennis.svg?react";
 
 import CategoriesIcon from "../../../assets/Icons/categories.svg?react";
 import EntriesIcon from "../../../assets/Icons/entries.svg?react";
@@ -160,10 +163,9 @@ type TournamentData = {
 export const tournamentData: TournamentData = {
   link: "https://www.tournated.net/tournament/159/Oficial-La-Academia-%2C-14-de-junio-de-2024%2C-La-Academia%2C-Caguas?tab=general;",
   type: "tournament",
-  bannerSrc:
-    "https://ik.imagekit.io/f2uhfexvf/vertexo/84cc2f70-67a4-4d06-a803-8fcea7609462-download_zif41jJmN.png",
+  bannerSrc: "https://i.imgur.com/KTlflfm.png",
   logoSrc:
-    "https://ik.imagekit.io/f2uhfexvf/vertexo/84cc2f70-67a4-4d06-a803-8fcea7609462-download_zif41jJmN.png",
+    "https://ik.imagekit.io/f2uhfexvf/vertexo/91cf4b15-1b88-4a07-8e61-5948c83a6335-cf56a162-a948-4eaf-b307-5528b1a17564-rankiaopr_safpPY8iG_fG5sfSJiN.png",
   title: {
     lv: "OFICIAL LA ACADEMIA",
     en: "OFICIAL LA ACADEMIA",
@@ -172,7 +174,7 @@ export const tournamentData: TournamentData = {
   location: "Cancha la Academia",
   countryCode: "PR",
   tags: [
-    { variant: "primary", leftIcon: <TennisIcon />, text: "RANKIAOPR" },
+    { variant: "primary", leftIcon: <BeachTennisIcon />, text: "RANKIAOPR" },
     { variant: "secondary", text: "4.5 MD" },
     { variant: "secondary", text: "3.0 MD" },
     { variant: "secondary", text: "2.5 MD" },
@@ -197,4 +199,69 @@ export const tournamentData: TournamentData = {
     avatar:
       "https://ik.imagekit.io/f2uhfexvf/vertexo/91cf4b15-1b88-4a07-8e61-5948c83a6335-cf56a162-a948-4eaf-b307-5528b1a17564-rankiaopr_safpPY8iG_fG5sfSJiN.png",
   },
+};
+
+export type FeaturedAthlete = {
+  name: string;
+  sport: string;
+  sportIcon: ReactElement;
+  photo: string;
+  profile: string;
+  tags: {
+    icon?: ReactElement;
+    stat: string;
+    nameKey: string;
+    type?: "line" | "two-line";
+  }[];
+  stats?: {
+    icon?: ReactElement;
+    stat: string;
+    nameKey: string;
+    type?: "line" | "two-line";
+  }[];
+};
+
+export const featuredAthlete1Data: FeaturedAthlete = {
+  name: "Igors Rjabkovs",
+  sport: "beach_tennis",
+  photo:
+    "https://scontent-waw2-1.xx.fbcdn.net/v/t1.6435-9/38742056_1754132167998262_3865392539729133568_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=S-zhQdp7VdkQ7kNvgFtZM1X&_nc_ht=scontent-waw2-1.xx&oh=00_AYB430XpSPR1OKF4_SKL5H5E052XYiEBnzxL7Trxdq0yuw&oe=669FB70E",
+  sportIcon: <BeachTennisIcon />,
+  profile: "https://beachtennis.io/en/player/93",
+  tags: [
+    {
+      icon: <TrophyIcon />,
+      stat: "309",
+      nameKey: "tournaments",
+      type: "two-line",
+    },
+    {
+      icon: <MatchesIcon />,
+      stat: "475",
+      nameKey: "matches",
+      type: "two-line",
+    },
+  ],
+};
+
+export const featuredAthlete2Data: FeaturedAthlete = {
+  name: "Daniils Gaidelis",
+  sport: "beach_tennis",
+  photo: "https://i.imgur.com/cB50ECV.png",
+  sportIcon: <BeachTennisIcon />,
+  profile: "https://beachtennis.io/en/player/104",
+  tags: [
+    {
+      icon: <TrophyIcon />,
+      stat: "180",
+      nameKey: "tournaments",
+      type: "two-line",
+    },
+    {
+      icon: <MatchesIcon />,
+      stat: "325",
+      nameKey: "matches",
+      type: "two-line",
+    },
+  ],
 };
