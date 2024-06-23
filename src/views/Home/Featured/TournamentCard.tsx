@@ -72,7 +72,7 @@ const TournamentCard = () => {
           ))}
         </Avatars>
         <div>
-          <p>Aleksiej, Anastasija, Greta</p>
+          <p>{data.participantsNames}</p>
           <SubText>
             {t("tournamentCard.and others are confirmed", { count: 77 })}
           </SubText>

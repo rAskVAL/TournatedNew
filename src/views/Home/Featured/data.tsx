@@ -155,6 +155,7 @@ type TournamentData = {
   stats: TournamentStat[];
   participants: string[];
   organizer: Organizer;
+  participantsNames: string;
 };
 export const tournamentData: TournamentData = {
   link: "https://www.tournated.net/tournament/159/Oficial-La-Academia-%2C-14-de-junio-de-2024%2C-La-Academia%2C-Caguas?tab=general;",
@@ -190,6 +191,7 @@ export const tournamentData: TournamentData = {
     "https://img.freepik.com/free-icon/user_318-159711.jpg?t=st=1692340130~exp=1692340730[%E2%80%A6]924b1b7c050412a0a18473166fc00772c5d26d463bf0462427103a45821a3",
     "https://img.freepik.com/free-icon/user_318-159711.jpg?t=st=1692340130~exp=1692340730[%E2%80%A6]924b1b7c050412a0a18473166fc00772c5d26d463bf0462427103a45821a3",
   ],
+  participantsNames: "Vanessa, Elsa, Frances L",
   organizer: {
     title: "RANKIAOPR",
     avatar:
