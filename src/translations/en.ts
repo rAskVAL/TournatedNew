@@ -11,9 +11,11 @@ export default {
     },
     all_in_one_crm: "All-In-One Sports Management Solution",
     any_sport_format: "Any sport, any format",
-    any_sport_format_description: "Description for Any sport, any format",
+    any_sport_format_description:
+      "Tournated is designed to easily add new sports or formats. For any requests, please contact us at hello@tournated.com.",
     athlete_experience: "Athlete’s Experience",
-    athlete_experience_description: "Description for Athlete’s Experience",
+    athlete_experience_description:
+      "Browse leagues, tournaments, clubs, and events. Register and buy licenses in a few clicks. Track your stats and progress in My Career.",
     athletes: "Athletes",
     tennis: "Tennis",
     beach_tennis: "Beach Tennis",
@@ -44,7 +46,7 @@ export default {
       "Or launch <span class='highlight'>your own</span> custom web platform and mobile app for any sport",
     launch_platform_app: "Launch your Web Platform & Mobile App",
     launch_platform_app_description:
-      "Description for Launch your Web Platform & Mobile App",
+      "Get the same solution as Tournated, but customized for your brand and needs. Use it on your domain and have full control over your data.",
     leagues: "leagues",
     legal: "Legal",
     links: "Links",

@@ -12,9 +12,10 @@ export default {
     all_in_one_crm: "Viss vienā Universāls sporta pārvaldības risinājums",
     any_sport_format: "Jebkurš sports, jebkurš formāts",
     any_sport_format_description:
-      "Apraksts par jebkuru sporta veidu, jebkuru formātu",
+      "Tournated ir paredzēts, lai viegli pievienotu jaunus sporta veidus vai formātus. Ja jums ir kādi pieprasījumi, lūdzu, sazinieties ar mums hello@tournated.com.",
     athlete_experience: "Sportista pieredze",
-    athlete_experience_description: "Apraksts par sportista pieredzi",
+    athlete_experience_description:
+      "Pārlūkojiet līgas, turnīrus, klubus un pasākumus. Reģistrējieties un iegādājieties licences ar dažiem klikšķiem. Sekojiet savai statistikai un progresam sadaļā Mana karjera.",
     athletes: "Sportisti",
     tennis: "Teniss",
     beach_tennis: "Pludmales teniss",
@@ -44,9 +45,9 @@ export default {
     highlightZone: "Izcelšanas zona",
     launch_custom_platform:
       "Vai palaidiet <span class='highlight'>savu</span> pielāgoto platformu un lietotni jebkuram sporta veidam",
-    launch_platform_app: "Palaidiet savu tīmekļa platformu un mobilo lietotni",
+    launch_platform_app: "Palaidiet savu tīmekļa platformu un lietotni",
     launch_platform_app_description:
-      "Apraksts par tīmekļa platformas un mobilās lietotnes palaišanu",
+      "Iegūstiet to pašu risinājumu kā Tournated, taču pielāgojiet savam zīmolam un vajadzībām. Izmantojiet to savā domēnā un pilnībā kontrolējiet savus datus.",
     leagues: "līgas",
     legal: "Juridiskais",
     links: "Saites",
