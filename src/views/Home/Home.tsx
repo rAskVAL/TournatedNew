@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Featured from "./Featured/Featured.tsx";
 import Promo from "./Promo/Promo.tsx";
 import Features from "./Features/Features.tsx";
+import Testimonials from "./Testimonials/Testimonials.tsx";
 
 const Home = () => (
   <Main>
@@ -10,6 +11,7 @@ const Home = () => (
     <Featured />
     <Promo />
     <Features />
+    <Testimonials />
   </Main>
 );
 
