@@ -53,7 +53,7 @@ const Testimonials = () => {
             {data.map((testimonial, index) => (
               <Slide key={index}>
                 <Card>
-                  <Text>{testimonial[currentLanguage]?.text}</Text>
+                  <Text>"{testimonial[currentLanguage]?.text}"</Text>
                   <Author>
                     <Avatar src={testimonial[currentLanguage]?.avatar} />
                     <div>

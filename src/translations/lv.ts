@@ -121,5 +121,8 @@ export default {
     support: "Atbalsts",
     documents: "Dokumenti",
     submit_ticket: "Iesniegt biļeti",
+    build_by: "Profesionāļu veidots <span>profesionāļiem</span>",
+    team_desc:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
   },
 };

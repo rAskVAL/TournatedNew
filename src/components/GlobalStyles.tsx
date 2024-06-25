@@ -84,7 +84,7 @@ export const typography = {
     font-family: "Familjen Grotesk", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: 16px;
+    line-height: 120%; /* 19.2px */
   `,
   grotesk18: css`
     font-size: 18px;
