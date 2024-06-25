@@ -35,7 +35,7 @@ const Testimonials = () => {
     }
   };
 
-  const [percentage, setPercentage] = useThrottledState(() => 0, 25); // 500ms throttle
+  const [percentage, setPercentage] = useThrottledState(() => 0, 100); // 500ms throttle
 
   return (
     <Container>
@@ -53,12 +53,12 @@ const Testimonials = () => {
             {data.map((testimonial, index) => (
               <Slide key={index}>
                 <Card>
-                  <Text>{testimonial[currentLanguage].text}</Text>
+                  <Text>{testimonial[currentLanguage]?.text}</Text>
                   <Author>
-                    <Avatar src={testimonial[currentLanguage].avatar} />
+                    <Avatar src={testimonial[currentLanguage]?.avatar} />
                     <div>
-                      <p>{testimonial[currentLanguage].name}</p>
-                      <p>{testimonial[currentLanguage].role}</p>
+                      <p>{testimonial[currentLanguage]?.name}</p>
+                      <p>{testimonial[currentLanguage]?.role}</p>
                     </div>
                   </Author>
                 </Card>
