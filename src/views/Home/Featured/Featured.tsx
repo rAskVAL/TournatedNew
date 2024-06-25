@@ -6,15 +6,9 @@ import {
 import SectionTitle from "../../../components/SectionTitle.tsx";
 import TournamentCard from "./TournamentCard.tsx";
 import LeagueCard from "./LeagueCard.tsx";
-import AthleteCard from "./AthleteCard.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { useTranslation } from "react-i18next";
-import {
-  featuredAthlete1Data,
-  featuredAthlete2Data,
-  leagueCardData,
-  organizationCardData,
-} from "./data.tsx";
+import { leagueCardData, organizationCardData } from "./data.tsx";
 
 const Featured = () => {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);
@@ -26,12 +20,12 @@ const Featured = () => {
         <Wrapper>
           <CardsWrapper>
             <LeagueCard data={leagueCardData} />
-            {isDesktop && <LeagueCard data={organizationCardData} />}
+            {isDesktop && <LeagueCard data={leagueCardData} />}
           </CardsWrapper>
           <TournamentCard />
           <CardsWrapper>
-            <AthleteCard data={featuredAthlete1Data} />
-            {isDesktop && <AthleteCard data={featuredAthlete2Data} />}
+            <LeagueCard data={organizationCardData} />{" "}
+            {isDesktop && <LeagueCard data={organizationCardData} />}
           </CardsWrapper>
         </Wrapper>
       </Content>

@@ -42,8 +42,8 @@ type LeagueCardData = {
 
 export const leagueCardData: LeagueCardData = {
   title: {
-    lv: "ASOCIACION DE TENIS DE PLAYA DE PUERTO RICO",
-    en: "ASOCIACION DE TENIS DE PLAYA DE PUERTO RICO",
+    lv: "ASOCIACION DE TENIS DE PLAYA PR",
+    en: "ASOCIACION DE TENIS DE PLAYA PR",
   },
   logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBJgnZFhYXRr0iO0gPQNbYAW6fPXAYhrvDDw&s",
   type: "league",
