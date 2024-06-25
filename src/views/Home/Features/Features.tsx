@@ -17,6 +17,7 @@ import Icon2 from "./assets/icon2.svg?react";
 import Icon3 from "./assets/icon3.svg?react";
 import { Trans, useTranslation } from "react-i18next";
 import { SupportedLanguages } from "../../../App.tsx";
+import ProgressBar from "../../../components/ProgressBar.tsx";
 
 const Features = () => {
   const { t, i18n } = useTranslation();
@@ -83,7 +84,7 @@ const Features = () => {
               </Card>
             ))}
           </MobileContent>
-          <ProgressBar $percentage={swiperProgress && swiperProgress * 100} />
+          <ProgressBar percentage={swiperProgress} />
         </>
       )}
       <Bottom>
@@ -277,35 +278,5 @@ const BottomCard = styled.div`
     svg {
       width: 40px;
     }
-  }
-`;
-
-const ProgressBar = styled.div<{ $percentage?: number }>`
-  width: 100%;
-  height: 1px;
-  display: flex;
-  justify-content: center;
-  margin-top: 27px;
-  position: relative;
-  max-width: 254px;
-
-  &::before {
-    content: "";
-    width: 100%;
-    height: 1px;
-    background: ${colors.grey100};
-    position: absolute;
-    left: 0;
-  }
-
-  &::after {
-    content: "";
-    width: ${({ $percentage }) => $percentage}%;
-    height: 1px;
-    background: ${colors.primary};
-    position: absolute;
-    left: 0;
-    z-index: 1;
-    transition: width 0.3s;
   }
 `;

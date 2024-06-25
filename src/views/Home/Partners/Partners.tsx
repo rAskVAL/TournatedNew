@@ -38,10 +38,10 @@ const Partners = () => {
           },
         }}
       >
-        {repeatedPartners.map((partner) => (
+        {repeatedPartners.map((partner, i) => (
           <SwiperSlide
             style={{ maxWidth: "150px" }}
-            key={partner.id}
+            key={i}
             onClick={() => handleClick(partner.url)}
           >
             <Logo src={partner.logo} alt={partner.name} />
