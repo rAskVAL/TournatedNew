@@ -50,7 +50,9 @@ const Container = styled.div<{
   &::after {
     transform-origin: left;
     content: "";
-    width: ${({ $percentage }) => $percentage}%;
+    width: 100%;
+    transform: scaleX(${({ $percentage }) => $percentage});
+    transition: all 0.1s;
     height: 1px;
     background: ${colors.primary};
     position: absolute;

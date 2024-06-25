@@ -12,16 +12,15 @@ import { useTranslation } from "react-i18next";
 import { data } from "./data.ts";
 import { SupportedLanguages } from "../../../App.tsx";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import ArrowRight from "../../../assets/Icons/arrowRight.svg?react";
 import ProgressBar from "../../../components/ProgressBar.tsx";
-import { useMediaQuery } from "@react-hookz/web";
+import { useMediaQuery, useThrottledState } from "@react-hookz/web";
 
 const Testimonials = () => {
   const { i18n } = useTranslation();
   const currentLanguage = i18n.language as SupportedLanguages;
   const swiperRef = useRef<SwiperRef>(null);
-  const [percentage, setPercentage] = useState<number>(0);
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
 
   const handlePrev = () => {
@@ -36,6 +35,8 @@ const Testimonials = () => {
     }
   };
 
+  const [percentage, setPercentage] = useThrottledState(() => 0, 25); // 500ms throttle
+
   return (
     <Container>
       <StyledPattern />
@@ -47,7 +48,7 @@ const Testimonials = () => {
             spaceBetween={50}
             slidesPerView={1}
             autoplay={{ delay: 5000 }}
-            onAutoplayTimeLeft={(_, __, p) => setPercentage((1 - p) * 100)}
+            onAutoplayTimeLeft={(_, __, p) => setPercentage(1 - p)}
           >
             {data.map((testimonial, index) => (
               <Slide key={index}>
