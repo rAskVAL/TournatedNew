@@ -9,14 +9,15 @@ import { useTranslation } from "react-i18next";
 type Props = {
   title: string;
   avatar: string;
+  textKey?: "managedBy" | "organizedBy";
 };
 
-const Organizer = ({ title, avatar }: Props) => {
+const Organizer = ({ title, avatar, textKey = "organizedBy" }: Props) => {
   const { t } = useTranslation();
 
   return (
     <Container>
-      <p>{t("organizedBy")}</p>
+      <p>{t(textKey)}</p>
       <Wrapper>
         <Logo src={avatar} />
         <p>{title}</p>

@@ -89,6 +89,7 @@ export default {
       title: "Baltijas Šaha Akadēmija",
       chess: "Šahs",
       nationalLeague: "Nacionālā Līga",
+      nationalOrganization: "Nacionālā Organizācija",
       tournaments: "Turnīri",
       members: "Dalībnieki",
     },
@@ -118,11 +119,13 @@ export default {
       launch_message_2: "Saņemiet personalizētu piedāvājumu",
     },
     customize: "Pielāgot",
+    organization: "Organizācija",
     support: "Atbalsts",
     documents: "Dokumenti",
+    managedBy: "Pārvaldīts ar",
     submit_ticket: "Iesniegt biļeti",
     build_by: "Profesionāļu veidots <span>profesionāļiem</span>",
     team_desc:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "Mūsu komandā ir pasaules, kontinentālie un nacionālie čempioni astoņos sporta veidos. Mums ir arī liela pieredze starptautisku un nacionālu līgu un turnīru organizēšanā. Mēs cenšamies revolucionizēt sporta nozari.",
   },
 };

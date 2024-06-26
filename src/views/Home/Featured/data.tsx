@@ -40,98 +40,198 @@ type LeagueCardData = {
   link: string;
 };
 
-export const leagueCardData: LeagueCardData = {
-  title: {
-    lv: "ASOCIACION DE TENIS DE PLAYA PR",
-    en: "ASOCIACION DE TENIS DE PLAYA PR",
+export const leagueCardData: LeagueCardData[] = [
+  {
+    title: {
+      lv: "LTS Sacensības",
+      en: "LTS Tournaments",
+    },
+    logo: "https://i.imgur.com/B85MvSK.png",
+    type: "league",
+    sport: "tennis",
+    link: "https://play.teniss.lat/lv/tour/LTSS",
+    tags: [
+      {
+        variant: "secondary",
+        leftIcon: <TennisIcon />,
+        textKey: "tennis",
+      },
+      {
+        variant: "dark",
+        leftIcon: (
+          <ReactCountryFlag
+            countryCode="LV"
+            svg
+            style={{
+              height: "12px",
+            }}
+            title="PR"
+          />
+        ),
+        textKey: "leagueCard.nationalLeague",
+      },
+    ],
+    stats: [
+      {
+        icon: <TrophyIcon />,
+        stat: "340+",
+        nameKey: "leagueCard.tournaments",
+      },
+      {
+        icon: <MembersIcon />,
+        stat: "1000+",
+        nameKey: "leagueCard.members",
+      },
+    ],
+    organizer: {
+      title: "LTS",
+      avatar: "https://i.imgur.com/Tb7pS83.png",
+    },
   },
-  logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBJgnZFhYXRr0iO0gPQNbYAW6fPXAYhrvDDw&s",
-  type: "league",
-  sport: "tennis",
-  link: "https://rankiaopr.com/en/tours",
-  tags: [
-    {
-      variant: "secondary",
-      leftIcon: <TennisIcon />,
-      textKey: "beach_tennis",
+  {
+    title: {
+      lv: "ASOCIACION DE TENIS DE PLAYA PR",
+      en: "ASOCIACION DE TENIS DE PLAYA PR",
     },
-    {
-      variant: "dark",
-      leftIcon: (
-        <ReactCountryFlag
-          countryCode="PR"
-          svg
-          style={{
-            height: "12px",
-          }}
-          title="PR"
-        />
-      ),
-      textKey: "leagueCard.nationalLeague",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBJgnZFhYXRr0iO0gPQNbYAW6fPXAYhrvDDw&s",
+    type: "league",
+    sport: "tennis",
+    link: "https://rankiaopr.com/en/tours",
+    tags: [
+      {
+        variant: "secondary",
+        leftIcon: <BeachTennisIcon />,
+        textKey: "beach_tennis",
+      },
+      {
+        variant: "dark",
+        leftIcon: (
+          <ReactCountryFlag
+            countryCode="PR"
+            svg
+            style={{
+              height: "12px",
+            }}
+            title="PR"
+          />
+        ),
+        textKey: "leagueCard.nationalLeague",
+      },
+    ],
+    stats: [
+      {
+        icon: <TrophyIcon />,
+        stat: "100+",
+        nameKey: "leagueCard.tournaments",
+      },
+      {
+        icon: <MembersIcon />,
+        stat: "1000+",
+        nameKey: "leagueCard.members",
+      },
+    ],
+    organizer: {
+      title: "ATPPR",
+      avatar:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBJgnZFhYXRr0iO0gPQNbYAW6fPXAYhrvDDw&s",
     },
-  ],
-  stats: [
-    {
-      icon: <TrophyIcon />,
-      stat: "100+",
-      nameKey: "leagueCard.tournaments",
-    },
-    {
-      icon: <MembersIcon />,
-      stat: "1000+",
-      nameKey: "leagueCard.members",
-    },
-  ],
-  organizer: {
-    title: "LTS",
-    avatar: "https://i.imgur.com/Tb7pS83.png",
   },
-};
+];
 
-export const organizationCardData: LeagueCardData = {
-  title: { lv: "Latvijas Tenisa Savieniba", en: "Latvian Tennis Union" },
-  type: "organization",
-  logo: "https://i.imgur.com/Tb7pS83.png",
-  sport: "tennis",
-  tags: [
-    {
-      variant: "secondary",
-      leftIcon: <TennisIcon />,
-      textKey: "tennis",
+export const organizationCardData: LeagueCardData[] = [
+  {
+    title: { lv: "Latvijas Tenisa Savieniba", en: "Latvian Tennis Union" },
+    type: "organization",
+    logo: "https://i.imgur.com/Tb7pS83.png",
+    sport: "tennis",
+    tags: [
+      {
+        variant: "secondary",
+        leftIcon: <TennisIcon />,
+        textKey: "tennis",
+      },
+      {
+        variant: "dark",
+        leftIcon: (
+          <ReactCountryFlag
+            countryCode="LV"
+            svg
+            style={{
+              height: "12px",
+            }}
+            title="LV"
+          />
+        ),
+        textKey: "organization",
+      },
+    ],
+    link: "https://teniss.lat/",
+    stats: [
+      {
+        icon: <TrophyIcon />,
+        stat: "500+",
+        nameKey: "leagueCard.tournaments",
+      },
+      {
+        icon: <MembersIcon />,
+        stat: "2000+",
+        nameKey: "leagueCard.members",
+      },
+    ],
+    organizer: {
+      title: "LTS",
+      avatar: "https://i.imgur.com/Tb7pS83.png",
     },
-    {
-      variant: "dark",
-      leftIcon: (
-        <ReactCountryFlag
-          countryCode="LV"
-          svg
-          style={{
-            height: "12px",
-          }}
-          title="LV"
-        />
-      ),
-      textKey: "leagueCard.nationalLeague",
-    },
-  ],
-  link: "https://teniss.lat/",
-  stats: [
-    {
-      icon: <TrophyIcon />,
-      stat: "500+",
-      nameKey: "leagueCard.tournaments",
-    },
-    {
-      icon: <MembersIcon />,
-      stat: "2000+",
-      nameKey: "leagueCard.members",
-    },
-  ],
-  organizer: {
-    title: "LTS",
-    avatar: "https://i.imgur.com/Tb7pS83.png",
   },
-};
+  {
+    title: {
+      lv: "RANKIAOPR",
+      en: "RANKIAOPR",
+    },
+    type: "organization",
+    logo: "https://ik.imagekit.io/f2uhfexvf/vertexo/91cf4b15-1b88-4a07-8e61-5948c83a6335-cf56a162-a948-4eaf-b307-5528b1a17564-rankiaopr_safpPY8iG_fG5sfSJiN.png",
+    sport: "tennis",
+    tags: [
+      {
+        variant: "secondary",
+        leftIcon: <BeachTennisIcon />,
+        textKey: "beach_tennis",
+      },
+      {
+        variant: "dark",
+        leftIcon: (
+          <ReactCountryFlag
+            countryCode="PR"
+            svg
+            style={{
+              height: "12px",
+            }}
+            title="PR"
+          />
+        ),
+        textKey: "organization",
+      },
+    ],
+    link: "https://rankiaopr.com/",
+    stats: [
+      {
+        icon: <TrophyIcon />,
+        stat: "140+",
+        nameKey: "leagueCard.tournaments",
+      },
+      {
+        icon: <MembersIcon />,
+        stat: "3600+",
+        nameKey: "leagueCard.members",
+      },
+    ],
+    organizer: {
+      title: "ATPPR",
+      avatar:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBJgnZFhYXRr0iO0gPQNbYAW6fPXAYhrvDDw&s",
+    },
+  },
+];
 
 type TournamentTag = {
   variant: "primary" | "secondary";

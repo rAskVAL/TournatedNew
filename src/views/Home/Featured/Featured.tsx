@@ -19,13 +19,13 @@ const Featured = () => {
         <SectionTitle text={t("featuredTitles.title")} />
         <Wrapper>
           <CardsWrapper>
-            <LeagueCard data={leagueCardData} />
-            {isDesktop && <LeagueCard data={leagueCardData} />}
+            <LeagueCard data={organizationCardData[0]} />{" "}
+            {isDesktop && <LeagueCard data={organizationCardData[1]} />}
           </CardsWrapper>
           <TournamentCard />
           <CardsWrapper>
-            <LeagueCard data={organizationCardData} />{" "}
-            {isDesktop && <LeagueCard data={organizationCardData} />}
+            <LeagueCard data={leagueCardData[0]} />
+            {isDesktop && <LeagueCard data={leagueCardData[1]} />}
           </CardsWrapper>
         </Wrapper>
       </Content>

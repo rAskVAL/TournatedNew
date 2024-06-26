@@ -16,7 +16,7 @@ import { leagueCardData } from "./data.tsx";
 import { SupportedLanguages } from "../../../App.tsx";
 import { Link } from "react-router-dom";
 
-const LeagueCard = ({ data }: { data: typeof leagueCardData }) => {
+const LeagueCard = ({ data }: { data: (typeof leagueCardData)[number] }) => {
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language as SupportedLanguages;
 
@@ -49,6 +49,7 @@ const LeagueCard = ({ data }: { data: typeof leagueCardData }) => {
       </Stats>
       {data.type === "league" && (
         <Organizer
+          textKey="managedBy"
           title={data.organizer.title}
           avatar={data.organizer.avatar}
         />

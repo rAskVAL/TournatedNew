@@ -88,6 +88,7 @@ export default {
       title: "Baltic Chess Academy",
       chess: "Chess",
       nationalLeague: "National League",
+      nationalOrganization: "National Organization",
       tournaments: "Tournaments",
       members: "Members",
     },
@@ -117,12 +118,14 @@ export default {
       launch_message_2: "Get a personalized offer",
     },
     customize: "Customize",
+    organization: "Organization",
     support: "Support",
     documents: "Documents",
     submit_ticket: "Submit Ticket",
     organizedBy: "Organized by",
+    managedBy: "Managed by",
     build_by: "Build by professionals for <span>professionals</span>",
     team_desc:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "Our team includes World, Continental, and National champions in eight sports. We also have vast experience in organizing international and national leagues and tournaments. We aim to revolutionize the sports industry.",
   },
 };

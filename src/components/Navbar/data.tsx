@@ -132,23 +132,23 @@ const menu = [
         title: { en: "Check out", lv: "Apskatiet" },
         items: [
           {
+            title: { en: "Leagues", lv: "Līgas" },
+            to: `${PLATFORM_URL}/leagues`,
+            icon: "",
+          },
+          {
+            title: { en: "Tournaments", lv: "Turnīri" },
+            to: `${PLATFORM_URL}/tournaments`,
+            icon: "",
+          },
+          {
             title: { en: "Clubs", lv: "Klubi" },
             to: `${PLATFORM_URL}/clubs`,
             icon: "",
           },
           {
-            title: { en: "Events", lv: "Pasākumi" },
-            to: `${PLATFORM_URL}/tournaments`,
-            icon: "",
-          },
-          {
             title: { en: "Coaches", lv: "Treneri" },
             to: `${PLATFORM_URL}/coaches`,
-            icon: "",
-          },
-          {
-            title: { en: "Rankings", lv: "Reitingi" },
-            to: `${PLATFORM_URL}/rankings`,
             icon: "",
           },
           {

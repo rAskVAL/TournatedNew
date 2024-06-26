@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import { data } from "./data.ts";
 import { SupportedLanguages } from "../../../App.tsx";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import ArrowRight from "../../../assets/Icons/arrowRight.svg?react";
 import ProgressBar from "../../../components/ProgressBar.tsx";
 import { useMediaQuery, useThrottledState } from "@react-hookz/web";
@@ -22,6 +22,7 @@ const Testimonials = () => {
   const currentLanguage = i18n.language as SupportedLanguages;
   const swiperRef = useRef<SwiperRef>(null);
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrev = () => {
     if (swiperRef.current) {
@@ -49,6 +50,7 @@ const Testimonials = () => {
             slidesPerView={1}
             autoplay={{ delay: 5000 }}
             onAutoplayTimeLeft={(_, __, p) => setPercentage(1 - p)}
+            onActiveIndexChange={(s) => setActiveIndex(s.activeIndex)}
           >
             {data.map((testimonial, index) => (
               <Slide key={index}>
@@ -69,10 +71,13 @@ const Testimonials = () => {
         </Wrapper>
         {!isMobile && (
           <Buttons>
-            <Button onClick={handlePrev}>
+            <Button onClick={handlePrev} disabled={activeIndex === 0}>
               <LeftIcon />
             </Button>
-            <Button onClick={handleNext}>
+            <Button
+              onClick={handleNext}
+              disabled={activeIndex === data.length - 1}
+            >
               <RightIcon />
             </Button>
           </Buttons>
@@ -190,6 +195,7 @@ const Avatar = styled.img`
   height: 48px;
   width: 48px;
   aspect-ratio: 1/1;
+  object-fit: cover;
 `;
 
 const RightIcon = styled(ArrowRight)`
@@ -227,6 +233,11 @@ const Button = styled.button`
       &:active {
         background-color: ${colors.primaryHover};
       }
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      pointer-events: none;
     }
   }
 `;
