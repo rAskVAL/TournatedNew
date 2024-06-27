@@ -100,7 +100,6 @@ const Box = styled.div`
   height: 508px;
   width: min(100%, 980px);
   background: ${colors.grey900};
-  margin-inline: 20px;
 
   @media (max-width: ${breakpoint.l}px) {
     height: 800px;
