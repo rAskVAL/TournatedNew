@@ -211,6 +211,7 @@ const Card = styled(SwiperSlide)`
   p {
     ${typography.grotesk14};
     color: ${colors.grey600};
+    height: 65px;
   }
 
   div {
@@ -231,6 +232,7 @@ const Card = styled(SwiperSlide)`
 
 const MobileContent = styled(Swiper)`
   ${containerStyles};
+  max-width: 100%;
   margin-top: 55px;
 `;
 

@@ -36,7 +36,7 @@ const Pricing = () => {
         switches={["Manager", "Custom (white-label)"]}
       />
       {isMobile ? (
-        <Swiper spaceBetween={20} slidesPerView="auto">
+        <StyledSwiper spaceBetween={20} slidesPerView="auto">
           {currentData.map((plan, index) => (
             <CardsSlide key={index}>
               <Card>
@@ -65,7 +65,7 @@ const Pricing = () => {
               </Card>
             </CardsSlide>
           ))}
-        </Swiper>
+        </StyledSwiper>
       ) : (
         <Cards>
           {currentData.map((plan, index) => (
@@ -122,6 +122,10 @@ const Container = styled.div`
 
 const StyledSectionTitle = styled(SectionTitle)`
   color: ${colors.grey900};
+`;
+
+const StyledSwiper = styled(Swiper)`
+  max-width: 100%;
 `;
 
 const CardTitle = styled(SectionTitle)`
