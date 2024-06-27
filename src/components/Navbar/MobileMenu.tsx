@@ -17,6 +17,7 @@ import LanguageSelector from "./LanguageSelector.tsx";
 import HighlightButton from "./HighlightButton.tsx";
 import { useTranslation } from "react-i18next";
 import { SupportedLanguages } from "../../App.tsx";
+import { CALENDLY_URL, PLATFORM_URL } from "../../consts.ts";
 
 type Props = {
   setIsMobileOpen: (state: boolean) => void;
@@ -91,8 +92,12 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
         </Links>
       </Top>
       <Bottom>
-        <Button style="outline">{t("contact_sales")}</Button>
-        <Button style="primary">{t("go_platform")}</Button>
+        <Button onClick={() => window.open(CALENDLY_URL)} style="outline">
+          {t("contact_sales")}
+        </Button>
+        <Button onClick={() => window.open(PLATFORM_URL)} style="primary">
+          {t("go_platform")}
+        </Button>
         <LanguageSelector mobile={true} />
       </Bottom>
     </MobileMenuContainer>
@@ -155,6 +160,7 @@ const Sublink = styled(Link)`
   && {
     ${typography.grotesk16};
     margin-inline: 14px;
+    cursor: pointer;
   }
 `;
 

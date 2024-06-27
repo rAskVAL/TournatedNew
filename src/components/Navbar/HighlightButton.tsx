@@ -9,6 +9,7 @@ import { SupportedLanguages } from "../../App.tsx";
 type Props = {
   data: {
     title: { en: string; lv: string };
+    to?: string;
     icon: ReactNode;
     label: { en: string; lv: string };
     labelColor: string;
@@ -16,13 +17,13 @@ type Props = {
 };
 
 const HighlightButton = ({
-  data: { title, icon, label, labelColor },
+  data: { title, icon, label, labelColor, to },
 }: Props) => {
   const { i18n } = useTranslation();
   const currentLanguage = i18n.language as SupportedLanguages;
 
   return (
-    <StyledButton style="dark">
+    <StyledButton disabled={!to} onClick={() => window.open(to)} style="dark">
       <div>{icon}</div>
       <TitleZone>
         <p>{title[currentLanguage]}</p>
@@ -73,4 +74,5 @@ const Label = styled.div`
   padding-inline: 6px;
   padding-block: 3px;
   ${typography.grotesk14}
+  color: ${colors.white}
 `;

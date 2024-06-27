@@ -13,28 +13,26 @@ const menu = [
         title: { en: "Management of", lv: "Pārvaldība" },
         items: [
           {
-            to: "#",
+            to: `${PLATFORM_URL}/tournaments`,
             title: { en: "Tournaments", lv: "Turnīri" },
             label: { en: "Free", lv: "Bezmaksas" },
             labelColor: colors.success,
             icon: <TournamentsIcon />,
           },
           {
-            to: "#",
+            to: `${PLATFORM_URL}/leagues`,
             title: { en: "Leagues", lv: "Līgas" },
             label: { en: "Free Trial", lv: "Bezmaksas izmēģinājums" },
             labelColor: colors.success,
             icon: <LeaguesIcon />,
           },
           {
-            to: "#",
             title: { en: "Clubs", lv: "Klubi" },
             label: { en: "Coming soon", lv: "Drīzumā" },
             labelColor: colors.grey700,
             icon: <TournamentsIcon />,
           },
           {
-            to: "#",
             title: { en: "Events", lv: "Pasākumi" },
             label: { en: "Coming soon", lv: "Drīzumā" },
             labelColor: colors.grey700,

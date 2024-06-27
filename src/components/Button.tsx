@@ -10,14 +10,23 @@ type Props = {
   selected?: boolean;
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 };
-const Button = ({ children, style, className, selected, onClick }: Props) => {
+const Button = ({
+  children,
+  style,
+  className,
+  selected,
+  onClick,
+  disabled,
+}: Props) => {
   return (
     <Container
       $style={style}
       className={className}
       $selected={selected}
       onClick={onClick}
+      disabled={disabled}
     >
       <Children>{children}</Children>
     </Container>
@@ -150,5 +159,9 @@ const Container = styled.button<{ $style: Styles; $selected?: boolean }>`
     svg * {
       stroke: ${colors.black};
     }
+  }
+
+  &:disabled {
+    pointer-events: none;
   }
 `;
