@@ -129,5 +129,7 @@ export default {
       "Atklājiet mūsu daudzveidīgās cenu iespējas un izvēlieties ideālo plānu",
     team_desc:
       "Mūsu komandā ir pasaules, kontinentālie un nacionālie čempioni astoņos sporta veidos. Mums ir arī liela pieredze starptautisku un nacionālu līgu un turnīru organizēšanā. Mēs cenšamies revolucionizēt sporta nozari.",
+    pricing_banner: "Meklējat vairāk pielāgotu risinājumu?",
+    book_a_call: "Rezervēt zvanu",
   },
 };

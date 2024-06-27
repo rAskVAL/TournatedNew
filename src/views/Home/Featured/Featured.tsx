@@ -46,6 +46,7 @@ const Container = styled.div`
 
   @media (max-width: ${breakpoint.l}px) {
     margin-top: 36px;
+    padding-top: 24px;
     padding-bottom: 50px;
   }
 `;

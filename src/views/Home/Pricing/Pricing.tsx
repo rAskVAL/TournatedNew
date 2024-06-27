@@ -15,6 +15,7 @@ import checkmarkIcon from "../../../assets/Icons/checkmark.svg";
 import Button from "../../../components/Button.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { SwiperSlide, Swiper } from "swiper/react"; // Import Swiper component
+import Pattern from "./assets/pattern.svg?react";
 
 const Pricing = () => {
   const { t, i18n } = useTranslation();
@@ -89,6 +90,11 @@ const Pricing = () => {
           ))}
         </Cards>
       )}
+      <Banner>
+        <Background />
+        <h1>{t("pricing_banner")}</h1>
+        <Button style="primary">{t("book_a_call")}</Button>
+      </Banner>
     </Container>
   );
 };
@@ -234,5 +240,52 @@ const Feature = styled.li`
     background-image: url(${checkmarkIcon});
     background-size: contain;
     background-repeat: no-repeat;
+  }
+`;
+
+const Banner = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  min-height: 104px;
+  width: 100%;
+  background: ${colors.grey900};
+  padding-inline: 40px;
+  padding-block: 20px;
+  overflow: hidden;
+  gap: 40px;
+
+  h1 {
+    position: relative;
+    ${typography.grotesk28};
+    color: ${colors.white};
+  }
+
+  @media (max-width: ${breakpoint.l}px) {
+    flex-direction: column;
+    align-items: start;
+    padding-inline: 20px;
+    margin-top: 0;
+
+    & > button {
+      width: 100%;
+    }
+
+    h1 {
+      ${typography.grotesk20};
+    }
+  }
+`;
+
+const Background = styled(Pattern)`
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+
+  @media (max-width: ${breakpoint.l}px) {
+    right: -100%;
   }
 `;

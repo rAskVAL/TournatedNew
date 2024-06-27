@@ -61,6 +61,7 @@ const Container = styled.button<{ $style: Styles; $selected?: boolean }>`
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
+  box-sizing: border-box;
 
   &:hover,
   &:active,
