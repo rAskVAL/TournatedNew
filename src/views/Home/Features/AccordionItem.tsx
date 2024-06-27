@@ -46,7 +46,7 @@ const Container = styled.button<{ $active?: boolean }>`
     cursor: pointer;
     padding-top: 16px;
     font-size: 18px;
-    color: ${({ $active }) => ($active ? colors.black : colors.grey100)};
+    color: ${({ $active }) => ($active ? colors.black : colors.grey200)};
     transition: color 0.3s ease;
     ${typography.grotesk28}
 
@@ -82,9 +82,9 @@ const Lines = styled.div<{ $active?: boolean }>`
 
   :nth-child(1) {
     border-top: 1px solid
-      ${({ $active }) => ($active ? colors.primary : colors.grey50)};
+      ${({ $active }) => ($active ? colors.primary : colors.grey100)};
   }
   :nth-child(2) {
-    border-top: 1px solid ${colors.grey50};
+    border-top: 1px solid ${colors.grey100};
   }
 `;

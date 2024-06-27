@@ -38,8 +38,8 @@ const Container = styled.div<{ $variant: Variant; $size?: Size }>`
           color: ${colors.primary};
         `,
         secondary: css`
-          background: ${colors.grey200Transparent};
-          color: ${colors.grey200};
+          background: ${colors.grey300Transparent};
+          color: ${colors.grey300};
         `,
         dark: css`
           background: ${colors.blackTransparent};

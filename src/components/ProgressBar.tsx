@@ -42,7 +42,7 @@ const Container = styled.div<{
     content: "";
     width: 100%;
     height: 1px;
-    background: ${colors.grey100};
+    background: ${colors.grey200};
     position: absolute;
     left: 0;
   }

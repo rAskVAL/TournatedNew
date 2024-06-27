@@ -210,7 +210,7 @@ const Pattern = styled.img`
 `;
 
 const MenuTitle = styled.p`
-  color: ${colors.grey200};
+  color: ${colors.grey300};
 `;
 
 const MenuItem = styled(Link)`

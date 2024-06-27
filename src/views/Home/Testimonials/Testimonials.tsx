@@ -99,7 +99,8 @@ const Container = styled.div`
   height: 100%;
 
   @media (max-width: ${breakpoint.l}px) {
-    min-height: 550px;
+    min-height: 450px;
+    max-height: 603px;
   }
 `;
 

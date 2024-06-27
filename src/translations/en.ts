@@ -124,6 +124,8 @@ export default {
     submit_ticket: "Submit Ticket",
     organizedBy: "Organized by",
     managedBy: "Managed by",
+    pricing_message:
+      "Discover our diverse pricing options and choose the perfect plan",
     build_by: "Build by professionals for <span>professionals</span>",
     team_desc:
       "Our team includes World, Continental, and National champions in eight sports. We also have vast experience in organizing international and national leagues and tournaments. We aim to revolutionize the sports industry.",

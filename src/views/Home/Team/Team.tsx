@@ -64,6 +64,7 @@ const Left = styled.div`
   h3 {
     margin: 16px 0 24px;
     ${typography.grotesk48};
+    color: ${colors.white};
     white-space: balance;
 
     span {
@@ -74,7 +75,7 @@ const Left = styled.div`
 
   p {
     ${typography.grotesk16};
-    color: ${colors.grey100};
+    color: ${colors.grey200};
   }
 
   @media (max-width: ${breakpoint.l}px) {

@@ -52,11 +52,14 @@ export const colors = {
   grey800: "#141414",
   grey700: "#333",
   grey600: "#5A5A5A",
+  grey500: "#747476",
   grey400: "#C3C3C3",
-  grey200: "#AAAAAA",
-  grey200Transparent: "rgba(170, 170, 170, 0.10)",
-  grey100: "#C7C7C7",
-  grey50: "#D9D9D9",
+  grey300: "#AAAAAA",
+  grey300Transparent: "rgba(170, 170, 170, 0.10)",
+  grey200: "#C7C7C7",
+  grey100: "#D9D9D9",
+  grey50: "#DCDCDC",
+  grey25: "#E9E9E9",
   white: "#FFF",
   whiteHover: "#C4C4C4",
   purple400: "#6772E5",
@@ -78,25 +81,25 @@ export const typography = {
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 16.8px;
+    line-height: 100%;
   `,
   grotesk16: css`
     font-family: "Familjen Grotesk", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: 120%; /* 19.2px */
+    line-height: 100%; /* 19.2px */
   `,
   grotesk18: css`
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 110%;
+    line-height: 100%;
   `,
   grotesk20: css`
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 110%;
+    line-height: 100%;
   `,
   grotesk24: css`
     font-family: "Familjen Grotesk", sans-serif;
@@ -109,7 +112,7 @@ export const typography = {
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
-    line-height: 110%;
+    line-height: 100%;
   `,
   grotesk40: css`
     font-family: "Familjen Grotesk", sans-serif;
@@ -123,7 +126,7 @@ export const typography = {
     font-size: 48px;
     font-style: normal;
     font-weight: 400;
-    line-height: 110%;
+    line-height: 100%;
   `,
   grotesk80: css`
     font-family: "Familjen Grotesk", sans-serif;

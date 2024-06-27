@@ -125,6 +125,8 @@ export default {
     managedBy: "Pārvaldīts ar",
     submit_ticket: "Iesniegt biļeti",
     build_by: "Profesionāļu veidots <span>profesionāļiem</span>",
+    pricing_message:
+      "Atklājiet mūsu daudzveidīgās cenu iespējas un izvēlieties ideālo plānu",
     team_desc:
       "Mūsu komandā ir pasaules, kontinentālie un nacionālie čempioni astoņos sporta veidos. Mums ir arī liela pieredze starptautisku un nacionālu līgu un turnīru organizēšanā. Mēs cenšamies revolucionizēt sporta nozari.",
   },

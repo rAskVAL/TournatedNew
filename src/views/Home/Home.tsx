@@ -5,6 +5,7 @@ import Promo from "./Promo/Promo.tsx";
 import Features from "./Features/Features.tsx";
 import Testimonials from "./Testimonials/Testimonials.tsx";
 import Team from "./Team/Team.tsx";
+import Pricing from "./Pricing/Pricing.tsx";
 
 const Home = () => (
   <Main>
@@ -14,6 +15,7 @@ const Home = () => (
     <Features />
     <Testimonials />
     <WhiteBG>
+      <Pricing />
       <Team />
     </WhiteBG>
   </Main>
@@ -35,6 +37,6 @@ const WhiteBG = styled.div`
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  background: white;
+  background: #f2f2f3;
   width: 100%;
 `;
