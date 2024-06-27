@@ -11,7 +11,7 @@ export type SubmenuType = {
   highlightZone?: {
     title: { en: string; lv: string };
     items: {
-      to: string;
+      to?: string;
       title: { en: string; lv: string };
       label: { en: string; lv: string };
       labelColor: string;

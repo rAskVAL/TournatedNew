@@ -3,6 +3,7 @@ import League from "./assets/league.svg?react";
 import Entries from "./assets/entry.svg?react";
 import Groups from "./assets/groups.svg?react";
 import Results from "./assets/results.svg?react";
+import Analytics from "./assets/analytics.svg?react";
 
 export default [
   {
@@ -63,6 +64,18 @@ export default [
       lv: "Pamatojoties uz jūsu punktu sistēmu un vērtēšanas noteikumiem, galīgie rezultāti tiek automātiski ņemti no tabulām un atjaunināti ar vienu klikšķi.",
     },
     banner: <Results />,
+    centered: false,
+  },
+  {
+    title: {
+      en: "Analytics",
+      lv: "Analītika",
+    },
+    description: {
+      en: "Track all financial transactions and performance metrics with Tournated Analytics.",
+      lv: "Izsekojiet visus finanšu darījumus un veiktspējas rādītājus ar Tournated Analytics.",
+    },
+    banner: <Analytics />,
     centered: false,
   },
 ];

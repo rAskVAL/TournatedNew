@@ -88,6 +88,7 @@ const Container = styled.div`
   flex-direction: column;
   background: ${colors.grey900};
   width: 100%;
+  max-width: 500px;
 
   @media (min-width: ${breakpoint.l}px) {
     max-width: 380px;
