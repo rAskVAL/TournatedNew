@@ -35,4 +35,7 @@ export default Layout;
 const Container = styled.main`
   min-height: 100vh;
   background: ${colors.grey800};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

@@ -77,6 +77,7 @@ const Button = styled.button<{ $active: boolean }>`
     ${typography.grotesk16};
     cursor: pointer;
     transition: all 0.1s;
+    color: ${colors.black};
 
     &:hover {
       opacity: 0.7;

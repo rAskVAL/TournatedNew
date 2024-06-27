@@ -8,27 +8,38 @@ import Team from "./Team/Team.tsx";
 import Pricing from "./Pricing/Pricing.tsx";
 
 const Home = () => (
-  <Main>
-    <Hero />
-    <Featured />
-    <Promo />
-    <Features />
-    <Testimonials />
+  <>
+    <WrapperWithWidth>
+      <Hero />
+      <Featured />
+    </WrapperWithWidth>
+    <Wrapper>
+      <Promo />
+      <Features />
+    </Wrapper>
+    <WrapperWithWidth>
+      <Testimonials />
+    </WrapperWithWidth>
     <WhiteBG>
       <Pricing />
       <Team />
     </WhiteBG>
-  </Main>
+  </>
 );
 
 export default Home;
 
-const Main = styled.main`
+const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
   overflow: hidden;
+`;
+
+const WrapperWithWidth = styled(Wrapper)`
+  max-width: 1440px;
 `;
 
 const WhiteBG = styled.div`

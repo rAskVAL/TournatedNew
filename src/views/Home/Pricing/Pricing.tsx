@@ -11,7 +11,7 @@ import Switch from "./Switch.tsx";
 import { useState } from "react";
 import data from "./data.ts";
 import { SupportedLanguages } from "../../../App.tsx";
-import checkmarkIcon from "../../../assets/Icons/checkmark.svg";
+import CheckmarkIcon from "../../../assets/Icons/checkmark.svg?react";
 import Button from "../../../components/Button.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { SwiperSlide, Swiper } from "swiper/react"; // Import Swiper component
@@ -53,7 +53,10 @@ const Pricing = () => {
                   <CardFeatures>
                     {plan[currentLanguage].features.map(
                       (feature, featureIndex) => (
-                        <Feature key={featureIndex}>{feature}</Feature>
+                        <Feature key={featureIndex}>
+                          <CheckmarkIcon />
+                          <p>{feature}</p>
+                        </Feature>
                       ),
                     )}
                   </CardFeatures>
@@ -80,7 +83,10 @@ const Pricing = () => {
                 <CardFeatures>
                   {plan[currentLanguage].features.map(
                     (feature, featureIndex) => (
-                      <Feature key={featureIndex}>{feature}</Feature>
+                      <Feature key={featureIndex}>
+                        <CheckmarkIcon />
+                        <p>{feature}</p>
+                      </Feature>
                     ),
                   )}
                 </CardFeatures>
@@ -227,19 +233,12 @@ const Feature = styled.li`
   ${typography.grotesk14};
   color: ${colors.grey700};
   position: relative;
-  padding-left: 24px;
+  gap: 10px;
+  align-items: center;
+  display: flex;
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    background-image: url(${checkmarkIcon});
-    background-size: contain;
-    background-repeat: no-repeat;
+  :first-child {
+    min-width: 18px;
   }
 `;
 
