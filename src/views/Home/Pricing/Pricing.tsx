@@ -60,7 +60,12 @@ const Pricing = () => {
                       ),
                     )}
                   </CardFeatures>
-                  <Button style="brand">{plan[currentLanguage].button}</Button>
+                  <Button
+                    onClick={() => window.open(plan[currentLanguage].to)}
+                    style="brand"
+                  >
+                    {plan[currentLanguage].button}
+                  </Button>
                 </CardContent>
               </Card>
             </CardsSlide>
@@ -90,7 +95,12 @@ const Pricing = () => {
                     ),
                   )}
                 </CardFeatures>
-                <Button style="brand">{plan[currentLanguage].button}</Button>
+                <Button
+                  onClick={() => window.open(plan[currentLanguage].to)}
+                  style="brand"
+                >
+                  {plan[currentLanguage].button}
+                </Button>
               </CardContent>
             </Card>
           ))}
@@ -211,7 +221,7 @@ const CardTitleBox = styled.div<{
         `};
 `;
 
-const CardPrice = styled.p`
+const CardPrice = styled.div`
   display: flex;
   gap: 4px;
 

@@ -17,6 +17,7 @@ export default {
           "Tiešsaistes maksājumi",
         ],
         button: "Sākt",
+        to: "#",
       },
       en: {
         title: "Free Plan",
@@ -34,6 +35,7 @@ export default {
           "Online payments",
         ],
         button: "Get Started",
+        to: "#",
       },
     },
     {
@@ -53,6 +55,7 @@ export default {
           "Nopelniet ar Tournated monetizāciju",
         ],
         button: "Sākt",
+        to: "#",
       },
       en: {
         title: "Pro Plan",
@@ -70,6 +73,7 @@ export default {
           "Earn with Tournated Monetization",
         ],
         button: "Get Started",
+        to: "#",
       },
     },
   ],
@@ -90,6 +94,7 @@ export default {
           "Nopelniet ar Tournated monetizāciju",
         ],
         button: "Sākt",
+        to: "#",
       },
       en: {
         title: "Custom",
@@ -106,6 +111,7 @@ export default {
           "Earn with Tournated Monetization",
         ],
         button: "Get Started",
+        to: "#",
       },
     },
     {
@@ -121,6 +127,7 @@ export default {
           "Nopelniet ar Tournated monetizāciju",
         ],
         button: "Sākt",
+        to: "#",
       },
       en: {
         title: "Custom Plus",
@@ -134,6 +141,7 @@ export default {
           "Earn with Tournated Monetization",
         ],
         button: "Get Started",
+        to: "#",
       },
     },
     {
@@ -149,6 +157,7 @@ export default {
           "Nopelniet ar Tournated monetizāciju",
         ],
         button: "Sākt",
+        to: "#",
       },
       en: {
         title: "Custom Plus",
@@ -162,6 +171,7 @@ export default {
           "Earn with Tournated Monetization",
         ],
         button: "Get Started",
+        to: "#",
       },
     },
   ],

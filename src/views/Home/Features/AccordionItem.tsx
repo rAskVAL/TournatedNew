@@ -35,6 +35,20 @@ const AccordionItem = ({ active, onClick, children, text }: Props) => {
 
 export default AccordionItem;
 
+const Lines = styled.div<{ $active?: boolean }>`
+  display: flex;
+  width: 100%;
+  margin-top: 16px;
+
+  :nth-child(1) {
+    border-top: 1px solid ${colors.primary};
+    max-width: ${({ $active }) => ($active ? "100%" : 0)};
+  }
+  :nth-child(2) {
+    border-top: 1px solid ${colors.grey100};
+  }
+`;
+
 const Container = styled.button<{ $active?: boolean }>`
   &,
   &:hover,
@@ -52,6 +66,12 @@ const Container = styled.button<{ $active?: boolean }>`
 
     &:hover {
       color: #000;
+
+      ${Lines} {
+        :nth-child(1) {
+          max-width: 100%;
+        }
+      }
     }
 
     &:active {
@@ -73,18 +93,5 @@ const Line = styled.hr`
   height: 1px;
   border: 0;
   padding: 0;
-`;
-
-const Lines = styled.div<{ $active?: boolean }>`
-  display: flex;
-  width: 100%;
-  margin-top: 16px;
-
-  :nth-child(1) {
-    border-top: 1px solid
-      ${({ $active }) => ($active ? colors.primary : colors.grey100)};
-  }
-  :nth-child(2) {
-    border-top: 1px solid ${colors.grey100};
-  }
+  transition: all 0.5s;
 `;
