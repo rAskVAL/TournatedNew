@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import NavItem from "../NavItem.tsx";
-import data from "./data.tsx";
+import data from "../../data/NavbarData.tsx";
 
 const Menu = () => {
   return (

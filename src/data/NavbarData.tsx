@@ -1,7 +1,7 @@
-import TournamentsIcon from "./Assets/tournaments.svg?react";
-import LeaguesIcon from "./Assets/leagues.svg?react";
-import { colors } from "../GlobalStyles.tsx";
-import { PLATFORM_URL } from "../../consts.ts";
+import TournamentsIcon from "../components/Navbar/Assets/tournaments.svg?react";
+import LeaguesIcon from "../components/Navbar/Assets/leagues.svg?react";
+import { colors } from "../components/GlobalStyles.tsx";
+import { PLATFORM_URL } from "../consts.ts";
 
 const menu = [
   {
@@ -51,22 +51,22 @@ const menu = [
         title: { en: "For", lv: "Priekš" },
         items: [
           {
-            title: { en: "Sport Ministries", lv: "Sporta ministrijas" },
+            title: { en: "Sport Ministries", lv: "Sporta ministrijām" },
             to: "#",
             icon: "",
           },
           {
-            title: { en: "Federations", lv: "Federācijas" },
+            title: { en: "Federations", lv: "Federācijām" },
             to: "#",
             icon: "",
           },
           {
-            title: { en: "Clubs", lv: "Klubi" },
+            title: { en: "Clubs", lv: "Klubiem" },
             to: "#",
             icon: "",
           },
           {
-            title: { en: "Organizers", lv: "Organizatori" },
+            title: { en: "Organizers", lv: "Organizatoriem" },
             to: "#",
             icon: "",
           },
@@ -76,11 +76,11 @@ const menu = [
   },
   {
     to: "#",
-    title: { en: "Sports", lv: "Sports" },
+    title: { en: "Sports", lv: "Sporta veidi" },
     icon: "",
     submenu: {
       links: {
-        title: { en: "Active ones", lv: "Aktīvās" },
+        title: { en: "Active ones", lv: "Aktīvi" },
         items: [
           {
             title: { en: "Tennis", lv: "Teniss" },
@@ -93,7 +93,7 @@ const menu = [
             icon: "",
           },
           {
-            title: { en: "Pickleball", lv: "Pickleball" },
+            title: { en: "Pickleball", lv: "Piklbols" },
             to: "#",
             icon: "",
           },
@@ -103,7 +103,7 @@ const menu = [
             icon: "",
           },
           {
-            title: { en: "Chess", lv: "Šahs" },
+            title: { en: "Chess", lv: "Šahi" },
             to: "#",
             icon: "",
           },
@@ -135,17 +135,17 @@ const menu = [
             icon: "",
           },
           {
-            title: { en: "Tournaments", lv: "Turnīri" },
+            title: { en: "Tournaments", lv: "Turnīrus" },
             to: `${PLATFORM_URL}/tournaments`,
             icon: "",
           },
           {
-            title: { en: "Clubs", lv: "Klubi" },
+            title: { en: "Clubs", lv: "Klubus" },
             to: `${PLATFORM_URL}/clubs`,
             icon: "",
           },
           {
-            title: { en: "Coaches", lv: "Treneri" },
+            title: { en: "Coaches", lv: "Trenerus" },
             to: `${PLATFORM_URL}/coaches`,
             icon: "",
           },

@@ -18,8 +18,8 @@ type Colors = "red" | "green" | "orange";
 
 const platformImages = {
   red: platform_1,
-  green: platform_2,
-  orange: platform_3,
+  green: platform_3,
+  orange: platform_2,
 } satisfies { [color in Colors]: string };
 
 const Right = () => {

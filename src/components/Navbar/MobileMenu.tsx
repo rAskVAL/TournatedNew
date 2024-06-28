@@ -8,7 +8,7 @@ import {
 import logo from "../../assets/logo.svg";
 import Close from "../../assets/Icons/close.svg?react";
 import { AnimatePresence, motion } from "framer-motion";
-import data from "./data.tsx";
+import data from "../../data/NavbarData.tsx";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ChevronDown from "../../assets/Icons/chevronDown.svg?react";
