@@ -51,7 +51,7 @@ const Pricing = () => {
                 </CardTitleBox>
                 <CardContent>
                   <CardFeatures>
-                    {plan[currentLanguage].features.map(
+                    {plan[currentLanguage]?.features.map(
                       (feature, featureIndex) => (
                         <Feature key={featureIndex}>
                           <CheckmarkIcon />
