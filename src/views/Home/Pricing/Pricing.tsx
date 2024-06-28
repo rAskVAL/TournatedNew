@@ -40,12 +40,12 @@ const Pricing = () => {
           {currentData.map((plan, index) => (
             <CardsSlide key={index}>
               <Card>
-                <CardTitleBox $status={plan[currentLanguage].status}>
-                  <CardTitle text={plan[currentLanguage].title} />
+                <CardTitleBox $status={plan[currentLanguage]?.status}>
+                  <CardTitle text={plan[currentLanguage]?.title} />
                   <CardPrice>
-                    <h3>{plan[currentLanguage].price}</h3>
-                    {plan[currentLanguage].oldPrice && (
-                      <p>{plan[currentLanguage].oldPrice}</p>
+                    <h3>{plan[currentLanguage]?.price}</h3>
+                    {plan[currentLanguage]?.oldPrice && (
+                      <p>{plan[currentLanguage]?.oldPrice}</p>
                     )}
                   </CardPrice>
                 </CardTitleBox>
@@ -61,10 +61,10 @@ const Pricing = () => {
                     )}
                   </CardFeatures>
                   <Button
-                    onClick={() => window.open(plan[currentLanguage].to)}
+                    onClick={() => window.open(plan[currentLanguage]?.to)}
                     style="brand"
                   >
-                    {plan[currentLanguage].button}
+                    {plan[currentLanguage]?.button}
                   </Button>
                 </CardContent>
               </Card>
@@ -75,18 +75,18 @@ const Pricing = () => {
         <Cards>
           {currentData.map((plan, index) => (
             <Card key={index}>
-              <CardTitleBox $status={plan[currentLanguage].status}>
-                <CardTitle text={plan[currentLanguage].title} />
+              <CardTitleBox $status={plan[currentLanguage]?.status}>
+                <CardTitle text={plan[currentLanguage]?.title} />
                 <CardPrice>
-                  <h3>{plan[currentLanguage].price}</h3>
-                  {plan[currentLanguage].oldPrice && (
-                    <p>{plan[currentLanguage].oldPrice}</p>
+                  <h3>{plan[currentLanguage]?.price}</h3>
+                  {plan[currentLanguage]?.oldPrice && (
+                    <p>{plan[currentLanguage]?.oldPrice}</p>
                   )}
                 </CardPrice>
               </CardTitleBox>
               <CardContent>
                 <CardFeatures>
-                  {plan[currentLanguage].features.map(
+                  {plan[currentLanguage]?.features.map(
                     (feature, featureIndex) => (
                       <Feature key={featureIndex}>
                         <CheckmarkIcon />
@@ -96,10 +96,10 @@ const Pricing = () => {
                   )}
                 </CardFeatures>
                 <Button
-                  onClick={() => window.open(plan[currentLanguage].to)}
+                  onClick={() => window.open(plan[currentLanguage]?.to)}
                   style="brand"
                 >
-                  {plan[currentLanguage].button}
+                  {plan[currentLanguage]?.button}
                 </Button>
               </CardContent>
             </Card>
