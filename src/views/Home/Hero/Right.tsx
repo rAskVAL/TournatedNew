@@ -10,12 +10,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useMediaQuery } from "@react-hookz/web";
 import { useTranslation } from "react-i18next";
 
+import platform_1 from "./assets/platform_1.png";
+import platform_2 from "./assets/platform_2.png";
+import platform_3 from "./assets/platform_3.png";
+
 type Colors = "red" | "green" | "orange";
 
 const platformImages = {
-  red: "src/views/Home/Hero/assets/platform_1.png",
-  green: "src/views/Home/Hero/assets/platform_3.png",
-  orange: "src/views/Home/Hero/assets/platform_2.png",
+  red: platform_1,
+  green: platform_2,
+  orange: platform_3,
 } satisfies { [color in Colors]: string };
 
 const Right = () => {
