@@ -4,7 +4,7 @@ export default {
       title: "Partneri",
     },
     stats: {
-      entries: "Pieteikum",
+      entries: "Pieteikumi",
       organizations: "Organizācijas",
       athletes: "Sportisti",
       tournaments: "Turnīri",

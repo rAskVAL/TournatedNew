@@ -111,6 +111,7 @@ const PointsBox = styled.div`
   @media (max-width: ${breakpoint.l}px) {
     flex-direction: column;
     ${typography.grotesk16};
+    gap: 20px;
   }
 `;
 
@@ -124,6 +125,10 @@ const Points = styled.div<{ $index: number[] }>`
   & > div {
     display: flex;
     align-items: center;
+    gap: 20px;
+  }
+
+  @media (max-width: ${breakpoint.l}px) {
     gap: 20px;
   }
 `;

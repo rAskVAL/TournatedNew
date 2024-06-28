@@ -112,7 +112,7 @@ const Stats = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 18px;
 
-  @media (max-width: ${breakpoint.l}px) {
+  @media (max-width: ${breakpoint.m}px) {
     grid-template-columns: 1fr 1fr;
   }
 `;
