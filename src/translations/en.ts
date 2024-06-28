@@ -46,7 +46,7 @@ export default {
       "Or launch <span class='highlight'>your own</span> custom web platform and mobile app for any sport",
     launch_platform_app: "Launch your Web Platform & Mobile App",
     launch_platform_app_description:
-      "Get the same solution as Tournated, but customized for your brand and needs. Use it on your domain and have full control over your data.",
+      "Get the same solution as Tournated, but customized for your brand and needs. Use it on your domain and have full control over your testimonialsData.",
     leagues: "leagues",
     legal: "Legal",
     links: "Links",
@@ -109,7 +109,7 @@ export default {
       launch_your_own: "Launch your own",
       web_platform_and_mobile_app: "web platform and mobile app",
       your_sports_organization:
-        "Your sports organization deserves your own solution. With your domain, branding, and data under your control.",
+        "Your sports organization deserves your own solution. With your domain, branding, and testimonialsData under your control.",
       fully_customizable: "Fully customizable",
       choose_sports_features:
         "choose the sports, features, and formats you need.",

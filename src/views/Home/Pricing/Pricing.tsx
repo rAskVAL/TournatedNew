@@ -9,7 +9,7 @@ import SectionTitle from "../../../components/SectionTitle.tsx";
 import { useTranslation } from "react-i18next";
 import Switch from "./Switch.tsx";
 import { useState } from "react";
-import data from "./data.ts";
+import data from "../../../data/PricingData.ts";
 import { SupportedLanguages } from "../../../App.tsx";
 import CheckmarkIcon from "../../../assets/Icons/checkmark.svg?react";
 import Button from "../../../components/Button.tsx";

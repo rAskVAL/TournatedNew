@@ -9,7 +9,7 @@ import {
 } from "../../../components/GlobalStyles.tsx";
 import { useState } from "react";
 import AccordionItem from "./AccordionItem.tsx";
-import data from "./data.tsx";
+import data from "../../../data/FeaturesData.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Icon1 from "./assets/icon1.svg?react";

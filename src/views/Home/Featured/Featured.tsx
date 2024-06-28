@@ -8,7 +8,10 @@ import TournamentCard from "./TournamentCard.tsx";
 import LeagueCard from "./LeagueCard.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { useTranslation } from "react-i18next";
-import { leagueCardData, organizationCardData } from "./data.tsx";
+import {
+  leagueCardData,
+  organizationCardData,
+} from "../../../data/FeaturedData.tsx";
 
 const Featured = () => {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);

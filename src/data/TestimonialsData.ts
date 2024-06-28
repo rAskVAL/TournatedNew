@@ -1,4 +1,4 @@
-export const data = [
+export const testimonialsData = [
   {
     en: {
       text: "Tournated.com is a game-changer for tennis tournaments. Its intuitive interface, seamless registration, and real-time analytics make it a must-have tool for tennis enthusiasts. Highly recommended!",

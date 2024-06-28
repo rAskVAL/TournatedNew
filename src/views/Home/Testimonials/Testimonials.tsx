@@ -9,7 +9,7 @@ import {
 } from "../../../components/GlobalStyles.tsx";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { useTranslation } from "react-i18next";
-import { data } from "./data.ts";
+import { testimonialsData } from "../../../data/TestimonialsData.ts";
 import { SupportedLanguages } from "../../../App.tsx";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useRef, useState } from "react";
@@ -52,7 +52,7 @@ const Testimonials = () => {
             onAutoplayTimeLeft={(_, __, p) => setPercentage(1 - p)}
             onActiveIndexChange={(s) => setActiveIndex(s.activeIndex)}
           >
-            {data.map((testimonial, index) => (
+            {testimonialsData.map((testimonial, index) => (
               <Slide key={index}>
                 <Card>
                   <Text>"{testimonial[currentLanguage]?.text}"</Text>
@@ -76,7 +76,7 @@ const Testimonials = () => {
             </Button>
             <Button
               onClick={handleNext}
-              disabled={activeIndex === data.length - 1}
+              disabled={activeIndex === testimonialsData.length - 1}
             >
               <RightIcon />
             </Button>

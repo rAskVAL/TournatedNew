@@ -11,27 +11,27 @@
 // import Tag from "../../../components/Tag.tsx";
 // import Stat from "../../../components/Stat.tsx";
 // import { useTranslation } from "react-i18next";
-// import { FeaturedAthlete } from "./data.tsx";
+// import { FeaturedAthlete } from "./FeaturedData.tsx";
 // import { Link } from "react-router-dom";
 //
-// const AthleteCard = ({ data }: { data: FeaturedAthlete }) => {
+// const AthleteCard = ({ testimonialsData }: { testimonialsData: FeaturedAthlete }) => {
 //   const { t } = useTranslation();
 //   return (
 //     <Container type="athlete">
 //       <InfoBox>
-//         <Avatar src={data.photo} />
+//         <Avatar src={testimonialsData.photo} />
 //         <TitleBox>
-//           <Title to={data.profile}>{data.name}</Title>
+//           <Title to={testimonialsData.profile}>{testimonialsData.name}</Title>
 //           <Tags>
-//             <Tag variant="secondary" leftIcon={data.sportIcon}>
-//               {t(data.sport)}
+//             <Tag variant="secondary" leftIcon={testimonialsData.sportIcon}>
+//               {t(testimonialsData.sport)}
 //             </Tag>
 //           </Tags>
 //         </TitleBox>
 //       </InfoBox>
-//       {data.stats && (
+//       {testimonialsData.stats && (
 //         <Info>
-//           {data.stats.map((stat, index) => (
+//           {testimonialsData.stats.map((stat, index) => (
 //             <Stat
 //               key={index}
 //               icon={stat.icon}
@@ -43,7 +43,7 @@
 //         </Info>
 //       )}
 //       <Stats>
-//         {data.tags.map((tag, index) => (
+//         {testimonialsData.tags.map((tag, index) => (
 //           <Stat
 //             key={index}
 //             icon={tag.icon}

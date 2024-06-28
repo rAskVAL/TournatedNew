@@ -12,7 +12,7 @@ import Tag from "../../../components/Tag.tsx";
 import Stat from "../../../components/Stat.tsx";
 import Organizer from "./Organizer.tsx";
 import ScrollContainer from "react-indiana-drag-scroll";
-import { leagueCardData } from "./data.tsx";
+import { leagueCardData } from "../../../data/FeaturedData.tsx";
 import { SupportedLanguages } from "../../../App.tsx";
 import { Link } from "react-router-dom";
 

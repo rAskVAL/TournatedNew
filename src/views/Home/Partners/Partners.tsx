@@ -8,7 +8,7 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useTranslation } from "react-i18next";
-import { partners } from "./data"; // Import the partners data
+import { partners } from "./data"; // Import the partners testimonialsData
 
 const Partners = () => {
   const { t } = useTranslation();

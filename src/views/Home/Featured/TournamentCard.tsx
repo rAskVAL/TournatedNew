@@ -15,7 +15,7 @@ import Stat from "../../../components/Stat.tsx";
 import Organizer from "./Organizer.tsx";
 
 import { useTranslation } from "react-i18next";
-import { tournamentData as data } from "./data.tsx";
+import { tournamentData as data } from "../../../data/FeaturedData.tsx";
 import { SupportedLanguages } from "../../../App.tsx";
 import { Link } from "react-router-dom";
 

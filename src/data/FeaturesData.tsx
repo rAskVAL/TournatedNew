@@ -1,9 +1,9 @@
-import List from "./assets/list.svg?react";
-import League from "./assets/league.svg?react";
-import Entries from "./assets/entry.svg?react";
-import Groups from "./assets/groups.svg?react";
-import Results from "./assets/results.svg?react";
-import Analytics from "./assets/analytics.svg?react";
+import List from "../views/Home/Features/assets/list.svg?react";
+import League from "../views/Home/Features/assets/league.svg?react";
+import Entries from "../views/Home/Features/assets/entry.svg?react";
+import Groups from "../views/Home/Features/assets/groups.svg?react";
+import Results from "../views/Home/Features/assets/results.svg?react";
+import Analytics from "../views/Home/Features/assets/analytics.svg?react";
 
 export default [
   {
