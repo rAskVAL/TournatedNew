@@ -17,7 +17,7 @@ export default {
           "Tiešsaistes maksājumi",
         ],
         button: "Sākt",
-        to: "#",
+        to: "https://www.tournated.net/pricing?plan=manager",
       },
       en: {
         title: "Free Plan",
@@ -35,7 +35,7 @@ export default {
           "Online payments",
         ],
         button: "Get Started",
-        to: "#",
+        to: "https://www.tournated.net/pricing?plan=manager",
       },
     },
     {
@@ -55,7 +55,7 @@ export default {
           "Nopelniet ar Tournated monetizāciju",
         ],
         button: "Sākt",
-        to: "#",
+        to: "https://www.tournated.net/pricing?plan=manager",
       },
       en: {
         title: "Pro Plan",
@@ -73,7 +73,7 @@ export default {
           "Earn with Tournated Monetization",
         ],
         button: "Get Started",
-        to: "#",
+        to: "https://www.tournated.net/pricing?plan=manager",
       },
     },
   ],
@@ -94,7 +94,7 @@ export default {
           "Nopelniet ar Tournated monetizāciju",
         ],
         button: "Sākt",
-        to: "#",
+        to: "https://www.tournated.net/pricing?plan=custom",
       },
       en: {
         title: "Custom",
@@ -111,7 +111,7 @@ export default {
           "Earn with Tournated Monetization",
         ],
         button: "Get Started",
-        to: "#",
+        to: "https://www.tournated.net/pricing?plan=custom",
       },
     },
     {
@@ -127,7 +127,7 @@ export default {
           "Nopelniet ar Tournated monetizāciju",
         ],
         button: "Sākt",
-        to: "#",
+        to: "https://www.tournated.net/pricing?plan=custom",
       },
       en: {
         title: "Custom Plus",
@@ -141,7 +141,7 @@ export default {
           "Earn with Tournated Monetization",
         ],
         button: "Get Started",
-        to: "#",
+        to: "https://www.tournated.net/pricing?plan=custom",
       },
     },
     {
@@ -157,10 +157,10 @@ export default {
           "Nopelniet ar Tournated monetizāciju",
         ],
         button: "Sākt",
-        to: "#",
+        to: "https://www.tournated.net/pricing?plan=custom",
       },
       en: {
-        title: "Custom Plus",
+        title: "Custom Ultra",
         price: "€199",
         oldPrice: "€298",
         status: "default",
@@ -171,7 +171,7 @@ export default {
           "Earn with Tournated Monetization",
         ],
         button: "Get Started",
-        to: "#",
+        to: "https://www.tournated.net/pricing?plan=custom",
       },
     },
   ],
