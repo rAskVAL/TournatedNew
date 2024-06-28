@@ -6,6 +6,11 @@ import Features from "./Features/Features.tsx";
 import Testimonials from "./Testimonials/Testimonials.tsx";
 import Team from "./Team/Team.tsx";
 import Pricing from "./Pricing/Pricing.tsx";
+import {
+  colors,
+  outerContainerStyles,
+} from "../../components/GlobalStyles.tsx";
+import WhyUs from "./Facts/WhyUs.tsx";
 
 const Home = () => (
   <>
@@ -15,39 +20,35 @@ const Home = () => (
     </WrapperWithWidth>
     <Wrapper>
       <Promo />
+    </Wrapper>
+    <Wrapper $color={colors.white}>
       <Features />
+    </Wrapper>
+    <Wrapper $color="#F1F1F1">
+      <WhyUs />
     </Wrapper>
     <WrapperWithWidth>
       <Testimonials />
     </WrapperWithWidth>
-    <WhiteBG>
+    <Wrapper $color="#f2f2f3">
       <Pricing />
       <Team />
-    </WhiteBG>
+    </Wrapper>
   </>
 );
 
 export default Home;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ $color?: string }>`
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 100%;
   overflow: hidden;
+  background: ${({ $color }) => $color ?? "transparent"};
 `;
 
 const WrapperWithWidth = styled(Wrapper)`
-  max-width: 1440px;
-`;
-
-const WhiteBG = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
-  background: #f2f2f3;
-  width: 100%;
+  ${outerContainerStyles}
 `;

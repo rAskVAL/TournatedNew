@@ -131,5 +131,6 @@ export default {
       "Our team includes World, Continental, and National champions in eight sports. We also have vast experience in organizing international and national leagues and tournaments. We aim to revolutionize the sports industry.",
     pricing_banner: "Looking for more custom solutions?",
     book_a_call: "Book a call",
+    why_us: "Why us",
   },
 };

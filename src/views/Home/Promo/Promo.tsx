@@ -232,6 +232,8 @@ const Mobile = styled.img`
   position: absolute;
   bottom: -40px;
   pointer-events: none;
+  width: 252px;
+  object-fit: contain;
 
   @media (max-width: ${breakpoint.l}px) {
     height: 294px;

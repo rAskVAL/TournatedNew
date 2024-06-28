@@ -15,10 +15,11 @@ const SectionTitle = ({ text, className }: Props) => (
   </Wrapper>
 );
 
-export default SectionTitle;
+export default styled(SectionTitle)``;
 
 const Text = styled.h2`
   ${typography.grotesk16};
+  white-space: nowrap;
 `;
 
 const Wrapper = styled.div`

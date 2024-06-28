@@ -10,12 +10,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useMediaQuery } from "@react-hookz/web";
 import { useTranslation } from "react-i18next";
 
-type Colors = "red" | "blue" | "orange";
+type Colors = "red" | "green" | "orange";
 
 const platformImages = {
-  red: "https://i.imgur.com/Cks5zj4.png",
-  blue: "https://i.imgur.com/3DSabjf.png",
-  orange: "https://i.imgur.com/uNvfyrP.png",
+  red: "src/views/Home/Hero/assets/platform_1.png",
+  green: "src/views/Home/Hero/assets/platform_3.png",
+  orange: "src/views/Home/Hero/assets/platform_2.png",
 } satisfies { [color in Colors]: string };
 
 const Right = () => {
@@ -41,9 +41,9 @@ const Right = () => {
                 $isSelected={selectedColor === "red"}
               />
               <Color
-                $color={"blue"}
-                onClick={() => setSelectedColor("blue")}
-                $isSelected={selectedColor === "blue"}
+                $color={"green"}
+                onClick={() => setSelectedColor("green")}
+                $isSelected={selectedColor === "green"}
               />
             </Selector>
           </SelectorWrapper>
@@ -80,7 +80,7 @@ const Right = () => {
         )}
       </AnimatePresence>
       <AnimatePresence>
-        {selectedColor === "blue" && (
+        {selectedColor === "green" && (
           <PlatformPreview
             initial={{ translateX: "100px", opacity: 0 }}
             animate={{ translateX: "0px", opacity: 1 }}
@@ -90,7 +90,7 @@ const Right = () => {
               opacity: { duration: 0.3 },
               type: "spring",
             }}
-            src={platformImages.blue}
+            src={platformImages.green}
           />
         )}
       </AnimatePresence>
@@ -180,8 +180,8 @@ const Color = styled.button<{ $color: Colors; $isSelected: boolean }>`
   background: ${({ $color }) =>
     $color === "orange"
       ? colors.primary
-      : $color === "blue"
-        ? colors.purple400
+      : $color === "green"
+        ? colors.green400
         : colors.red700};
   opacity: ${({ $isSelected }) => ($isSelected ? 1 : 0.7)};
   outline: ${({ $isSelected }) => ($isSelected ? "3px solid white" : "none")};

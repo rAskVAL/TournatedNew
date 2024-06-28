@@ -12,6 +12,13 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const outerContainerStyles = css`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: min(100vw, 1520px);
+`;
 export const containerStyles = css`
   width: 100%;
   max-width: 1240px;
@@ -62,7 +69,7 @@ export const colors = {
   grey25: "#E9E9E9",
   white: "#FFF",
   whiteHover: "#C4C4C4",
-  purple400: "#6772E5",
+  green400: "#016738",
   red700: "#8C2135",
   success: "#69AD49",
   warning: "#FFE633",

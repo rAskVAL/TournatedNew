@@ -116,7 +116,6 @@ const Container = styled.div`
   justify-content: start;
   flex-direction: column;
   width: 100%;
-  background: ${colors.white};
   padding-top: 120px;
   padding-bottom: 104px;
 
