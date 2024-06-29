@@ -113,6 +113,7 @@ const Card = styled.div`
   ${typography.grotesk64};
   text-align: center;
   white-space: balance;
+  color: ${colors.grey900};
 
   span {
     color: ${colors.primary};
