@@ -1,9 +1,9 @@
-import List from "../views/Home/Features/assets/list.svg?react";
-import League from "../views/Home/Features/assets/league.svg?react";
-import Entries from "../views/Home/Features/assets/entry.svg?react";
-import Groups from "../views/Home/Features/assets/groups.svg?react";
-import Results from "../views/Home/Features/assets/results.svg?react";
-import Analytics from "../views/Home/Features/assets/analytics.svg?react";
+import list from "../assets/features/list.png";
+import league from "../assets/features/leagues.png";
+import entries from "../assets/features/entry.png";
+import groups from "../assets/features/groups.png";
+import results from "../assets/features/final.png";
+import analytics from "../assets/features/analytics.png";
 
 export default [
   {
@@ -15,7 +15,7 @@ export default [
       en: "Setup your team, licences, tournament & ranking categories, points scoring system, photo gallery and more.",
       lv: "Iestatiet savu komandu, licences, turnīru un vērtēšanas kategorijas, punktu skaitīšanas sistēmu, foto galeriju un daudz ko citu.",
     },
-    banner: <League />,
+    banner: league,
     centered: false,
   },
   {
@@ -27,7 +27,7 @@ export default [
       en: "Manage entries in couple clicks, accept online payments, set up additional questions, provide promo codes and discounts, and more.",
       lv: "Pārvaldiet ierakstus ar pāris klikšķiem, pieņemiet tiešsaistes maksājumus, iestatiet papildu jautājumus, piedāvājiet reklāmas kodus un atlaides, un daudz ko citu.",
     },
-    banner: <Entries />,
+    banner: entries,
     centered: false,
   },
   {
@@ -39,7 +39,7 @@ export default [
       en: "Automatically generate brackets and schedule for all categories under 5 seconds. Main draw, consolation and consolation. Multiple formats. Fully automated.",
       lv: "Automātiski ģenerējiet tabulas un grafikus visām kategorijām zem 5 sekundēm. Galvenā izloze, mierinājuma un mierinājuma. Vairāki formāti. Pilnībā automatizēts.",
     },
-    banner: <Groups />,
+    banner: groups,
     centered: false,
   },
   {
@@ -51,7 +51,7 @@ export default [
       en: "Tournated is ready for (almost) any sport. Features include generation of lists and results with custom metrics, pairings in swiss system and final standings.",
       lv: "Tournated ir gatavs (gandrīz) jebkuram sportam. Funkcijas ietver sarakstu un rezultātu ģenerēšanu ar pielāgotiem rādītājiem, pārus Šveices sistēmā un galīgos rezultātus.",
     },
-    banner: <List />,
+    banner: list,
     centered: true,
   },
   {
@@ -63,7 +63,7 @@ export default [
       en: "Based on your point system and ranking rules, the final standings are automatically taken from the brackets and updated with one click.",
       lv: "Pamatojoties uz jūsu punktu sistēmu un vērtēšanas noteikumiem, galīgie rezultāti tiek automātiski ņemti no tabulām un atjaunināti ar vienu klikšķi.",
     },
-    banner: <Results />,
+    banner: results,
     centered: false,
   },
   {
@@ -75,7 +75,7 @@ export default [
       en: "Track all financial transactions and performance metrics with Tournated Analytics.",
       lv: "Izsekojiet visus finanšu darījumus un veiktspējas rādītājus ar Tournated Analytics.",
     },
-    banner: <Analytics />,
+    banner: analytics,
     centered: false,
   },
 ];

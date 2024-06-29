@@ -12,9 +12,9 @@ import AccordionItem from "./AccordionItem.tsx";
 import data from "../../../data/FeaturesData.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Icon1 from "./assets/icon1.svg?react";
-import Icon2 from "./assets/icon2.svg?react";
-import Icon3 from "./assets/icon3.svg?react";
+import Icon1 from "../../../assets/features/icon1.svg?react";
+import Icon2 from "../../../assets/features/icon2.svg?react";
+import Icon3 from "../../../assets/features/icon3.svg?react";
 import { Trans, useTranslation } from "react-i18next";
 import { SupportedLanguages } from "../../../App.tsx";
 import ProgressBar from "../../../components/ProgressBar.tsx";
@@ -61,7 +61,11 @@ const Features = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                     >
-                      {feature.banner}
+                      <Img
+                        src={feature.banner}
+                        alt={feature.title.en}
+                        $activeItem={activeItem}
+                      />
                     </motion.div>
                   ),
               )}
@@ -80,7 +84,9 @@ const Features = () => {
               <Card key={i}>
                 <h3>{title[currentLanguage]}</h3>
                 <p>{description[currentLanguage]}</p>
-                <div>{banner}</div>
+                <div>
+                  <Img src={banner} alt={title.en} />
+                </div>
               </Card>
             ))}
           </MobileContent>
@@ -186,7 +192,7 @@ const Left = styled.div`
   padding-top: 20px;
 `;
 
-const Right = styled.div<{ $activeItem: number; $centered?: boolean }>`
+const Right = styled.div<{ $activeItem: number }>`
   flex: 1;
   height: 100%;
   background: ${({ $activeItem }) =>
@@ -195,19 +201,9 @@ const Right = styled.div<{ $activeItem: number; $centered?: boolean }>`
 
   & > div {
     position: absolute;
-    display: flex;
-    justify-content: end;
     height: 100%;
     width: 100%;
-
-    ${({ $activeItem }) =>
-      $activeItem === 3
-        ? css`
-            align-items: center;
-          `
-        : css`
-            align-items: end;
-          `};
+    right: 0;
   }
 `;
 
@@ -220,15 +216,18 @@ const Card = styled(SwiperSlide)`
   h3 {
     ${typography.grotesk18};
     color: ${colors.grey900};
+    margin-bottom: 13px;
   }
 
   p {
     ${typography.grotesk14};
     color: ${colors.grey600};
     height: 65px;
+    margin-bottom: 13px;
   }
 
   div {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: end;
@@ -246,7 +245,7 @@ const Card = styled(SwiperSlide)`
 
 const MobileContent = styled(Swiper)`
   ${containerStyles};
-  max-width: 100%;
+  max-width: calc(100% - 40px);
   margin-top: 55px;
 `;
 
@@ -295,4 +294,22 @@ const BottomCard = styled(motion.div)`
       width: 40px;
     }
   }
+`;
+
+const Img = styled.img<{ $activeItem?: number }>`
+  position: absolute;
+  max-height: 92%;
+  max-width: 92%;
+  object-fit: contain;
+  right: 0;
+
+  ${({ $activeItem }) =>
+    $activeItem === 3
+      ? css`
+          top: 50%;
+          transform: translateY(-50%);
+        `
+      : css`
+          bottom: 0;
+        `};
 `;
