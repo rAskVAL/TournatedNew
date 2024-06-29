@@ -16,6 +16,7 @@ import Button from "../../../components/Button.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { SwiperSlide, Swiper } from "swiper/react"; // Import Swiper component
 import Pattern from "./assets/pattern.svg?react";
+import { motion } from "framer-motion";
 
 const Pricing = () => {
   const { t, i18n } = useTranslation();
@@ -37,9 +38,14 @@ const Pricing = () => {
       />
       {isMobile ? (
         <StyledSwiper spaceBetween={20} slidesPerView="auto">
-          {currentData.map((plan, index) => (
-            <CardsSlide key={index}>
-              <Card>
+          {currentData.map((plan) => (
+            <CardsSlide key={plan[currentLanguage]?.title}>
+              <Card
+                initial={{ opacity: 0.4 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.5 }}
+              >
                 <CardTitleBox $status={plan[currentLanguage]?.status}>
                   <CardTitle text={plan[currentLanguage]?.title} />
                   <CardPrice>
@@ -73,8 +79,14 @@ const Pricing = () => {
         </StyledSwiper>
       ) : (
         <Cards>
-          {currentData.map((plan, index) => (
-            <Card key={index}>
+          {currentData.map((plan) => (
+            <Card
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: "some" }}
+              transition={{ duration: 0.5 }}
+              key={plan[currentLanguage]?.title}
+            >
               <CardTitleBox $status={plan[currentLanguage]?.status}>
                 <CardTitle text={plan[currentLanguage]?.title} />
                 <CardPrice>
@@ -173,7 +185,7 @@ const Cards = styled.div`
   justify-content: center;
 `;
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   height: 541px;
   flex: 1;
   max-width: 385px;

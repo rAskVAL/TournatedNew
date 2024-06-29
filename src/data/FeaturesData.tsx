@@ -40,7 +40,7 @@ export default [
       lv: "Automātiski ģenerējiet tabulas un grafikus visām kategorijām zem 5 sekundēm. Galvenā izloze, mierinājuma un mierinājuma. Vairāki formāti. Pilnībā automatizēts.",
     },
     banner: <Groups />,
-    centered: true,
+    centered: false,
   },
   {
     title: {
@@ -52,7 +52,7 @@ export default [
       lv: "Tournated ir gatavs (gandrīz) jebkuram sportam. Funkcijas ietver sarakstu un rezultātu ģenerēšanu ar pielāgotiem rādītājiem, pārus Šveices sistēmā un galīgos rezultātus.",
     },
     banner: <List />,
-    centered: false,
+    centered: true,
   },
   {
     title: {

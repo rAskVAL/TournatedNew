@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar/Navbar.tsx";
 import styled from "styled-components";
 import { colors } from "../components/GlobalStyles.tsx";
 import Footer from "./Footer.tsx";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const Layout = () => {
@@ -23,9 +23,11 @@ const Layout = () => {
 
   return (
     <Container>
-      <Navbar />
-      <Outlet />
-      <Footer />
+      <Suspense>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </Suspense>
     </Container>
   );
 };

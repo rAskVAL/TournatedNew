@@ -6,9 +6,15 @@ import {
 import Left from "./Left.tsx";
 import Right from "./Right.tsx";
 import Partners from "../Partners/Partners.tsx";
+import { motion } from "framer-motion";
 
 const Hero = () => (
-  <Container>
+  <Container
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true, amount: 0 }}
+    transition={{ duration: 1 }}
+  >
     <Overflow>
       <Wrapper>
         <Left />
@@ -38,7 +44,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;

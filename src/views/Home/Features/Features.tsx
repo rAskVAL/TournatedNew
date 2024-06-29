@@ -88,17 +88,32 @@ const Features = () => {
         </>
       )}
       <Bottom>
-        <BottomCard>
+        <BottomCard
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
           <Icon1 />
           <h3>{t("athlete_experience")}</h3>
           <p>{t("athlete_experience_description")}</p>
         </BottomCard>
-        <BottomCard>
+        <BottomCard
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
           <Icon2 />
           <h3>{t("launch_platform_app")}</h3>
           <p>{t("launch_platform_app_description")}</p>
         </BottomCard>
-        <BottomCard>
+        <BottomCard
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
           <Icon3 />
           <h3>{t("any_sport_format")}</h3>
           <p>{t("any_sport_format_description")}</p>
@@ -171,11 +186,11 @@ const Left = styled.div`
   padding-top: 20px;
 `;
 
-const Right = styled.div<{ $activeItem: number }>`
+const Right = styled.div<{ $activeItem: number; $centered?: boolean }>`
   flex: 1;
   height: 100%;
   background: ${({ $activeItem }) =>
-    $activeItem === 3 ? colors.grey900 : colors.primary};
+    $activeItem === 2 ? colors.grey900 : colors.primary};
   position: relative;
 
   & > div {
@@ -186,7 +201,7 @@ const Right = styled.div<{ $activeItem: number }>`
     width: 100%;
 
     ${({ $activeItem }) =>
-      $activeItem === 2
+      $activeItem === 3
         ? css`
             align-items: center;
           `
@@ -251,7 +266,7 @@ const Bottom = styled.div`
   }
 `;
 
-const BottomCard = styled.div`
+const BottomCard = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 16px;

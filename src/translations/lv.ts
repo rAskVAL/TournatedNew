@@ -133,5 +133,7 @@ export default {
     pricing_banner: "Meklējat pielāgotu risinājumu?",
     book_a_call: "Rezervēt zvanu",
     why_us: "Kāpēc mēs",
+    facts: "Fakti",
+    based_on_client_surveys: "Balstoties uz klientu aptaujām.",
   },
 };

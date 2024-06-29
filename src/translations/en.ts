@@ -132,5 +132,7 @@ export default {
     pricing_banner: "Looking for more custom solutions?",
     book_a_call: "Book a call",
     why_us: "Why us",
+    facts: "Facts",
+    based_on_client_surveys: "Based on Client Surveys.",
   },
 };

@@ -4,7 +4,6 @@ import {
   breakpoint,
   colors,
   containerStyles,
-  resetStyles,
   typography,
 } from "../../../components/GlobalStyles.tsx";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
@@ -13,9 +12,9 @@ import { testimonialsData } from "../../../data/TestimonialsData.ts";
 import { SupportedLanguages } from "../../../App.tsx";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useRef, useState } from "react";
-import ArrowRight from "../../../assets/Icons/arrowRight.svg?react";
 import ProgressBar from "../../../components/ProgressBar.tsx";
 import { useMediaQuery, useThrottledState } from "@react-hookz/web";
+import SwiperButtons from "../../../components/SwiperButtons.tsx";
 
 const Testimonials = () => {
   const { i18n } = useTranslation();
@@ -70,17 +69,12 @@ const Testimonials = () => {
           <StyledBar animationLength={5} percentage={percentage} />
         </Wrapper>
         {!isMobile && (
-          <Buttons>
-            <Button onClick={handlePrev} disabled={activeIndex === 0}>
-              <LeftIcon />
-            </Button>
-            <Button
-              onClick={handleNext}
-              disabled={activeIndex === testimonialsData.length - 1}
-            >
-              <RightIcon />
-            </Button>
-          </Buttons>
+          <SwiperButtons
+            handleNext={handleNext}
+            handlePrev={handlePrev}
+            activeIndex={activeIndex}
+            dataLength={testimonialsData.length}
+          />
         )}
       </Content>
     </Container>
@@ -132,6 +126,12 @@ const Content = styled.div`
   ${containerStyles};
   @media (max-width: ${breakpoint.l}px) {
     margin-bottom: 92px;
+  }
+
+  & ${SwiperButtons} {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
   }
 `;
 
@@ -197,59 +197,6 @@ const Avatar = styled.img`
   width: 48px;
   aspect-ratio: 1/1;
   object-fit: cover;
-`;
-
-const RightIcon = styled(ArrowRight)`
-  path {
-    stroke: black;
-    transition: all 0.1s;
-  }
-`;
-
-const LeftIcon = styled(RightIcon)`
-  transform: scaleX(-1);
-`;
-
-const Button = styled.button`
-  ${resetStyles};
-
-  && {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: ${colors.white};
-    height: 48px;
-    width: 48px;
-    border-radius: 6px;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.1s;
-
-    &:hover {
-      * {
-        stroke: ${colors.white};
-      }
-      background-color: ${colors.black};
-
-      &:active {
-        background-color: ${colors.primaryHover};
-      }
-    }
-
-    &:disabled {
-      opacity: 0.4;
-      pointer-events: none;
-    }
-  }
-`;
-
-const Buttons = styled.div`
-  display: flex;
-  align-items: end;
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  gap: 12px;
 `;
 
 const Slide = styled(SwiperSlide)`

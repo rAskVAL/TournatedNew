@@ -1,16 +1,19 @@
-import Hero from "./Hero/Hero.tsx";
-import styled from "styled-components";
-import Featured from "./Featured/Featured.tsx";
-import Promo from "./Promo/Promo.tsx";
-import Features from "./Features/Features.tsx";
-import Testimonials from "./Testimonials/Testimonials.tsx";
-import Team from "./Team/Team.tsx";
-import Pricing from "./Pricing/Pricing.tsx";
 import {
   colors,
   outerContainerStyles,
 } from "../../components/GlobalStyles.tsx";
-import WhyUs from "./Facts/WhyUs.tsx";
+import styled from "styled-components";
+import { lazy } from "react";
+import Facts from "./Facts/Facts.tsx";
+
+const Hero = lazy(() => import("./Hero/Hero.tsx"));
+const Featured = lazy(() => import("./Featured/Featured.tsx"));
+const Promo = lazy(() => import("./Promo/Promo.tsx"));
+const Features = lazy(() => import("./Features/Features.tsx"));
+const Testimonials = lazy(() => import("./Testimonials/Testimonials.tsx"));
+const Team = lazy(() => import("./Team/Team.tsx"));
+const Pricing = lazy(() => import("./Pricing/Pricing.tsx"));
+const WhyUs = lazy(() => import("./Facts/WhyUs.tsx"));
 
 const Home = () => (
   <>
@@ -26,6 +29,7 @@ const Home = () => (
     </Wrapper>
     <Wrapper $color="#F1F1F1">
       <WhyUs />
+      <Facts />
     </Wrapper>
     <WrapperWithWidth>
       <Testimonials />

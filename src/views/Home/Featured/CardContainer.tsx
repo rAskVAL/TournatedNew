@@ -7,6 +7,7 @@ import {
   padding,
   typography,
 } from "../../../components/GlobalStyles.tsx";
+import { motion } from "framer-motion";
 
 type Type = "league" | "tournament" | "organization";
 
@@ -24,7 +25,12 @@ const CardContainer = ({ children, noPaddingZone, type, className }: Props) => {
   const { t } = useTranslation();
 
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: "some" }}
+      transition={{ duration: 0.5 }}
+    >
       <TitleBox $type={type}>
         {perType(
           {
@@ -82,7 +88,7 @@ const Content = styled.div`
   justify-content: start;
 `;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   flex: 1;
   display: flex;
   flex-direction: column;

@@ -11,6 +11,7 @@ import {
 import WhyUsData from "../../../data/WhyUsData.ts";
 import { SupportedLanguages } from "../../../App.tsx";
 import Icon from "./assets/icon.svg?react";
+import { motion } from "framer-motion";
 
 const WhyUs = () => {
   const { t, i18n } = useTranslation();
@@ -24,24 +25,44 @@ const WhyUs = () => {
           <SectionTitle text={t("why_us")}></SectionTitle>
           <PointsBox>
             <Points $index={[1, 2]}>
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 1 }}
+                transition={{ duration: 0.5 }}
+              >
                 <Count>1</Count>
                 <p>{WhyUsData[0][currentLanguage]}</p>
-              </div>
-              <div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 1 }}
+                transition={{ duration: 0.5 }}
+              >
                 <Count>2</Count>
                 <p>{WhyUsData[1][currentLanguage]}</p>
-              </div>
+              </motion.div>
             </Points>
             <Points $index={[3, 4]}>
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 1 }}
+                transition={{ duration: 0.5 }}
+              >
                 <Count>3</Count>
                 <p>{WhyUsData[2][currentLanguage]}</p>
-              </div>
-              <div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 1 }}
+                transition={{ duration: 0.5 }}
+              >
                 <Count>4</Count>
                 <p>{WhyUsData[3][currentLanguage]}</p>
-              </div>
+              </motion.div>
             </Points>
           </PointsBox>
         </Box>
