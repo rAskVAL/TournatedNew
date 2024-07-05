@@ -17,6 +17,7 @@ import photo3 from "./assets/photos/photo_3.png";
 import photo4 from "./assets/photos/photo_4.png";
 import photo5 from "./assets/photos/photo_5.png";
 import photo6 from "./assets/photos/photo_6.png";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -24,7 +25,12 @@ const Hero = () => {
   return (
     <>
       <Container>
-        <BackgroundImages>
+        <BackgroundImages
+          initial={{ width: "105%", opacity: 0 }}
+          whileInView={{ width: "100%", opacity: 1 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <TopLeft src={photo6} />
           <BottomLeft src={photo1} />
           <CenterLeft src={photo3} />
@@ -32,7 +38,12 @@ const Hero = () => {
           <CenterRight src={photo4} />
           <BottomRight src={photo2} />
         </BackgroundImages>
-        <Wrapper>
+        <Wrapper
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <MadeIn>
             <ReactCountryFlag
               countryCode="lv"
@@ -57,7 +68,12 @@ const Hero = () => {
           </Achievement>
         </Wrapper>
       </Container>
-      <Stats>
+      <Stats
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <Stat>
           <StatIcon>
             <TournatedLogo />
@@ -98,7 +114,7 @@ const Hero = () => {
 
 export default Hero;
 
-const Stats = styled.div`
+const Stats = styled(motion.div)`
   display: flex;
   width: 100%;
   max-width: 973px;
@@ -179,7 +195,7 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   position: relative;
   padding-inline: 20px;
   display: flex;
@@ -254,7 +270,7 @@ const Seperator = styled.div`
   background: ${colors.secondary};
 `;
 
-const BackgroundImages = styled.div`
+const BackgroundImages = styled(motion.div)`
   position: absolute;
   height: 100%;
   width: 100%;
