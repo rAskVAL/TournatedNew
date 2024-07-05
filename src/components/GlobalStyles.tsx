@@ -1,14 +1,15 @@
 import { createGlobalStyle, css } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Space Grotesk", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
   
   #root {
     width: 100%;
+    font-family: "Familjen Grotesk", sans-serif;
+    overflow: hidden;
   }
 `;
 

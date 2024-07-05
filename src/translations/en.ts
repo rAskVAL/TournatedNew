@@ -134,5 +134,20 @@ export default {
     why_us: "Why us",
     facts: "Facts",
     based_on_client_surveys: "Based on Client Surveys.",
+    about: {
+      hero: {
+        title:
+          "Empower your sports organization's growth with <span>our IT solutions</span>",
+        subtitle:
+          "We are the team behind <span>tournated.com</span> and dozens of customized solutions tailored for various sports organizations.",
+        stats: {
+          join: "Join all-in-one sports platform",
+          white_labeling: "White labeling",
+          your_own_platform: "Have your own platform",
+          custom_solutions: "Custom solutions",
+          request_any_other: "Request any other IT solution",
+        },
+      },
+    },
   },
 };

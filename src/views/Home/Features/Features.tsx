@@ -57,9 +57,19 @@ const Features = () => {
                   activeItem === index && (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
+                      initial={{ opacity: 0, x: 70 }}
+                      animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0 }}
+                      transition={{
+                        x: {
+                          type: "tween",
+                          ease: "anticipate",
+                          duration: 0.3,
+                        },
+                        opacity: {
+                          duration: 0.4,
+                        },
+                      }}
                     >
                       <Img
                         src={feature.banner}
@@ -198,6 +208,7 @@ const Right = styled.div<{ $activeItem: number }>`
   background: ${({ $activeItem }) =>
     $activeItem === 2 ? colors.grey900 : colors.primary};
   position: relative;
+  overflow: hidden;
 
   & > div {
     position: absolute;

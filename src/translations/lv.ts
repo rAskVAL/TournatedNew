@@ -135,5 +135,20 @@ export default {
     why_us: "Kāpēc mēs",
     facts: "Fakti",
     based_on_client_surveys: "Balstoties uz klientu aptaujām.",
+    about: {
+      hero: {
+        title:
+          "Veiciniet savas sporta organizācijas izaugsmi ar <span>mūsu IT risinājumiem</span>",
+        subtitle:
+          "Mēs esam komanda aiz <span>tournated.com</span> un desmitiem pielāgotu risinājumu dažādām sporta organizācijām.",
+        stats: {
+          join: "Pievienojieties visaptverošai sporta platformai",
+          white_labeling: "Baltā marķēšana",
+          your_own_platform: "Izveidojiet savu platformu",
+          custom_solutions: "Pielāgoti risinājumi",
+          request_any_other: "Pieprasiet jebkuru citu IT risinājumu",
+        },
+      },
+    },
   },
 };

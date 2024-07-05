@@ -5,7 +5,7 @@ import { PLATFORM_URL } from "../consts.ts";
 
 const menu = [
   {
-    to: "#",
+    to: undefined,
     title: { en: "Products", lv: "Produkti" },
     icon: "",
     submenu: {
@@ -43,7 +43,7 @@ const menu = [
     },
   },
   {
-    to: "#",
+    to: undefined,
     title: { en: "Solutions", lv: "Risinājumi" },
     icon: "",
     submenu: {
@@ -75,7 +75,7 @@ const menu = [
     },
   },
   {
-    to: "#",
+    to: undefined,
     title: { en: "Sports", lv: "Sporta veidi" },
     icon: "",
     submenu: {
@@ -122,7 +122,7 @@ const menu = [
     },
   },
   {
-    to: "#",
+    to: undefined,
     title: { en: "Browse", lv: "Pārlūkot" },
     icon: "",
     submenu: {
@@ -158,11 +158,11 @@ const menu = [
       },
     },
   },
-  // {
-  //   to: "#",
-  //   title: { en: "More", lv: "Vairāk" },
-  //   icon: "",
-  // },
+  {
+    to: "/about",
+    title: { en: "About", lv: "Par mums" },
+    icon: "",
+  },
 ];
 
 export default menu;

@@ -1,16 +1,17 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { colors, typography } from "./GlobalStyles.tsx";
+import { useNavigate } from "react-router-dom";
+import { colors, resetStyles, typography } from "./GlobalStyles.tsx";
 import { useState } from "react";
 import ChevronDown from "../assets/Icons/chevronDown.svg?react";
 import Submenu, { SubmenuType } from "./Navbar/Submenu.tsx";
 import { useTranslation } from "react-i18next";
 import { SupportedLanguages } from "../App.tsx";
+import useLink from "../utils/useLink.ts";
 
 type Props = {
   title: { en: string; lv: string };
-  to: string;
+  to?: string;
   className?: string;
   submenu?: SubmenuType;
 };
@@ -45,15 +46,19 @@ const NavItem = ({ title, to, className, submenu }: Props) => {
 
   const { i18n } = useTranslation();
   const currentLanguage = i18n.language as SupportedLanguages;
+  const navigate = useNavigate();
+  const link = useLink(to);
 
   return (
     <Item className={className}>
       <Title
-        to={to}
-        onClick={() => setIsSubmenuOpen((curr) => !curr)}
+        onClick={() => {
+          setIsSubmenuOpen((curr) => !curr);
+          if (link) navigate(link);
+        }}
         ref={titleRef}
       >
-        {title[currentLanguage]} <Chevron />
+        {title[currentLanguage]} {submenu && <Chevron />}
       </Title>
       {submenu && isSubmenuOpen && (
         <Submenu ref={submenuRef} submenu={submenu} />
@@ -64,11 +69,13 @@ const NavItem = ({ title, to, className, submenu }: Props) => {
 
 export default NavItem;
 
-const Title = styled(Link)`
-  all: unset;
-  cursor: pointer;
-  &:hover {
-    color: ${colors.whiteHover};
+const Title = styled.a`
+  ${resetStyles}
+  && {
+    cursor: pointer;
+    &:hover {
+      color: ${colors.whiteHover};
+    }
   }
 `;
 

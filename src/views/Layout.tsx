@@ -1,4 +1,4 @@
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar.tsx";
 import styled from "styled-components";
 import { colors } from "../components/GlobalStyles.tsx";
@@ -7,17 +7,12 @@ import { Suspense, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const Layout = () => {
+  const { i18n } = useTranslation();
   const { lang } = useParams();
-  const navigate = useNavigate();
-  const {
-    i18n: { changeLanguage },
-  } = useTranslation();
 
   useEffect(() => {
     if (lang) {
-      void changeLanguage(lang);
-    } else {
-      navigate("/en");
+      void i18n.changeLanguage(lang);
     }
   }, [lang]);
 

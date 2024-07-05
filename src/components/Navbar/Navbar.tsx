@@ -19,12 +19,16 @@ import { useState } from "react";
 import MobileMenu from "./MobileMenu.tsx";
 import { AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import useLink from "../../utils/useLink.ts";
 
 const Navbar = () => {
   const isNarrow = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.sm}px)`);
   const [isMenuOpen, setIsMobileOpen] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const homePageLink = useLink("/");
   return (
     <>
       <Nav>
@@ -41,7 +45,11 @@ const Navbar = () => {
         )}
         <Container>
           <Wrapper>
-            <Logo src={logo} alt="Logo" />
+            <Logo
+              src={logo}
+              alt="Logo"
+              onClick={() => homePageLink && navigate(homePageLink)}
+            />
             {isNarrow ? (
               <BurgerIcon onClick={() => setIsMobileOpen(true)} />
             ) : (
@@ -100,6 +108,7 @@ const Wrapper = styled.div`
 
 const Logo = styled.img`
   height: 24px;
+  cursor: pointer;
 `;
 
 const RightContainer = styled.div`

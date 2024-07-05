@@ -3,13 +3,18 @@ import NavItem from "../NavItem.tsx";
 import { colors, typography } from "../GlobalStyles.tsx";
 import Button from "../Button.tsx";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { SupportedLanguages } from "../../App.tsx";
 
 const LanguageSelector = ({ mobile }: { mobile?: boolean }) => {
   const {
     i18n: { language },
   } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const getLink = (lang: SupportedLanguages) =>
+    location.pathname.replace(/^\/[^/]+/, `/${lang}`);
 
   if (mobile)
     return (
@@ -19,14 +24,14 @@ const LanguageSelector = ({ mobile }: { mobile?: boolean }) => {
           <StyledButton
             style="transparent"
             selected={language === "en"}
-            onClick={() => navigate("/en")}
+            onClick={() => navigate(getLink("en"))}
           >
             EN
           </StyledButton>
           <StyledButton
             style="transparent"
             selected={language === "lv"}
-            onClick={() => navigate("/lv")}
+            onClick={() => navigate(getLink("lv"))}
           >
             LV
           </StyledButton>
@@ -37,19 +42,18 @@ const LanguageSelector = ({ mobile }: { mobile?: boolean }) => {
   return (
     <Container
       title={{ en: "EN", lv: "LV" }}
-      to="#"
       submenu={{
         links: {
           title: { en: "Select language", lv: "Izvēlieties valodu" },
           items: [
             {
               title: { en: "English", lv: "English" },
-              to: "/en",
+              to: getLink("en"),
               selected: language === "en",
             },
             {
               title: { en: "Latviski", lv: "Latviski" },
-              to: "/lv",
+              to: getLink("lv"),
               selected: language === "lv",
             },
           ],

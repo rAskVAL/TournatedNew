@@ -10,7 +10,7 @@ import Close from "../../assets/Icons/close.svg?react";
 import { AnimatePresence, motion } from "framer-motion";
 import data from "../../data/NavbarData.tsx";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ChevronDown from "../../assets/Icons/chevronDown.svg?react";
 import Button from "../Button.tsx";
 import LanguageSelector from "./LanguageSelector.tsx";
@@ -26,6 +26,7 @@ type Props = {
 const MobileMenu = ({ setIsMobileOpen }: Props) => {
   const [openedMenuIndex, setOpenedMenuIndex] = useState<number>();
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Disable scrolling
@@ -51,12 +52,13 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
           <CloseIcon onClick={() => setIsMobileOpen(false)} />
         </Wrapper>
         <Links>
-          {data.map(({ title, submenu }, i) => (
+          {data.map(({ title, submenu, to }, i) => (
             <Item $active={openedMenuIndex === i} key={title.en}>
               <ItemTitle
-                onClick={() =>
-                  setOpenedMenuIndex((curr) => (curr === i ? undefined : i))
-                }
+                onClick={() => {
+                  setOpenedMenuIndex((curr) => (curr === i ? undefined : i));
+                  if (to) navigate(to);
+                }}
               >
                 <p>{title[currentLanguage]}</p>
                 {submenu && (
@@ -180,6 +182,7 @@ const ItemTitle = styled.button`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
   }
 `;
 

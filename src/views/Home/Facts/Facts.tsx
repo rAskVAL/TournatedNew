@@ -43,6 +43,7 @@ const Facts = () => {
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
+        autoplay={{ delay: 5000 }}
       >
         {factsData.map((fact, index) => (
           <SwiperSlide key={index}>

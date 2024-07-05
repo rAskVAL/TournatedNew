@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  Navigate,
+} from "react-router-dom";
 import Layout from "./views/Layout.tsx";
 import { Reset } from "styled-reset";
 import GlobalStyles from "./components/GlobalStyles.tsx";
@@ -9,6 +13,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import en from "./translations/en.ts";
 import lv from "./translations/lv.ts";
 import { lazy } from "react";
+import About from "./views/About/About.tsx";
 
 export type SupportedLanguages = "lv" | "en";
 
@@ -34,14 +39,20 @@ i18n
 
 const router = createBrowserRouter([
   {
-    path: "/:lang",
-    element: <Layout />,
-    children: [{ index: true, element: <Home /> }],
+    path: "/",
+    element: <Navigate to={`/${i18n.language}`} replace />,
   },
   {
-    path: "/",
+    path: "/about",
+    element: <Navigate to={`/${i18n.language}/about`} replace />,
+  },
+  {
+    path: "/:lang",
     element: <Layout />,
-    children: [{ index: true, element: <Home /> }],
+    children: [
+      { path: "", element: <Home /> },
+      { path: "about", element: <About /> },
+    ],
   },
 ]);
 
@@ -54,5 +65,4 @@ const App = () => {
     </>
   );
 };
-
 export default App;
