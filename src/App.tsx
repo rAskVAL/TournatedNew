@@ -27,6 +27,7 @@ i18n
       en,
       lv,
     },
+    supportedLngs: ["lv", "en"],
     fallbackLng: "en",
     interpolation: {
       escapeValue: false,
