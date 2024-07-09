@@ -18,6 +18,7 @@ import HighlightButton from "./HighlightButton.tsx";
 import { useTranslation } from "react-i18next";
 import { SupportedLanguages } from "../../App.tsx";
 import { CALENDLY_URL, PLATFORM_URL } from "../../consts.ts";
+import useLink from "../../utils/useLink.ts";
 
 type Props = {
   setIsMobileOpen: (state: boolean) => void;
@@ -27,6 +28,7 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
   const [openedMenuIndex, setOpenedMenuIndex] = useState<number>();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const homePageLink = useLink("/");
 
   useEffect(() => {
     // Disable scrolling
@@ -48,7 +50,14 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
     >
       <Top>
         <Wrapper>
-          <Logo src={logo} alt={t("logo_alt")} />
+          <Logo
+            src={logo}
+            alt={t("logo_alt")}
+            onClick={() => {
+              if (homePageLink) navigate(homePageLink);
+              setIsMobileOpen(false);
+            }}
+          />
           <CloseIcon onClick={() => setIsMobileOpen(false)} />
         </Wrapper>
         <Links>
@@ -119,6 +128,7 @@ const Wrapper = styled.div`
 
 const Logo = styled.img`
   height: 24px;
+  cursor: pointer;
 `;
 
 const MobileMenuContainer = styled(motion.div)`

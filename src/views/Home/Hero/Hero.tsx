@@ -53,7 +53,7 @@ const Container = styled(motion.div)`
   height: 100%;
 
   @media (min-width: ${breakpoint.l}px) {
-    height: min(calc(100dvh - 130px), 1000px);
+    height: max(min(calc(100dvh - 130px), 1000px), 650px);
   }
 `;
 
