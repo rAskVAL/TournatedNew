@@ -2,6 +2,7 @@ export default {
   translation: {
     partners: "Partneri",
     powering: "Klineti",
+    trusted_by: "Uzticas",
     stats: {
       entries: "Pieteikumi",
       organizations: "Organizācijas",
