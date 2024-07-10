@@ -1,8 +1,7 @@
 export default {
   translation: {
-    partners: {
-      title: "Partneri",
-    },
+    partners: "Partneri",
+    powering: "Klineti",
     stats: {
       entries: "Pieteikumi",
       organizations: "Organizācijas",

@@ -274,8 +274,19 @@ const BackgroundImages = styled(motion.div)`
   position: absolute;
   height: 100%;
   width: 100%;
+  max-width: 1920px;
   top: 0;
   z-index: 0;
+
+  @media (min-width: 1920px) {
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0)
+    );
+  }
 `;
 
 const BottomLeft = styled.img`

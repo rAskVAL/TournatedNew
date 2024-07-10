@@ -4,13 +4,21 @@ import {
   colors,
   containerStyles,
   typography,
-} from "../../../components/GlobalStyles";
+} from "../GlobalStyles.tsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useTranslation } from "react-i18next";
-import { partners } from "./data"; // Import the partners testimonialsData
+import { Partner } from "../../views/Home/partnersData.ts";
 
-const Partners = () => {
+const Partners = ({
+  data,
+  titleKey,
+  className,
+}: {
+  data: Partner[];
+  titleKey: string;
+  className?: string;
+}) => {
   const { t } = useTranslation();
 
   const handleClick = (url: string) => {
@@ -18,13 +26,13 @@ const Partners = () => {
   };
 
   // Repeat partners until there are at least 8
-  const repeatedPartners = Array.from({ length: 8 }, () => partners)
+  const repeatedPartners = Array.from({ length: 8 }, () => data)
     .flat()
     .slice(0, 8);
 
   return (
-    <Container>
-      <Title>{t("partners.title")}</Title>
+    <Container className={className}>
+      <Title>{t(titleKey)}</Title>
       <Block />
       <List
         slidesPerView="auto"

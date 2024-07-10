@@ -1,8 +1,7 @@
 export default {
   translation: {
-    partners: {
-      title: "Partners",
-    },
+    partners: "Partners",
+    powering: "Powering",
     stats: {
       entries: "Entries",
       organizations: "Organizations",

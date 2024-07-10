@@ -19,3 +19,12 @@ export const partners: Partner[] = [
     url: "https://ganbei.lv",
   },
 ];
+
+export const powering: Partner[] = [
+  {
+    id: 1,
+    name: "LTS",
+    logo: "https://i.imgur.com/2hVEm2e.png",
+    url: "https://teniss.lat",
+  },
+];

@@ -5,8 +5,9 @@ import {
 } from "../../../components/GlobalStyles.tsx";
 import Left from "./Left.tsx";
 import Right from "./Right.tsx";
-import Partners from "../Partners/Partners.tsx";
+import Partners from "../../../components/Partners/Partners.tsx";
 import { motion } from "framer-motion";
+import { partners } from "../partnersData.ts";
 
 const Hero = () => (
   <Container
@@ -21,7 +22,7 @@ const Hero = () => (
         <Right />
       </Wrapper>
     </Overflow>
-    <Partners />
+    <Partners data={partners} titleKey="partners" />
   </Container>
 );
 
