@@ -15,6 +15,7 @@ import CheckmarkIcon from "../../../assets/Icons/checkmark.svg?react";
 import Button from "../../../components/Button.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { SwiperSlide, Swiper } from "swiper/react"; // Import Swiper component
+import { Swiper as SwiperType } from "swiper";
 import Pattern from "./assets/pattern.svg?react";
 import { motion } from "framer-motion";
 
@@ -22,10 +23,18 @@ const Pricing = () => {
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language as SupportedLanguages;
   const [activeIndex, setActiveIndex] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType>(); // Create a state variable for the Swiper instance
 
   const currentData = data[activeIndex === 0 ? "manager" : "whiteLabel"];
 
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
+
+  const handleSwitchChange = (i: number) => {
+    setActiveIndex(i);
+    if (swiperInstance) {
+      swiperInstance.slideTo(0); // Move the slider to the first slide
+    }
+  };
 
   return (
     <Container>
@@ -33,11 +42,15 @@ const Pricing = () => {
       <Title>{t("pricing_message")}</Title>
       <Switch
         activeIndex={activeIndex}
-        setActiveIndex={setActiveIndex}
+        setActiveIndex={handleSwitchChange}
         switches={["Manager", "Custom (white-label)"]}
       />
       {isMobile ? (
-        <StyledSwiper spaceBetween={20} slidesPerView="auto">
+        <StyledSwiper
+          spaceBetween={20}
+          slidesPerView="auto"
+          onSwiper={(swiper) => setSwiperInstance(swiper)} // Update the state variable with the Swiper instance
+        >
           {currentData.map((plan) => (
             <CardsSlide key={plan[currentLanguage]?.title}>
               <Card

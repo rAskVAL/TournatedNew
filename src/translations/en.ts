@@ -155,5 +155,7 @@ export default {
       description:
         "Our team consists of professionals with expertise in both sports and IT, all committed to delivering exceptional results.",
     },
+    looking_for_more: "Looking for more custom solutions?",
+    contact_us: "Contact Us",
   },
 };

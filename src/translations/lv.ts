@@ -156,5 +156,7 @@ export default {
       description:
         "Mūsu komanda sastāv no profesionāļiem ar pieredzi gan sportā, gan IT, visi apņēmušies sniegt izcilus rezultātus.",
     },
+    looking_for_more: "Meklējat vairāk pielāgotu risinājumu?",
+    contact_us: "Kontakt mums",
   },
 };
