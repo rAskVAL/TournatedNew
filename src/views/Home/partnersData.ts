@@ -27,4 +27,22 @@ export const powering: Partner[] = [
     logo: "https://i.imgur.com/2hVEm2e.png",
     url: "https://teniss.lat",
   },
+  {
+    id: 2,
+    name: "GEOTENNIS",
+    logo: "https://i.imgur.com/mCP1yfk.png",
+    url: "https://geotennis.ge",
+  },
+  {
+    id: 3,
+    name: "Armakskeri",
+    logo: "https://i.imgur.com/Xm6UNRK.png",
+    url: "https://armakskeri.lv/",
+  },
+  {
+    id: 4,
+    name: "Sportkalastus",
+    logo: "https://i.imgur.com/pOQZSIt.png",
+    url: "https://sportkalastus.ee/",
+  },
 ];

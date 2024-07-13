@@ -50,7 +50,7 @@ export default {
     leagues: "leagues",
     legal: "Legal",
     links: "Links",
-    live: "We are going live first week of July, 2024",
+    live: "We are going live July, 2024",
     mission_statement:
       "Our mission is to help emerging sports and its organisations/individuals to modernise management of leagues, tournaments and other sport-related events.",
     more: "More",
@@ -148,6 +148,12 @@ export default {
           request_any_other: "Request any other IT solution",
         },
       },
+    },
+    our_team: {
+      title: "Team",
+      ourCore: "Our Core <span>Team</span>",
+      description:
+        "Our team consists of professionals with expertise in both sports and IT, all committed to delivering exceptional results.",
     },
   },
 };

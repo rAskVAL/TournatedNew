@@ -166,6 +166,12 @@ const Buttons = styled.div`
   @media (max-width: ${breakpoint.l}px) {
     flex-direction: column;
   }
+
+  border-top: solid 1px ${colors.grey700};
+
+  & > :first-child {
+    border-right: solid 1px ${colors.grey700};
+  }
 `;
 
 const StyledButton = styled(Button)`

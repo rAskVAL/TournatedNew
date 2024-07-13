@@ -65,7 +65,7 @@ export default Partners;
 const Container = styled.div`
   position: relative;
   overflow: visible;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 
   ${containerStyles};
 
@@ -87,6 +87,7 @@ const Title = styled.h3`
 const Logo = styled.img`
   height: 24px;
   filter: brightness(0) invert(1);
+  cursor: pointer;
 `;
 
 const Block = styled.div`

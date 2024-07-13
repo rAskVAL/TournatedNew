@@ -1,7 +1,7 @@
 export default {
   translation: {
     partners: "Partneri",
-    powering: "Klineti",
+    powering: "Klienti",
     trusted_by: "Uzticas",
     stats: {
       entries: "Pieteikumi",
@@ -51,7 +51,7 @@ export default {
     leagues: "līgas",
     legal: "Juridiskais",
     links: "Saites",
-    live: "Mēs ejam live 2024. gada jūlija otrajā nedēļā",
+    live: "Mēs ejam live 2024. gada jūlija",
     mission_statement:
       "Mūsu misija ir palīdzēt jaunajiem sporta veidiem un to organizācijām/indivīdiem modernizēt līgu, turnīru un citu ar sportu saistītu pasākumu pārvaldību.",
     more: "Vairāk",
@@ -149,6 +149,12 @@ export default {
           request_any_other: "Pieprasiet jebkuru citu IT risinājumu",
         },
       },
+    },
+    our_team: {
+      title: "Komanda",
+      ourCore: "Mūsu pamata <span>Komanda</span>",
+      description:
+        "Mūsu komanda sastāv no profesionāļiem ar pieredzi gan sportā, gan IT, visi apņēmušies sniegt izcilus rezultātus.",
     },
   },
 };
