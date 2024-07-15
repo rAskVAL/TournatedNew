@@ -8,10 +8,34 @@ import Pattern from "./assets/pattern.svg?react";
 import Button from "../../../components/Button.tsx";
 import { useTranslation } from "react-i18next";
 import { CALENDLY_URL } from "../../../consts.ts";
+
 const Contact = () => {
   const { t } = useTranslation();
+
+  const images = [
+    "https://i.imgur.com/ffrQfeK.png",
+    "https://i.imgur.com/AVLWaqx.png",
+    "https://i.imgur.com/Pkc8Vzb.png",
+    "https://i.imgur.com/HKHn1mB.png",
+    "https://i.imgur.com/qJ4gyyi.png",
+    "https://i.imgur.com/zDa5G0X.png",
+    "https://i.imgur.com/6kvgnBX.png",
+  ];
+
   return (
     <OuterContainer>
+      <Background>
+        <Images>
+          {images.slice(0, 3).map((item, index) => (
+            <img key={index} src={item} />
+          ))}
+        </Images>
+        <Images>
+          {images.slice(3).map((item, index) => (
+            <img key={index} src={item} />
+          ))}
+        </Images>
+      </Background>
       <Container>
         <Left>
           <h1>
@@ -55,6 +79,7 @@ const OuterContainer = styled.div`
   width: 100%;
   min-height: 820px;
   background: ${colors.grey100};
+  position: relative;
 
   @media (max-width: ${breakpoint.l}px) {
     min-height: auto;
@@ -63,6 +88,7 @@ const OuterContainer = styled.div`
 `;
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   max-width: 980px;
@@ -176,5 +202,29 @@ const LeftButton = styled(Button)`
 
   @media (max-width: ${breakpoint.l}px) {
     max-width: 100%;
+  }
+`;
+
+const Background = styled.div`
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+`;
+
+const Images = styled.div`
+  flex: 1;
+  width: 100%;
+  display: flex;
+  height: 50%;
+
+  img {
+    height: 100%;
+    flex: 1;
+    object-fit: cover;
   }
 `;
