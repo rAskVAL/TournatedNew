@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { lazy } from "react";
 import Facts from "./Facts/Facts.tsx";
 import Partners from "../../components/Partners/Partners.tsx";
-import { powering } from "./partnersData.ts";
+import { partners } from "./partnersData.ts";
 
 const Hero = lazy(() => import("./Hero/Hero.tsx"));
 const Featured = lazy(() => import("./Featured/Featured.tsx"));
@@ -26,7 +26,7 @@ const Home = () => (
     <Wrapper>
       <Promo />
     </Wrapper>
-    <Powering data={powering} titleKey="powering" />
+    <Powering data={partners} titleKey="partners" />
     <Wrapper $color={colors.white}>
       <Features />
     </Wrapper>

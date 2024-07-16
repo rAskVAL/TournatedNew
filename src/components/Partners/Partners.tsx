@@ -85,7 +85,7 @@ const Title = styled.h3`
 `;
 
 const Logo = styled.img`
-  height: 24px;
+  height: 30px;
   filter: brightness(0) invert(1);
   cursor: pointer;
 `;

@@ -7,7 +7,7 @@ import Left from "./Left.tsx";
 import Right from "./Right.tsx";
 import Partners from "../../../components/Partners/Partners.tsx";
 import { motion } from "framer-motion";
-import { partners } from "../partnersData.ts";
+import { powering } from "../partnersData.ts";
 
 const Hero = () => (
   <Container
@@ -22,7 +22,7 @@ const Hero = () => (
         <Right />
       </Wrapper>
     </Overflow>
-    <Partners data={partners} titleKey="partners" />
+    <Partners data={powering} titleKey="trusted_by" />
   </Container>
 );
 

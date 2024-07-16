@@ -1,7 +1,6 @@
 export default {
   translation: {
     partners: "Partners",
-    powering: "Powering",
     trusted_by: "Trusted by",
     stats: {
       entries: "Entries",

@@ -1,7 +1,6 @@
 export default {
   translation: {
     partners: "Partneri",
-    powering: "Klienti",
     trusted_by: "Uzticas",
     stats: {
       entries: "Pieteikumi",
