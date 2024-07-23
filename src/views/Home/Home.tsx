@@ -7,6 +7,7 @@ import { lazy } from "react";
 import Facts from "./Facts/Facts.tsx";
 import Partners from "../../components/Partners/Partners.tsx";
 import { partners } from "./partnersData.ts";
+import Services from "./Services/Services.tsx";
 
 const Hero = lazy(() => import("./Hero/Hero.tsx"));
 const Featured = lazy(() => import("./Featured/Featured.tsx"));
@@ -33,6 +34,9 @@ const Home = () => (
     <Wrapper $color="#F1F1F1">
       <WhyUs />
       <Facts />
+    </Wrapper>
+    <Wrapper>
+      <Services />
     </Wrapper>
     <WrapperWithWidth>
       <Testimonials />

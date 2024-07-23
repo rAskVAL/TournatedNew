@@ -156,5 +156,9 @@ export default {
     },
     looking_for_more: "Looking for more custom solutions?",
     contact_us: "Contact Us",
+    services: {
+      title: "Services for",
+      slogan: "Tournated tailored for many use cases",
+    },
   },
 };

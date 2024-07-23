@@ -157,5 +157,9 @@ export default {
     },
     looking_for_more: "Meklējat vairāk pielāgotu risinājumu?",
     contact_us: "Kontakt mums",
+    services: {
+      title: "Pakalpojumi priekš",
+      slogan: "Pielāgoti risinājumi dažādiem lietošanas gadījumiem",
+    },
   },
 };
