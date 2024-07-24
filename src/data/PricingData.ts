@@ -146,7 +146,7 @@ export default {
     },
     {
       lv: {
-        title: "Pielāgots Plus",
+        title: "Pielāgots Ultra",
         price: "€199",
         oldPrice: "€298",
         status: "default",
