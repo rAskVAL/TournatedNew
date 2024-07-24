@@ -45,7 +45,7 @@ export default {
         oldPrice: "€19.99",
         status: "recommended",
         features: [
-          "Pro plāna funkcijas",
+          "Bezmaksas plāna funkcijas",
           "Izveidojiet savas līgas",
           "Komandas pārvaldība un analītika",
           "Licenču pārvaldība",
@@ -63,7 +63,7 @@ export default {
         oldPrice: "€19.99",
         status: "recommended",
         features: [
-          "Features of Pro plan",
+          "Features of Free plan",
           "Setup your own leagues",
           "Team management & Analytics",
           "Licence management",
