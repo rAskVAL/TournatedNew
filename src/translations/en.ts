@@ -49,11 +49,11 @@ export default {
     leagues: "leagues",
     legal: "Legal",
     links: "Links",
-    live: "We are going live July, 2024",
+    live: "Public Beta is live, 2024",
     mission_statement:
       "Our mission is to help emerging sports and its organisations/individuals to modernise management of leagues, tournaments and other sport-related events.",
     more: "More",
-    news: "News",
+    news: "Blog",
     organizers: "Organizers",
     organizations: "Organizations",
     padel: "Padel",
@@ -108,7 +108,7 @@ export default {
       launch_your_own: "Launch your own",
       web_platform_and_mobile_app: "web platform and mobile app",
       your_sports_organization:
-        "Your sports organization deserves your own solution. With your domain, branding, and testimonialsData under your control.",
+        "Your sports organization deserves your own solution. With your domain, branding, and data under your control.",
       fully_customizable: "Fully customizable",
       choose_sports_features:
         "choose the sports, features, and formats you need.",
@@ -159,6 +159,7 @@ export default {
     services: {
       title: "Services for",
       slogan: "Tournated tailored for many use cases",
+      management_of: "Management of",
     },
   },
 };

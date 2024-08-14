@@ -12,21 +12,27 @@
   },
   "dependencies": {
     "@react-hookz/web": "^24.0.4",
+    "@types/react-helmet": "^6.1.11",
     "framer-motion": "^11.2.10",
+    "gql.tada": "^1.8.5",
     "i18next": "^23.11.5",
     "i18next-browser-languagedetector": "^8.0.0",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-country-flag": "^3.1.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-i18next": "^14.1.2",
     "react-indiana-drag-scroll": "^2.2.0",
     "react-router-dom": "^6.23.1",
+    "react-share": "^5.1.0",
     "styled-components": "^6.1.11",
     "styled-reset": "^4.5.2",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "urql": "^4.1.0"
   },
   "devDependencies": {
+    "@0no-co/graphqlsp": "^1.12.12",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",

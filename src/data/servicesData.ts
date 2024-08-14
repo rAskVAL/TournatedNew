@@ -1,8 +1,12 @@
 import sportMinistries from "../views/Home/Services/assets/sport_ministries.png";
 import federations from "../views/Home/Services/assets/federations.png";
 import clubs from "../views/Home/Services/assets/clubs.png";
+import organizers from "../views/Home/Services/assets/organizations.png";
+import athletes from "../views/Home/Services/assets/athletes.png";
+
 export default [
   {
+    key: "ministries",
     title: {
       en: "Sport ministries",
       lv: "Sporta ministrijas",
@@ -14,6 +18,7 @@ export default [
     image: sportMinistries,
   },
   {
+    key: "federations",
     title: {
       en: "Federations",
       lv: "Federācijas",
@@ -25,6 +30,7 @@ export default [
     image: federations,
   },
   {
+    key: "clubs",
     title: {
       en: "Clubs",
       lv: "Klubi",
@@ -36,6 +42,7 @@ export default [
     image: clubs,
   },
   {
+    key: "organizers",
     title: {
       en: "Organizers",
       lv: "Organizatori",
@@ -44,9 +51,10 @@ export default [
       en: "Full tournament management, entries, results, pairings, groups, draws and more",
       lv: "Pilnīga turnīru pārvaldība, pieteikumi, rezultāti, pāri, grupas, izlozes un vairāk",
     },
-    image: undefined,
+    image: organizers,
   },
   {
+    key: "athletes",
     title: {
       en: "Athletes",
       lv: "Sportisti",
@@ -55,6 +63,6 @@ export default [
       en: "Browse leagues, clubs, tournaments. Register for events and apply to find partners. Keep track of your results, book courts and track all your stats.",
       lv: "Pārlūkojiet līgas, klubus, turnīrus. Reģistrējieties pasākumiem un piesakieties partneru meklēšanai. Sekojiet līdzi saviem rezultātiem, rezervējiet laukumus un sekojiet līdzi visiem saviem statistikas datiem.",
     },
-    image: undefined,
+    image: athletes,
   },
 ];

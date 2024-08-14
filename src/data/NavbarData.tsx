@@ -52,22 +52,27 @@ const menu = [
         items: [
           {
             title: { en: "Sport Ministries", lv: "Sporta ministrijām" },
-            to: "#",
+            to: "?services=ministries",
             icon: "",
           },
           {
             title: { en: "Federations", lv: "Federācijām" },
-            to: "#",
+            to: "?services=federations",
             icon: "",
           },
           {
             title: { en: "Clubs", lv: "Klubiem" },
-            to: "#",
+            to: "?services=clubs",
             icon: "",
           },
           {
             title: { en: "Organizers", lv: "Organizatoriem" },
-            to: "#",
+            to: "?services=organizers",
+            icon: "",
+          },
+          {
+            title: { en: "Athletes", lv: "Sportisti" },
+            to: "?services=athletes",
             icon: "",
           },
         ],
@@ -150,7 +155,7 @@ const menu = [
             icon: "",
           },
           {
-            title: { en: "News", lv: "Ziņas" },
+            title: { en: "Blog", lv: "Ziņas" },
             to: `${PLATFORM_URL}/news`,
             icon: "",
           },

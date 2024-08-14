@@ -15,11 +15,11 @@ import { useMediaQuery } from "@react-hookz/web";
 import BurgerIcon from "../../assets/Icons/burger.svg?react";
 import Elipse from "../../assets/Icons/elipse.svg?react";
 import { CALENDLY_URL, FEATUREBASE_LINK, PLATFORM_URL } from "../../consts.ts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileMenu from "./MobileMenu.tsx";
 import { AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useLink from "../../utils/useLink.ts";
 
 const Navbar = () => {
@@ -29,6 +29,12 @@ const Navbar = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const homePageLink = useLink("/");
+  const loc = useLocation();
+
+  useEffect(() => {
+    setIsMobileOpen(false);
+  }, [loc]);
+
   return (
     <>
       <Nav>

@@ -86,6 +86,13 @@ export const typography = {
     font-weight: 400;
     line-height: 12px;
   `,
+  grotesk13: css`
+    font-family: "Familjen Grotesk", sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 13px;
+  `,
   grotesk14: css`
     font-family: "Familjen Grotesk", sans-serif;
     font-size: 14px;

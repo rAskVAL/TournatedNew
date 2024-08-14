@@ -50,7 +50,7 @@ export default {
     leagues: "līgas",
     legal: "Juridiskais",
     links: "Saites",
-    live: "Mēs ejam live 2024. gada jūlija",
+    live: "Public Beta is live",
     mission_statement:
       "Mūsu misija ir palīdzēt jaunajiem sporta veidiem un to organizācijām/indivīdiem modernizēt līgu, turnīru un citu ar sportu saistītu pasākumu pārvaldību.",
     more: "Vairāk",
@@ -160,6 +160,7 @@ export default {
     services: {
       title: "Pakalpojumi priekš",
       slogan: "Pielāgoti risinājumi dažādiem lietošanas gadījumiem",
+      management_of: "Pārvaldība",
     },
   },
 };

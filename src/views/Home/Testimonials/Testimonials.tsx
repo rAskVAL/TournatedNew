@@ -151,7 +151,7 @@ const Wrapper = styled.div`
 const Text = styled.h3`
   margin-top: 136px;
   color: ${colors.white};
-  ${typography.grotesk48};
+  ${typography.grotesk40};
 
   @media (max-width: ${breakpoint.l}px) {
     margin-top: 58px;

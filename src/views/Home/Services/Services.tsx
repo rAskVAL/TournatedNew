@@ -6,42 +6,76 @@ import {
   resetStyles,
   typography,
 } from "../../../components/GlobalStyles.tsx";
-
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { SupportedLanguages } from "../../../App.tsx";
 import servicesData from "../../../data/servicesData.ts";
+import Management from "./Management.tsx";
+import { useSearchParams } from "react-router-dom";
 
 const Services = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeService, setActiveService] = useState(servicesData[0].key);
   const { i18n, t } = useTranslation();
-
   const currentLanguage = i18n.language as SupportedLanguages;
+  const [searchParams] = useSearchParams();
+  const serviceInLink = searchParams.get("services");
+  const containerRef = useRef<HTMLDivElement>(null);
+  // @ts-ignore
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const checkContainerRef = () => {
+      if (serviceInLink && containerRef.current) {
+        containerRef.current.scrollIntoView({ behavior: "smooth" });
+        setActiveService(serviceInLink);
+      } else {
+        timeoutRef.current = setTimeout(checkContainerRef, 100);
+      }
+    };
+
+    timeoutRef.current = setTimeout(checkContainerRef, 100);
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [serviceInLink]);
+
+  const activeServiceData = servicesData.find(
+    (item) => item.key === activeService,
+  );
 
   return (
-    <Container>
+    <Container ref={containerRef}>
       <SectionTitle text={t("services.title")} />
       <Title>{t("services.slogan")}</Title>
       <Buttons>
         {servicesData.map((item, index) => (
           <Button
             key={index}
-            onClick={() => setActiveIndex(index)}
-            $active={activeIndex === index}
+            onClick={() => setActiveService(item.key)}
+            $active={activeService === item.key}
           >
             {item.title[currentLanguage]}
           </Button>
         ))}
       </Buttons>
-      <Desc>{servicesData[activeIndex].desc[currentLanguage]}</Desc>
-      <Content
-        key={activeIndex}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: servicesData[activeIndex].image ? 1 : 0, y: 0 }}
-        src={servicesData[activeIndex].image}
-        alt={servicesData[activeIndex].title[currentLanguage]}
-      />
+      {activeServiceData && (
+        <>
+          <Desc>{activeServiceData.desc[currentLanguage]}</Desc>
+          <Content
+            key={activeService}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: activeServiceData.image ? 1 : 0, y: 0 }}
+            src={activeServiceData.image}
+            alt={activeServiceData.title[currentLanguage]}
+          />
+        </>
+      )}
+      <Separator />
+      <Management />
     </Container>
   );
 };
@@ -56,12 +90,10 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   padding-inline: 20px;
-  height: 1140px;
 
   @media (max-width: ${breakpoint.l}px) {
     padding-top: 50px;
     padding-bottom: 50px;
-    height: 640px;
   }
 `;
 
@@ -146,5 +178,18 @@ const Desc = styled.p`
 
   @media (max-width: ${breakpoint.l}px) {
     margin-block: 0;
+  }
+`;
+
+const Separator = styled.div`
+  min-height: 1px;
+  min-width: min(578px, 100%);
+  background: ${colors.secondaryHover};
+  margin-top: 83px;
+  margin-bottom: 57px;
+
+  @media (max-width: ${breakpoint.l}px) {
+    margin-top: 30px;
+    margin-bottom: 35px;
   }
 `;
