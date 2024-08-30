@@ -2,6 +2,7 @@ import {
   RouterProvider,
   createBrowserRouter,
   Navigate,
+  useSearchParams,
 } from "react-router-dom";
 import Layout from "./views/Layout.tsx";
 import { Reset } from "styled-reset";
@@ -18,13 +19,14 @@ import Blog from "./views/Blog/Blog.tsx";
 import Article from "./views/Blog/Article.tsx";
 import { Client, cacheExchange, fetchExchange, Provider } from "urql";
 import { Helmet } from "react-helmet";
+import { GRAPHQL_ENDPOINT } from "./graphql/graphql.ts";
 
 export type SupportedLanguages = "lv" | "en";
 
 const Home = lazy(() => import("./views/Home/Home.tsx"));
 
 const client = new Client({
-  url: "https://api.tournated.com/graphql",
+  url: GRAPHQL_ENDPOINT,
   exchanges: [cacheExchange, fetchExchange],
 });
 
@@ -47,6 +49,15 @@ i18n
     },
   });
 
+const NavigateToArticle = () => {
+  const [searchParams] = useSearchParams();
+  const slug = searchParams.get("slug");
+
+  return (
+    <Navigate to={`/${i18n.language}/blog/article?slug=${slug}`} replace />
+  );
+};
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -61,8 +72,8 @@ const router = createBrowserRouter([
     element: <Navigate to={`/${i18n.language}/blog`} replace />,
   },
   {
-    path: "blog/:slug",
-    element: <Navigate to={`/${i18n.language}/blog/:slug`} replace />,
+    path: "blog/article",
+    element: <NavigateToArticle />,
   },
   {
     path: "/:lang",
@@ -87,14 +98,25 @@ const App = () => {
     <Provider value={client}>
       <Helmet>
         <title>
-          About Tournated - Our Mission, Team, and Story | Learn More About Us
+          Tournated - Affordable White-Label Sports Management Software | Your
+          Brand, Your Data | Free tournament sofware
         </title>
         <meta
           name="description"
-          content="Discover the story behind Tournated, our mission, and the team driving our innovative sports management solutions. Learn how we help organizations streamline sports events and maintain control over their data."
+          content="Launch your own custom sports management platform with Tournated. Our comprehensive, white-label software empowers you to manage sports organization, leagues, tournaments, clubs, events and athletes under your brand with full control over your data. Streamline sports events effortlessly."
         />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://tournated.com/" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-FPHFRKY695"
+        ></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-FPHFRKY695');
+          `}
+        </script>
       </Helmet>
       <Reset />
       <GlobalStyles />

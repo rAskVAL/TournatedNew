@@ -10,9 +10,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useMediaQuery } from "@react-hookz/web";
 import { useTranslation } from "react-i18next";
 
-import platform_1 from "./assets/platform_1.png";
-import platform_2 from "./assets/platform_2.png";
-import platform_3 from "./assets/platform_3.png";
+const platform_1 = "https://i.imgur.com/hqUBov1.png";
+const platform_2 = "https://i.imgur.com/nvSxBC8.png";
+const platform_3 = "https://i.imgur.com/94qKwQZ.png";
 
 type Colors = "red" | "green" | "orange";
 

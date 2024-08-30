@@ -6,6 +6,7 @@ import { graphql as gql } from "gql.tada";
 //     DateTime: string;
 //   };
 // }>();
+export const GRAPHQL_ENDPOINT = "https://api.tournated.com/graphql";
 
 export const NewsQuery = gql(`
   query News ($page: Int = 1) {
@@ -13,6 +14,7 @@ export const NewsQuery = gql(`
       page: $page,
       limit: 8,
       sortBy: "date"
+      filter: {isDisplayLanding: true}
     ) {
       news {
         id

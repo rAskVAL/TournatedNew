@@ -17,7 +17,7 @@ import mastercard from "../assets/mastercard.png";
 import { useMediaQuery } from "@react-hookz/web";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { PLATFORM_URL } from "../consts.ts";
+import { FEATUREBASE_LINK, GITBOOK_LINK, PLATFORM_URL } from "../consts.ts";
 
 const Footer = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
@@ -51,8 +51,8 @@ const Footer = () => {
           <Menus>
             <Menu>
               <MenuTitle>{t("support")}</MenuTitle>
-              <MenuItem to="">{t("documents")}</MenuItem>
-              <MenuItem to="">{t("feedback")}</MenuItem>
+              <MenuItem to={GITBOOK_LINK}>{t("documentation")}</MenuItem>
+              <MenuItem to={FEATUREBASE_LINK}>{t("feedback")}</MenuItem>
               <MenuItem to="https://discord.gg/E2MEXghwdx">
                 {t("submit_ticket")}
               </MenuItem>
@@ -66,11 +66,11 @@ const Footer = () => {
               <MenuItem to="">{t("news")}</MenuItem>
               <MenuItem to="">{t("team")}</MenuItem>
             </Menu>
-            <Menu>
-              <MenuTitle>{t("legal")}</MenuTitle>
-              <MenuItem to="">{t("terms_conditions")}</MenuItem>
-              <MenuItem to="">{t("privacy_policy")}</MenuItem>
-            </Menu>
+            {/*<Menu>*/}
+            {/*  <MenuTitle>{t("legal")}</MenuTitle>*/}
+            {/*  <MenuItem to="">{t("terms_conditions")}</MenuItem>*/}
+            {/*  <MenuItem to="">{t("privacy_policy")}</MenuItem>*/}
+            {/*</Menu>*/}
           </Menus>
           <Contacts>
             {!isMobile && (

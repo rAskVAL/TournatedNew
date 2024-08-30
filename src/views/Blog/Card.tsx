@@ -108,7 +108,11 @@ const Publisher = styled.div`
 
   & > :nth-child(2) {
     color: ${colors.white};
-    ${typography.grotesk16}
+    ${typography.grotesk16};
+    white-space: nowrap;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 

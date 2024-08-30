@@ -6,6 +6,8 @@ export const navigation = [
   { title: "More", to: "#" },
 ];
 
+export const GITBOOK_LINK = "https://tournated.gitbook.io/tournated";
+
 export const FEATUREBASE_LINK = "https://tournated.featurebase.app/";
 export const PLATFORM_URL = "https://play.tournated.com";
 export const CALENDLY_URL =

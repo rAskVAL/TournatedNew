@@ -51,12 +51,12 @@ export const powering: Partner[] = [
     logo: "https://i.imgur.com/LBITWYi.png",
     url: "https://geotennis.ge",
   },
-  {
-    id: 6,
-    name: "ETL",
-    logo: "https://i.imgur.com/f0ig530.png",
-    url: "https://tennis.ee/",
-  },
+  // {
+  //   id: 6,
+  //   name: "ETL",
+  //   logo: "https://i.imgur.com/f0ig530.png",
+  //   url: "https://tennis.ee/",
+  // },
   {
     id: 6,
     name: "Polski Pickleball",

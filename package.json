@@ -15,6 +15,7 @@
     "@types/react-helmet": "^6.1.11",
     "framer-motion": "^11.2.10",
     "gql.tada": "^1.8.5",
+    "graphql-request": "^7.1.0",
     "i18next": "^23.11.5",
     "i18next-browser-languagedetector": "^8.0.0",
     "path": "^0.12.7",
@@ -29,7 +30,8 @@
     "styled-components": "^6.1.11",
     "styled-reset": "^4.5.2",
     "swiper": "^11.1.4",
-    "urql": "^4.1.0"
+    "urql": "^4.1.0",
+    "vite-plugin-sitemap": "^0.7.1"
   },
   "devDependencies": {
     "@0no-co/graphqlsp": "^1.12.12",

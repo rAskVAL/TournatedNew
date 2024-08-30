@@ -26,6 +26,19 @@ const Blog = () => {
           name="description"
           content="Stay updated with Tournated Blog! Explore our latest news, insightful articles, and comprehensive feature updates. Dive into the world of sports innovation, trends, and expert insights today."
         />
+        <link rel="canonical" href="https://tournated.com/blog" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-N82L4GJGH9"
+        ></script>
+        <script>
+          {`
+             window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-N82L4GJGH9');
+          `}
+        </script>
       </Helmet>
       <OuterContainer>
         <LightBackground />

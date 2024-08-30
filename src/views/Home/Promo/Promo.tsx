@@ -128,7 +128,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 385px;
+  max-width: 420px;
   color: ${colors.white};
 
   @media (max-width: ${breakpoint.l}px) {
@@ -141,7 +141,7 @@ const Title = styled.h2`
   text-wrap: balance;
 
   @media (max-width: ${breakpoint.l}px) {
-    ${typography.grotesk40};
+    ${typography.grotesk30};
   }
 `;
 

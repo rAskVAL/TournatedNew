@@ -44,7 +44,7 @@ const Navbar = () => {
             {/*<Elipse />*/}
             {/*<a>{t("read_more")}</a>*/}
             <Elipse />
-            <a>{t("docs")}</a>
+            <a href="https://tournated.gitbook.io/tournated">{t("docs")}</a>
             <Elipse />
             <a href={FEATUREBASE_LINK}>{t("feedback")}</a>
           </InfoContainer>

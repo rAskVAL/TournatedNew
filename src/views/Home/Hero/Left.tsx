@@ -7,7 +7,7 @@ import {
 import Button from "../../../components/Button.tsx";
 import DynamicText from "./DynamicText.tsx";
 import { Trans, useTranslation } from "react-i18next";
-import { PLATFORM_URL } from "../../../consts.ts";
+import { CALENDLY_URL, PLATFORM_URL } from "../../../consts.ts";
 
 const Left = () => {
   const { t } = useTranslation();
@@ -16,9 +16,9 @@ const Left = () => {
     <Container>
       <TitleBox>
         <Headline>
-          <p>{t("start_managing")}</p>
+          <p>{t("launch_your")}</p>
           <DynamicText />
-          <p>{t("for_free")}</p>
+          <p>{t("sports_platform")}</p>
         </Headline>
         <Subtitle>
           <Trans
@@ -46,13 +46,13 @@ const Left = () => {
         </Stat>
       </Stats>
       <Buttons>
-        <Button
-          onClick={() => window.open(`${PLATFORM_URL}/pricing`)}
-          style="brand"
-        >
+        <Button onClick={() => window.open(CALENDLY_URL)} style="brand">
           {t("start_for_free")}
         </Button>
-        <Button onClick={() => window.open(PLATFORM_URL)} style="primary">
+        <Button
+          onClick={() => window.open(`${PLATFORM_URL}/pricing`)}
+          style="primary"
+        >
           {t("go_to_platform")}
         </Button>
       </Buttons>

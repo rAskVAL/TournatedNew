@@ -9,10 +9,10 @@ const DynamicText = () => {
   const { t } = useTranslation();
   const [selectedTextIndex, setSelectedTextIndex] = useState(0);
   const TEXT_KEYS = [
-    "dynamic.tournaments",
-    "dynamic.leagues",
-    "dynamic.events",
-    "dynamic.clubs",
+    "dynamic.own",
+    "dynamic.customizable",
+    "dynamic.automated",
+    "dynamic.easy-to-use",
   ];
 
   useIntervalEffect(() => {

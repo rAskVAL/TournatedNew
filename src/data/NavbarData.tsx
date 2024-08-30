@@ -79,53 +79,53 @@ const menu = [
       },
     },
   },
-  {
-    to: undefined,
-    title: { en: "Sports", lv: "Sporta veidi" },
-    icon: "",
-    submenu: {
-      links: {
-        title: { en: "Active ones", lv: "Aktīvi" },
-        items: [
-          {
-            title: { en: "Tennis", lv: "Teniss" },
-            to: "#",
-            icon: "",
-          },
-          {
-            title: { en: "Beach Tennis", lv: "Pludmales teniss" },
-            to: "#",
-            icon: "",
-          },
-          {
-            title: { en: "Pickleball", lv: "Piklbols" },
-            to: "#",
-            icon: "",
-          },
-          {
-            title: { en: "Padel", lv: "Padel" },
-            to: "#",
-            icon: "",
-          },
-          {
-            title: { en: "Chess", lv: "Šahi" },
-            to: "#",
-            icon: "",
-          },
-          {
-            title: { en: "Sport Fishing", lv: "Sporta makšķerēšana" },
-            to: "#",
-            icon: "",
-          },
-          {
-            title: { en: "Beach Volleyball", lv: "Pludmales volejbols" },
-            to: "#",
-            icon: "",
-          },
-        ],
-      },
-    },
-  },
+  // {
+  //   to: undefined,
+  //   title: { en: "Sports", lv: "Sporta veidi" },
+  //   icon: "",
+  //   submenu: {
+  //     links: {
+  //       title: { en: "Active ones", lv: "Aktīvi" },
+  //       items: [
+  //         {
+  //           title: { en: "Tennis", lv: "Teniss" },
+  //           to: "#",
+  //           icon: "",
+  //         },
+  //         {
+  //           title: { en: "Beach Tennis", lv: "Pludmales teniss" },
+  //           to: "#",
+  //           icon: "",
+  //         },
+  //         {
+  //           title: { en: "Pickleball", lv: "Piklbols" },
+  //           to: "#",
+  //           icon: "",
+  //         },
+  //         {
+  //           title: { en: "Padel", lv: "Padel" },
+  //           to: "#",
+  //           icon: "",
+  //         },
+  //         {
+  //           title: { en: "Chess", lv: "Šahi" },
+  //           to: "#",
+  //           icon: "",
+  //         },
+  //         {
+  //           title: { en: "Sport Fishing", lv: "Sporta makšķerēšana" },
+  //           to: "#",
+  //           icon: "",
+  //         },
+  //         {
+  //           title: { en: "Beach Volleyball", lv: "Pludmales volejbols" },
+  //           to: "#",
+  //           icon: "",
+  //         },
+  //       ],
+  //     },
+  //   },
+  // },
   {
     to: undefined,
     title: { en: "Browse", lv: "Pārlūkot" },
@@ -166,6 +166,11 @@ const menu = [
   {
     to: "/about",
     title: { en: "About", lv: "Par mums" },
+    icon: "",
+  },
+  {
+    to: "/blog",
+    title: { en: "Blog", lv: "Emuārs" },
     icon: "",
   },
 ];

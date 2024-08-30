@@ -130,6 +130,19 @@ const Article = () => {
           {metaDescription && (
             <meta name="description" content={metaDescription} />
           )}
+          <link rel="canonical" href={window.location.href} />
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-N82L4GJGH9"
+          ></script>
+          <script>
+            {`
+             window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-N82L4GJGH9');
+          `}
+          </script>
         </Helmet>
         <Container>
           <Header>

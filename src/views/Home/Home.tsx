@@ -8,6 +8,7 @@ import Facts from "./Facts/Facts.tsx";
 import Partners from "../../components/Partners/Partners.tsx";
 import { partners } from "./partnersData.ts";
 import Services from "./Services/Services.tsx";
+import { Helmet } from "react-helmet";
 
 const Hero = lazy(() => import("./Hero/Hero.tsx"));
 const Featured = lazy(() => import("./Featured/Featured.tsx"));
@@ -20,6 +21,30 @@ const WhyUs = lazy(() => import("./Facts/WhyUs.tsx"));
 
 const Home = () => (
   <>
+    <Helmet>
+      <title>
+        Tournated - Affordable White-Label Sports Management Software | Your
+        Brand, Your Data | Free tournament sofware
+      </title>
+      <meta
+        name="description"
+        content="Launch your own custom sports management platform with Tournated. Our comprehensive, white-label software empowers you to manage sports organization, leagues, tournaments, clubs, events and athletes under your brand with full control over your data. Streamline sports events effortlessly."
+      />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href="https://tournated.com/" />
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-N82L4GJGH9"
+      ></script>
+      <script>
+        {`
+             window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-N82L4GJGH9');
+          `}
+      </script>
+    </Helmet>
     <WrapperWithWidth>
       <Hero />
       <Featured />
