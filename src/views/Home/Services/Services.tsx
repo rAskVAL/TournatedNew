@@ -8,20 +8,19 @@ import {
 } from "../../../components/GlobalStyles.tsx";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import { SupportedLanguages } from "../../../App.tsx";
+import { useLocale, useTranslations } from "next-intl";
 import servicesData from "../../../data/servicesData.ts";
 import Management from "./Management.tsx";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "next/navigation";
+import { SupportedLanguages } from "../../../i18n/routing.ts";
 
 const Services = () => {
   const [activeService, setActiveService] = useState(servicesData[0].key);
-  const { i18n, t } = useTranslation();
-  const currentLanguage = i18n.language as SupportedLanguages;
-  const [searchParams] = useSearchParams();
+  const t = useTranslations();
+  const currentLanguage = useLocale() as SupportedLanguages;
+  const searchParams = useSearchParams();
   const serviceInLink = searchParams.get("services");
   const containerRef = useRef<HTMLDivElement>(null);
-  // @ts-ignore
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -69,7 +68,7 @@ const Services = () => {
             key={activeService}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: activeServiceData.image ? 1 : 0, y: 0 }}
-            src={activeServiceData.image}
+            src={activeServiceData.image.src}
             alt={activeServiceData.title[currentLanguage]}
           />
         </>

@@ -1,67 +1,75 @@
-/// <reference types="vite-plugin-svgr/client" />
+"use client";
 
-import styled from "styled-components";
-import logo from "../../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 import Menu from "./Menu.tsx";
 import LanguageSelector from "./LanguageSelector.tsx";
 import Button from "../Button.tsx";
-import {
-  breakpoint,
-  colors,
-  containerStyles,
-  typography,
-} from "../GlobalStyles.tsx";
+import { breakpoint } from "../GlobalStyles.tsx";
 import { useMediaQuery } from "@react-hookz/web";
-import BurgerIcon from "../../assets/Icons/burger.svg?react";
-import Elipse from "../../assets/Icons/elipse.svg?react";
+import BurgerIcon from "../../assets/Icons/burger.svg";
+import Elipse from "../../assets/Icons/elipse.svg";
 import { CALENDLY_URL, FEATUREBASE_LINK, PLATFORM_URL } from "../../consts.ts";
 import { useEffect, useState } from "react";
 import MobileMenu from "./MobileMenu.tsx";
 import { AnimatePresence } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useTranslations } from "next-intl";
 import useLink from "../../utils/useLink.ts";
+import { usePathname } from "next/navigation";
+import { useRouter } from "../../i18n/routing.ts";
 
 const Navbar = () => {
   const isNarrow = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.sm}px)`);
   const [isMenuOpen, setIsMobileOpen] = useState(false);
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+  const t = useTranslations();
+
+  const router = useRouter();
   const homePageLink = useLink("/");
-  const loc = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     setIsMobileOpen(false);
-  }, [loc]);
+  }, [pathname]);
 
   return (
     <>
-      <Nav>
+      <nav className="sticky top-0 z-50 w-full">
         {!isMobile && (
-          <InfoContainer>
-            <p>{t("live")}</p>
-            {/*<Elipse />*/}
-            {/*<a>{t("read_more")}</a>*/}
+          <div className="flex justify-center items-center gap-4 h-6 w-full bg-orange300 text-grotesk14 font-normal whitespace-nowrap">
+            <p className="text-grey800 font-bold">{t("live")}</p>
             <Elipse />
-            <a href="https://tournated.gitbook.io/tournated">{t("docs")}</a>
+            <a
+              href="https://tournated.gitbook.io/tournated"
+              className="cursor-pointer text-brown500 underline"
+            >
+              {t("docs")}
+            </a>
             <Elipse />
-            <a href={FEATUREBASE_LINK}>{t("feedback")}</a>
-          </InfoContainer>
+            <a
+              href={FEATUREBASE_LINK}
+              className="cursor-pointer text-brown500 underline"
+            >
+              {t("feedback")}
+            </a>
+          </div>
         )}
-        <Container>
-          <Wrapper>
-            <Logo
-              src={logo}
-              alt="Logo"
-              onClick={() => homePageLink && navigate(homePageLink)}
-            />
+        <div className="h-[56px] w-full bg-grey900 flex justify-center transition-all duration-200 md:h-[88px]">
+          <div className="flex items-center justify-between h-full container mx-auto">
+            <div
+              onClick={() => homePageLink && router.push("/")}
+              className="cursor-pointer"
+            >
+              <Logo />
+            </div>
+
             {isNarrow ? (
-              <BurgerIcon onClick={() => setIsMobileOpen(true)} />
+              <div onClick={() => setIsMobileOpen(true)}>
+                <BurgerIcon />
+              </div>
             ) : (
               <>
                 <Menu />
-                <RightContainer>
+                <div className="flex gap-6 items-center">
                   <LanguageSelector />
                   <Button
                     onClick={() => window.open(CALENDLY_URL)}
@@ -75,12 +83,12 @@ const Navbar = () => {
                   >
                     {t("go_platform")}
                   </Button>
-                </RightContainer>
+                </div>
               </>
             )}
-          </Wrapper>
-        </Container>
-      </Nav>
+          </div>
+        </div>
+      </nav>
       <AnimatePresence>
         {isNarrow && isMenuOpen && (
           <MobileMenu setIsMobileOpen={setIsMobileOpen} />
@@ -90,64 +98,3 @@ const Navbar = () => {
   );
 };
 export default Navbar;
-
-const Container = styled.div`
-  height: 88px;
-  width: 100%;
-  background: #1d1d1d;
-  display: flex;
-  justify-content: center;
-  transition: all 0.2s;
-
-  @media (max-width: ${breakpoint.l}px) {
-    height: 56px;
-  }
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  ${containerStyles}
-`;
-
-const Logo = styled.img`
-  height: 24px;
-  cursor: pointer;
-`;
-
-const RightContainer = styled.div`
-  display: flex;
-  gap: 8px;
-  align-items: center;
-`;
-
-const InfoContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  height: 24px;
-  width: 100%;
-  background: ${colors.orange300};
-  ${typography.grotesk14};
-  white-space: nowrap;
-
-  & > a {
-    cursor: pointer;
-    color: ${colors.brown500};
-    text-decoration: underline;
-  }
-  & > p {
-    color: ${colors.grey800};
-    font-weight: 500;
-  }
-`;
-
-const Nav = styled.div`
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-`;

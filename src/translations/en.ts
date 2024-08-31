@@ -46,7 +46,7 @@ export default {
     go_to_platform: "Start for free",
     highlightZone: "Highlight Zone",
     launch_custom_platform:
-      "Or manage your sports organization within Tournated - <span class='highlight'>for free</span>",
+      "Or manage your sports organization within Tournated - <span>for free</span>",
     launch_platform_app: "Launch your Web Platform & Mobile App",
     launch_platform_app_description:
       "Get the same solution as Tournated, but customized for your brand and needs. Use it on your domain and have full control over your testimonialsData.",
@@ -98,7 +98,7 @@ export default {
     tournamentCard: {
       Categories: "Categories",
       Events: "Events",
-      "and others are confirmed": "and {{count}} others are confirmed",
+      Confirmed: "and {count} others are confirmed",
       Participants: "Participants",
     },
     featuredTitles: {

@@ -1,14 +1,14 @@
 import ReactCountryFlag from "react-country-flag";
-// import ChessIcon from "../../../assets/Icons/chess.svg?react";
-import TrophyIcon from "../assets/Icons/trophy.svg?react";
-import MembersIcon from "../assets/Icons/members.svg?react";
+// import ChessIcon from "../../../assets/Icons/chess.svg";
+import TrophyIcon from "../assets/Icons/trophy.svg";
+import MembersIcon from "../assets/Icons/members.svg";
 
-import MatchesIcon from "../assets/Icons/matches.svg?react";
-import TennisIcon from "../assets/Icons/teniss.svg?react";
-import BeachTennisIcon from "../assets/Icons/beachtennis.svg?react";
+import MatchesIcon from "../assets/Icons/matches.svg";
+import TennisIcon from "../assets/Icons/teniss.svg";
+import BeachTennisIcon from "../assets/Icons/beachtennis.svg";
 
-import CategoriesIcon from "../assets/Icons/categories.svg?react";
-import EntriesIcon from "../assets/Icons/entries.svg?react";
+import CategoriesIcon from "../assets/Icons/categories.svg";
+import EntriesIcon from "../assets/Icons/entries.svg";
 
 import { ReactElement } from "react";
 

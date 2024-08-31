@@ -1,15 +1,16 @@
+"use client";
+
 import styled from "styled-components";
-import { Trans, useTranslation } from "react-i18next";
 import {
   breakpoint,
   colors,
   typography,
 } from "../../../components/GlobalStyles.tsx";
 import ReactCountryFlag from "react-country-flag";
-import IdeaKaussLogo from "./assets/IdeaKauss.svg?react";
-import WhiteLabelIcon from "./assets/whitelabel.svg?react";
-import CustomIcon from "./assets/custom.svg?react";
-import TournatedLogo from "../../../assets/logo_icon.svg?react";
+import IdeaKaussLogo from "./assets/IdeaKauss.svg";
+import WhiteLabelIcon from "./assets/whitelabel.svg";
+import CustomIcon from "./assets/custom.svg";
+import TournatedLogo from "../../../assets/logo_icon.svg";
 import { useMediaQuery } from "@react-hookz/web";
 import photo1 from "./assets/photos/photo_1.png";
 import photo2 from "./assets/photos/photo_2.png";
@@ -18,9 +19,11 @@ import photo4 from "./assets/photos/photo_4.png";
 import photo5 from "./assets/photos/photo_5.png";
 import photo6 from "./assets/photos/photo_6.png";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
+
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);
   return (
     <>
@@ -31,12 +34,12 @@ const Hero = () => {
           viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <TopLeft src={photo6} />
-          <BottomLeft src={photo1} />
-          <CenterLeft src={photo3} />
-          <TopRight src={photo5} />
-          <CenterRight src={photo4} />
-          <BottomRight src={photo2} />
+          <TopLeft src={photo6.src} />
+          <BottomLeft src={photo1.src} />
+          <CenterLeft src={photo3.src} />
+          <TopRight src={photo5.src} />
+          <CenterRight src={photo4.src} />
+          <BottomRight src={photo2.src} />
         </BackgroundImages>
         <Wrapper
           initial={{ opacity: 0, y: -20 }}
@@ -54,13 +57,14 @@ const Hero = () => {
             <h3>Made in Latvia</h3>
           </MadeIn>
           <Title>
-            <Trans i18nKey="about.hero.title" components={{ span: <span /> }} />
+            {t.rich("about.hero.title", {
+              span: (chunks) => <span>{chunks}</span>,
+            })}
           </Title>
           <Subtitle>
-            <Trans
-              i18nKey="about.hero.subtitle"
-              components={{ span: <span /> }}
-            />
+            {t.rich("about.hero.subtitle", {
+              span: (chunks) => <span>{chunks}</span>,
+            })}
           </Subtitle>
           <Achievement>
             <p>Winner of</p>

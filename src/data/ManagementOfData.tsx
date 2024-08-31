@@ -1,7 +1,7 @@
 import { PLATFORM_URL } from "../consts.ts";
 import { colors } from "../components/GlobalStyles.tsx";
-import tournamentsIcon from "../components/Navbar/Assets/tournaments.svg";
-import leaguesIcon from "../components/Navbar/Assets/leagues.svg";
+import TournamentsIcon from "../components/Navbar/Assets/tournaments.svg";
+import LeaguesIcon from "../components/Navbar/Assets/leagues.svg";
 
 export default [
   {
@@ -9,7 +9,7 @@ export default [
     title: { en: "Tournaments", lv: "Turnīri" },
     label: { en: "Free", lv: "Bezmaksas" },
     labelColor: colors.success,
-    icon: tournamentsIcon,
+    icon: <TournamentsIcon />,
     desc: {
       en: "Enhance tournaments with automated brackets and easy sign-ups.",
       lv: "Uzlabojiet turnīrus ar automatizētām izlozēm un vienkāršu reģistrēšanos.",
@@ -20,7 +20,7 @@ export default [
     title: { en: "Leagues", lv: "Līgas" },
     label: { en: "Free Trial", lv: "Bezmaksas izmēģinājums" },
     labelColor: colors.success,
-    icon: leaguesIcon,
+    icon: <LeaguesIcon />,
     desc: {
       en: "Streamline league operations with scheduling, standings, and ranking tools.",
       lv: "Vienkāršojiet līgu darbību ar plānošanas, rezultātu un reitingu rīkiem.",
@@ -30,7 +30,7 @@ export default [
     title: { en: "Clubs", lv: "Klubi" },
     label: { en: "Coming soon", lv: "Drīzumā" },
     labelColor: colors.grey700,
-    icon: tournamentsIcon,
+    icon: <TournamentsIcon />,
     desc: {
       en: "Manage your club efficiently with registration and communication tools.",
       lv: "Efektīvi pārvaldiet savu klubu ar reģistrācijas un saziņas rīkiem.",
@@ -40,7 +40,7 @@ export default [
     title: { en: "Events", lv: "Pasākumi" },
     label: { en: "Coming soon", lv: "Drīzumā" },
     labelColor: colors.grey700,
-    icon: tournamentsIcon,
+    icon: <TournamentsIcon />,
     desc: {
       en: "Simplify event management with integrated planning tools.",
       lv: "Vienkāršojiet pasākumu pārvaldību ar integrētiem plānošanas rīkiem.",

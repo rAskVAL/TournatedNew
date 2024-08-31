@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import bg from "../../../assets/herobg.png";
 import { useState } from "react";
@@ -8,7 +10,8 @@ import {
 } from "../../../components/GlobalStyles.tsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMediaQuery } from "@react-hookz/web";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const platform_1 = "https://i.imgur.com/hqUBov1.png";
 const platform_2 = "https://i.imgur.com/nvSxBC8.png";
@@ -25,11 +28,12 @@ const platformImages = {
 const Right = () => {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);
   const [selectedColor, setSelectedColor] = useState<Colors>("orange");
-  const { t } = useTranslation();
+  const t = useTranslations();
+
   return (
     <Container>
       <Wrapper>
-        <Background src={bg} />
+        <Background src={bg.src} />
         {isDesktop && (
           <SelectorWrapper>
             <SelectorTitle>{t("customize")}</SelectorTitle>
@@ -64,8 +68,13 @@ const Right = () => {
               opacity: { duration: 0.3 },
               type: "spring",
             }}
-            src={platformImages.orange}
-          />
+          >
+            <Image
+              alt="platform preview"
+              src={platformImages.orange}
+              fill={true}
+            />
+          </PlatformPreview>
         )}
       </AnimatePresence>
       <AnimatePresence>
@@ -79,8 +88,13 @@ const Right = () => {
               opacity: { duration: 0.3 },
               type: "spring",
             }}
-            src={platformImages.red}
-          />
+          >
+            <Image
+              alt="platform preview"
+              src={platformImages.red}
+              fill={true}
+            />
+          </PlatformPreview>
         )}
       </AnimatePresence>
       <AnimatePresence>
@@ -94,8 +108,13 @@ const Right = () => {
               opacity: { duration: 0.3 },
               type: "spring",
             }}
-            src={platformImages.green}
-          />
+          >
+            <Image
+              alt="platform preview"
+              src={platformImages.green}
+              fill={true}
+            />
+          </PlatformPreview>
         )}
       </AnimatePresence>
     </Container>
@@ -119,20 +138,22 @@ const Wrapper = styled.div`
   }
 `;
 
-const PlatformPreview = styled(motion.img)`
+const PlatformPreview = styled(motion.div)`
   position: absolute;
   height: 491px;
 
   @media (min-width: ${breakpoint.l}px) {
     left: 48px;
     bottom: 40px;
-    height: 75%;
+    height: 654px;
+    width: calc(654px * 1.4);
   }
 
   @media (max-width: ${breakpoint.l}px) {
     top: 40px;
     left: 0;
     height: 391px;
+    width: calc(391px * 1.4);
   }
 `;
 

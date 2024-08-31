@@ -1,17 +1,4 @@
-import { createGlobalStyle, css } from "styled-components";
-const GlobalStyle = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #root {
-    width: 100%;
-    font-family: "Familjen Grotesk", sans-serif;
-    overflow: hidden;
-  }
-`;
+import { css } from "styled-components";
 
 export const outerContainerStyles = css`
   position: relative;
@@ -176,5 +163,3 @@ export const typography = {
 export const padding = {
   m: "20px",
 };
-
-export default GlobalStyle;

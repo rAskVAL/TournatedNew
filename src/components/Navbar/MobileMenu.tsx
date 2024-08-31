@@ -5,20 +5,20 @@ import {
   containerStyles,
   typography,
 } from "../GlobalStyles.tsx";
-import logo from "../../assets/logo.svg";
-import Close from "../../assets/Icons/close.svg?react";
+import Logo from "../../assets/logo.svg";
+import Close from "../../assets/Icons/close.svg";
 import { AnimatePresence, motion } from "framer-motion";
 import data from "../../data/NavbarData.tsx";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import ChevronDown from "../../assets/Icons/chevronDown.svg?react";
+import ChevronDown from "../../assets/Icons/chevronDown.svg";
 import Button from "../Button.tsx";
 import LanguageSelector from "./LanguageSelector.tsx";
 import HighlightButton from "./HighlightButton.tsx";
-import { useTranslation } from "react-i18next";
-import { SupportedLanguages } from "../../App.tsx";
+import { useLocale, useTranslations } from "next-intl";
+
 import { CALENDLY_URL, PLATFORM_URL } from "../../consts.ts";
-import useLink from "../../utils/useLink.ts";
+import { SupportedLanguages, useRouter } from "../../i18n/routing.ts";
+import Link from "next/link";
 
 type Props = {
   setIsMobileOpen: (state: boolean) => void;
@@ -26,9 +26,8 @@ type Props = {
 
 const MobileMenu = ({ setIsMobileOpen }: Props) => {
   const [openedMenuIndex, setOpenedMenuIndex] = useState<number>();
-  const { t, i18n } = useTranslation();
-  const navigate = useNavigate();
-  const homePageLink = useLink("/");
+  const t = useTranslations();
+  const router = useRouter();
 
   useEffect(() => {
     // Disable scrolling
@@ -40,7 +39,7 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
     };
   }, []);
 
-  const currentLanguage = i18n.language as SupportedLanguages;
+  const currentLanguage = useLocale() as SupportedLanguages;
 
   return (
     <MobileMenuContainer
@@ -50,15 +49,12 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
     >
       <Top>
         <Wrapper>
-          <Logo
-            src={logo}
-            alt={t("logo_alt")}
-            onClick={() => {
-              if (homePageLink) navigate(homePageLink);
-              setIsMobileOpen(false);
-            }}
-          />
-          <CloseIcon onClick={() => setIsMobileOpen(false)} />
+          <a href="/">
+            <Logo />
+          </a>
+          <div onClick={() => setIsMobileOpen(false)}>
+            <CloseIcon />
+          </div>
         </Wrapper>
         <Links>
           {data.map(({ title, submenu, to }, i) => (
@@ -66,7 +62,7 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
               <ItemTitle
                 onClick={() => {
                   setOpenedMenuIndex((curr) => (curr === i ? undefined : i));
-                  if (to) navigate(to);
+                  if (to) router.push(to);
                 }}
               >
                 <p>{title[currentLanguage]}</p>
@@ -93,7 +89,7 @@ const MobileMenu = ({ setIsMobileOpen }: Props) => {
                     )}
                     {submenu.links &&
                       submenu.links.items.map(({ title, to }) => (
-                        <Sublink to={to}>{title[currentLanguage]}</Sublink>
+                        <Sublink href={to}>{title[currentLanguage]}</Sublink>
                       ))}
                   </Submenu>
                 )}
@@ -124,11 +120,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   ${containerStyles};
-`;
-
-const Logo = styled.img`
-  height: 24px;
-  cursor: pointer;
 `;
 
 const MobileMenuContainer = styled(motion.div)`

@@ -1,6 +1,5 @@
-import TournamentsIcon from "../components/Navbar/Assets/tournaments.svg?react";
-import LeaguesIcon from "../components/Navbar/Assets/leagues.svg?react";
-import { colors } from "../components/GlobalStyles.tsx";
+import TournamentsIcon from "../components/Navbar/Assets/tournaments.svg";
+import LeaguesIcon from "../components/Navbar/Assets/leagues.svg";
 import { PLATFORM_URL } from "../consts.ts";
 
 const menu = [
@@ -16,26 +15,26 @@ const menu = [
             to: `${PLATFORM_URL}/tournaments`,
             title: { en: "Tournaments", lv: "Turnīri" },
             label: { en: "Free", lv: "Bezmaksas" },
-            labelColor: colors.success,
+            labelColor: "bg-success",
             icon: <TournamentsIcon />,
           },
           {
             to: `${PLATFORM_URL}/leagues`,
             title: { en: "Leagues", lv: "Līgas" },
             label: { en: "Free Trial", lv: "Bezmaksas izmēģinājums" },
-            labelColor: colors.success,
+            labelColor: "bg-success",
             icon: <LeaguesIcon />,
           },
           {
             title: { en: "Clubs", lv: "Klubi" },
             label: { en: "Coming soon", lv: "Drīzumā" },
-            labelColor: colors.grey700,
+            labelColor: "bg-grey700",
             icon: <TournamentsIcon />,
           },
           {
             title: { en: "Events", lv: "Pasākumi" },
             label: { en: "Coming soon", lv: "Drīzumā" },
-            labelColor: colors.grey700,
+            labelColor: "bg-grey700",
             icon: <TournamentsIcon />,
           },
         ],

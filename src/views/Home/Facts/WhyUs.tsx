@@ -1,5 +1,7 @@
+"use client";
+
 import SectionTitle from "../../../components/SectionTitle.tsx";
-import { useTranslation } from "react-i18next";
+import { useLocale, useTranslations } from "next-intl";
 import styled from "styled-components";
 import {
   breakpoint,
@@ -9,20 +11,20 @@ import {
   typography,
 } from "../../../components/GlobalStyles.tsx";
 import WhyUsData from "../../../data/WhyUsData.ts";
-import { SupportedLanguages } from "../../../App.tsx";
-import Icon from "./assets/icon.svg?react";
+import Icon from "./assets/icon.svg";
 import { motion } from "framer-motion";
+import { SupportedLanguages } from "../../../i18n/routing.ts";
 
 const WhyUs = () => {
-  const { t, i18n } = useTranslation();
-  const currentLanguage = i18n.language as SupportedLanguages;
+  const t = useTranslations();
+  const currentLanguage = useLocale() as SupportedLanguages;
 
   return (
     <OuterContainer>
       <Tournated />
       <Container>
         <Box>
-          <SectionTitle text={t("why_us")}></SectionTitle>
+          <SectionTitle className="text-black" text={t("why_us")} />
           <PointsBox>
             <Points $index={[1, 2]}>
               <motion.div
@@ -98,10 +100,6 @@ const Box = styled.div`
   width: 100%;
   max-width: 1068px;
   gap: 40px;
-
-  & ${SectionTitle} {
-    color: ${colors.black};
-  }
 
   @media (max-width: ${breakpoint.l}px) {
     flex-direction: column;

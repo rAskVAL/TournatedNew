@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import Button from "../Button.tsx";
-import { colors, typography } from "../GlobalStyles.tsx";
-import ArrowRight from "../../assets/Icons/arrowRight.svg?react";
+import { colors } from "../GlobalStyles.tsx";
+import ArrowRight from "../../assets/Icons/arrowRight.svg";
 import { ReactNode } from "react";
-import { useTranslation } from "react-i18next";
-import { SupportedLanguages } from "../../App.tsx";
+import { useLocale } from "next-intl";
+import "./HighlightButton.css";
+import { SupportedLanguages } from "../../i18n/routing.ts";
 
 type Props = {
   data: {
@@ -19,18 +20,28 @@ type Props = {
 const HighlightButton = ({
   data: { title, icon, label, labelColor, to },
 }: Props) => {
-  const { i18n } = useTranslation();
-  const currentLanguage = i18n.language as SupportedLanguages;
+  const currentLanguage = useLocale() as SupportedLanguages;
 
   return (
-    <StyledButton disabled={!to} onClick={() => window.open(to)} style="dark">
+    <Button
+      disabled={!to}
+      onClick={() => window.open(to)}
+      style="dark"
+      className="hb"
+    >
       <div>{icon}</div>
-      <TitleZone>
+      <div className="w-full flex justify-between">
         <p>{title[currentLanguage]}</p>
-        <Arrow />
-      </TitleZone>
-      <Label style={{ background: labelColor }}>{label[currentLanguage]}</Label>
-    </StyledButton>
+        <div className="arrow">
+          <Arrow />
+        </div>
+      </div>
+      <div
+        className={`absolute top-[10px] right-[10px] px-[6px] pb-[3px] text-grotesk14 text-white ${labelColor}`}
+      >
+        {label[currentLanguage]}
+      </div>
+    </Button>
   );
 };
 
@@ -40,39 +51,4 @@ const Arrow = styled(ArrowRight)`
   * {
     stroke: ${colors.grey400};
   }
-`;
-
-const StyledButton = styled(Button)`
-  min-height: 96px;
-  padding-inline: 10px;
-  flex: 1;
-  &:hover ${Arrow} {
-    * {
-      stroke: ${colors.white};
-    }
-  }
-
-  & > * {
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-  }
-
-  ${typography.grotesk20};
-`;
-
-const TitleZone = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Label = styled.div`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding-inline: 6px;
-  padding-block: 3px;
-  ${typography.grotesk14}
-  color: ${colors.white}
 `;

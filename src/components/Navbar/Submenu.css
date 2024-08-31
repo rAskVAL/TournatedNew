@@ -1,0 +1,9 @@
+.sub {
+    & .arrow  * {
+        stroke: theme('colors.grey400');
+    }
+
+    &:hover .arrow  * {
+        stroke: theme('colors.white');
+    }
+}

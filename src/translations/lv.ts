@@ -99,7 +99,7 @@ export default {
     tournamentCard: {
       Categories: "Kategorijas",
       Events: "Pasākumi",
-      "and others are confirmed": "un {{count}} citi ir apstiprināti",
+      Confirmed: "un {count} citi ir apstiprināti",
       Participants: "Dalibnieki",
     },
     featuredTitles: {

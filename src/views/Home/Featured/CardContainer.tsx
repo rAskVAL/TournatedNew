@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { ReactElement, ReactNode } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import {
   breakpoint,
   colors,
@@ -22,7 +22,7 @@ type Props = {
 };
 
 const CardContainer = ({ children, noPaddingZone, type, className }: Props) => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <Container

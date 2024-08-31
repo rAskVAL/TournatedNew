@@ -1,3 +1,5 @@
+"use client";
+
 import {
   colors,
   outerContainerStyles,
@@ -22,16 +24,6 @@ const WhyUs = lazy(() => import("./Facts/WhyUs.tsx"));
 const Home = () => (
   <>
     <Helmet>
-      <title>
-        Tournated - Affordable White-Label Sports Management Software | Your
-        Brand, Your Data | Free tournament sofware
-      </title>
-      <meta
-        name="description"
-        content="Launch your own custom sports management platform with Tournated. Our comprehensive, white-label software empowers you to manage sports organization, leagues, tournaments, clubs, events and athletes under your brand with full control over your data. Streamline sports events effortlessly."
-      />
-      <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://tournated.com/" />
       <script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-N82L4GJGH9"

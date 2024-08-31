@@ -1,13 +1,10 @@
 import { useEffect, useRef } from "react";
-import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { colors, resetStyles, typography } from "./GlobalStyles.tsx";
 import { useState } from "react";
-import ChevronDown from "../assets/Icons/chevronDown.svg?react";
+import ChevronDown from "../assets/Icons/chevronDown.svg";
 import Submenu, { SubmenuType } from "./Navbar/Submenu.tsx";
-import { useTranslation } from "react-i18next";
-import { SupportedLanguages } from "../App.tsx";
-import useLink from "../utils/useLink.ts";
+import { useLocale } from "next-intl";
+import { SupportedLanguages, useRouter } from "../i18n/routing.ts";
+import Svg from "../utils/Svg.tsx";
 
 type Props = {
   title: { en: string; lv: string };
@@ -16,7 +13,7 @@ type Props = {
   submenu?: SubmenuType;
 };
 
-const NavItem = ({ title, to, className, submenu }: Props) => {
+const NavItem = ({ title, to, submenu }: Props) => {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const submenuRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLAnchorElement>(null);
@@ -44,53 +41,28 @@ const NavItem = ({ title, to, className, submenu }: Props) => {
     };
   }, [isSubmenuOpen]);
 
-  const { i18n } = useTranslation();
-  const currentLanguage = i18n.language as SupportedLanguages;
-  const navigate = useNavigate();
-  const link = useLink(to);
+  const locale = useLocale();
+  const currentLanguage = locale as SupportedLanguages;
+  const router = useRouter();
 
   return (
-    <Item className={className}>
-      <Title
+    <div className="flex relative text-white">
+      <a
+        className="flex items-center gap-1 cursor-pointer hover:text-whiteHover"
         onClick={() => {
           setIsSubmenuOpen((curr) => !curr);
-          if (link) navigate(link);
+          if (to) router.push(to);
         }}
         ref={titleRef}
       >
-        {title[currentLanguage]} {submenu && <Chevron />}
-      </Title>
+        {title[currentLanguage]}
+        {submenu && <Svg svg={<ChevronDown />} className="navbar-chevron" />}
+      </a>
       {submenu && isSubmenuOpen && (
         <Submenu ref={submenuRef} submenu={submenu} />
       )}
-    </Item>
+    </div>
   );
 };
 
 export default NavItem;
-
-const Title = styled.a`
-  ${resetStyles}
-  && {
-    cursor: pointer;
-    &:hover {
-      color: ${colors.whiteHover};
-    }
-  }
-`;
-
-const Item = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  color: white;
-  position: relative;
-  ${typography.grotesk16};
-`;
-
-const Chevron = styled(ChevronDown)`
-  margin-top: 3px;
-  width: 9px;
-  height: 9px;
-  fill: white;
-`;

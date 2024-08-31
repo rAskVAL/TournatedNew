@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, AnimatePresence } from "framer-motion";
 import SectionTitle from "../../../components/SectionTitle.tsx";
 import styled, { css } from "styled-components";
@@ -12,27 +14,29 @@ import AccordionItem from "./AccordionItem.tsx";
 import data from "../../../data/FeaturesData.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Icon1 from "../../../assets/features/icon1.svg?react";
-import Icon2 from "../../../assets/features/icon2.svg?react";
-import Icon3 from "../../../assets/features/icon3.svg?react";
-import { Trans, useTranslation } from "react-i18next";
-import { SupportedLanguages } from "../../../App.tsx";
+import Icon1 from "../../../assets/features/icon1.svg";
+import Icon2 from "../../../assets/features/icon2.svg";
+import Icon3 from "../../../assets/features/icon3.svg";
+import { useLocale, useTranslations } from "next-intl";
 import ProgressBar from "../../../components/ProgressBar.tsx";
+import { SupportedLanguages } from "../../../i18n/routing.ts";
 
 const Features = () => {
-  const { t, i18n } = useTranslation();
+  const t = useTranslations();
   const [activeItem, setActiveItem] = useState(0);
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);
   const [swiperProgress, setSwiperProgress] = useState<number>(0);
 
-  const currentLanguage = i18n.language as SupportedLanguages;
+  const currentLanguage = useLocale() as SupportedLanguages;
 
   return (
     <Container>
       <TitleBox>
-        <StyledSectionTitle text={t("features")} />
+        <SectionTitle className="text-black" text={t("features")} />
         <Title>
-          <Trans i18nKey="streamline_tournaments" components={{ br: <br /> }} />{" "}
+          {t.rich("streamline_tournaments", {
+            br: () => <br />,
+          })}{" "}
           <Italic>{t("all_in_one_crm")}</Italic>
         </Title>
       </TitleBox>
@@ -72,7 +76,7 @@ const Features = () => {
                       }}
                     >
                       <Img
-                        src={feature.banner}
+                        src={feature.banner.src}
                         alt={feature.title.en}
                         $activeItem={activeItem}
                       />
@@ -84,22 +88,25 @@ const Features = () => {
         </DesktopContent>
       ) : (
         <>
-          <MobileContent
+          <Swiper
             spaceBetween={16}
             slidesPerView="auto"
             pagination={{ clickable: true }}
             onActiveIndexChange={(swiper) => setSwiperProgress(swiper.progress)}
+            style={{ marginTop: "40px" }}
           >
             {data.map(({ title, description, banner }, i) => (
-              <Card key={i}>
-                <h3>{title[currentLanguage]}</h3>
-                <p>{description[currentLanguage]}</p>
-                <div>
-                  <Img src={banner} alt={title.en} />
-                </div>
-              </Card>
+              <SwiperSlide key={i} style={{ maxWidth: "300px" }}>
+                <Card>
+                  <h3>{title[currentLanguage]}</h3>
+                  <p>{description[currentLanguage]}</p>
+                  <div>
+                    <Img src={banner.src} alt={title.en} />
+                  </div>
+                </Card>
+              </SwiperSlide>
             ))}
-          </MobileContent>
+          </Swiper>
           <ProgressBar percentage={swiperProgress} />
         </>
       )}
@@ -142,6 +149,7 @@ const Features = () => {
 export default Features;
 
 const Container = styled.div`
+  ${containerStyles};
   display: flex;
   align-items: center;
   justify-content: start;
@@ -154,10 +162,6 @@ const Container = styled.div`
     padding-top: 55px;
     padding-bottom: 29px;
   }
-`;
-
-const StyledSectionTitle = styled(SectionTitle)`
-  color: ${colors.black} !important;
 `;
 
 const TitleBox = styled.div`
@@ -218,11 +222,10 @@ const Right = styled.div<{ $activeItem: number }>`
   }
 `;
 
-const Card = styled(SwiperSlide)`
+const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 300px;
 
   h3 {
     ${typography.grotesk18};
@@ -252,12 +255,6 @@ const Card = styled(SwiperSlide)`
       border-radius: 0 4px 0 4px;
     }
   }
-`;
-
-const MobileContent = styled(Swiper)`
-  ${containerStyles};
-  max-width: calc(100% - 40px);
-  margin-top: 55px;
 `;
 
 const Bottom = styled.div`

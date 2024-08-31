@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import {
   breakpoint,
@@ -7,25 +9,26 @@ import {
 } from "../../../components/GlobalStyles.tsx";
 import team from "../../../assets/team.png";
 import SectionTitle from "../../../components/SectionTitle.tsx";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import Button from "../../../components/Button.tsx";
 
 const Team = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
+
   return (
     <Container>
       <Left>
         <div>
           <SectionTitle text="About us" />
           <h3>
-            <Trans i18nKey="build_by" as="h3" components={{ span: <span /> }} />
+            {t.rich("build_by", { span: (chunks) => <span>{chunks}</span> })}
           </h3>
           <p>{t("team_desc")}</p>
         </div>
         <Button style="brand">About us</Button>
       </Left>
       <Right>
-        <img src={team} alt="Team photo" />
+        <img src={team.src} alt="Team photo" />
       </Right>
     </Container>
   );

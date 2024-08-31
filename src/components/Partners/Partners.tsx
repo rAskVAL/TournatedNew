@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import {
   breakpoint,
@@ -7,7 +9,7 @@ import {
 } from "../GlobalStyles.tsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import { Partner } from "../../views/Home/partnersData.ts";
 
 const Partners = ({
@@ -19,7 +21,7 @@ const Partners = ({
   titleKey: string;
   className?: string;
 }) => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   const handleClick = (url: string) => {
     window.location.href = url;

@@ -3,10 +3,11 @@ import { breakpoint, typography } from "../../../components/GlobalStyles";
 import { useIntervalEffect } from "@react-hookz/web";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 const DynamicText = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
+
   const [selectedTextIndex, setSelectedTextIndex] = useState(0);
   const TEXT_KEYS = [
     "dynamic.own",

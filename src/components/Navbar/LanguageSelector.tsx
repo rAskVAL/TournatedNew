@@ -1,20 +1,17 @@
+"use client";
+
 import styled from "styled-components";
 import NavItem from "../NavItem.tsx";
 import { colors, typography } from "../GlobalStyles.tsx";
 import Button from "../Button.tsx";
-import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
-import { SupportedLanguages } from "../../App.tsx";
+import { useLocale } from "next-intl";
+import { useRouter, usePathname } from "../../i18n/routing";
+import { startTransition } from "react";
 
 const LanguageSelector = ({ mobile }: { mobile?: boolean }) => {
-  const {
-    i18n: { language },
-  } = useTranslation();
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const getLink = (lang: SupportedLanguages) =>
-    location.pathname.replace(/^\/[^/]+/, `/${lang}`);
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   if (mobile)
     return (
@@ -23,15 +20,19 @@ const LanguageSelector = ({ mobile }: { mobile?: boolean }) => {
         <Buttons>
           <StyledButton
             style="transparent"
-            selected={language === "en"}
-            onClick={() => navigate(getLink("en"))}
+            selected={locale === "en"}
+            onClick={() => {
+              router.replace(pathname, { locale: "en" });
+            }}
           >
             EN
           </StyledButton>
           <StyledButton
             style="transparent"
-            selected={language === "lv"}
-            onClick={() => navigate(getLink("lv"))}
+            selected={locale === "lv"}
+            onClick={() => {
+              router.replace(pathname, { locale: "lv" });
+            }}
           >
             LV
           </StyledButton>
@@ -48,13 +49,19 @@ const LanguageSelector = ({ mobile }: { mobile?: boolean }) => {
           items: [
             {
               title: { en: "English", lv: "English" },
-              to: getLink("en"),
-              selected: language === "en",
+              onClick: () => {
+                startTransition(() => {
+                  router.replace(pathname, { locale: "en" });
+                });
+              },
+              selected: locale === "en",
             },
             {
               title: { en: "Latviski", lv: "Latviski" },
-              to: getLink("lv"),
-              selected: language === "lv",
+              onClick: () => {
+                router.replace(pathname, { locale: "lv" });
+              },
+              selected: locale === "lv",
             },
           ],
         },

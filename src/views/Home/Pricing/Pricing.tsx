@@ -1,3 +1,5 @@
+"use client";
+
 import styled, { css } from "styled-components";
 import {
   breakpoint,
@@ -6,22 +8,22 @@ import {
   typography,
 } from "../../../components/GlobalStyles.tsx";
 import SectionTitle from "../../../components/SectionTitle.tsx";
-import { useTranslation } from "react-i18next";
+import { useLocale, useTranslations } from "next-intl";
 import Switch from "./Switch.tsx";
 import { useState } from "react";
 import data from "../../../data/PricingData.ts";
-import { SupportedLanguages } from "../../../App.tsx";
-import CheckmarkIcon from "../../../assets/Icons/checkmark.svg?react";
+import CheckmarkIcon from "../../../assets/Icons/checkmark.svg";
 import Button from "../../../components/Button.tsx";
 import { useMediaQuery } from "@react-hookz/web";
 import { SwiperSlide, Swiper } from "swiper/react"; // Import Swiper component
 import { Swiper as SwiperType } from "swiper";
-import Pattern from "./assets/pattern.svg?react";
+import Pattern from "./assets/pattern.svg";
 import { motion } from "framer-motion";
+import { SupportedLanguages } from "../../../i18n/routing.ts";
 
 const Pricing = () => {
-  const { t, i18n } = useTranslation();
-  const currentLanguage = i18n.language as SupportedLanguages;
+  const t = useTranslations();
+  const currentLanguage = useLocale() as SupportedLanguages;
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType>(); // Create a state variable for the Swiper instance
 
@@ -38,7 +40,7 @@ const Pricing = () => {
 
   return (
     <Container>
-      <StyledSectionTitle text={t("pricing")} />
+      <SectionTitle text={t("pricing")} className="text-grey900" />
       <Title>{t("pricing_message")}</Title>
       <Switch
         activeIndex={activeIndex}
@@ -60,7 +62,10 @@ const Pricing = () => {
                 transition={{ duration: 0.5 }}
               >
                 <CardTitleBox $status={plan[currentLanguage]?.status}>
-                  <CardTitle text={plan[currentLanguage]?.title} />
+                  <SectionTitle
+                    className="text-black"
+                    text={plan[currentLanguage]?.title}
+                  />
                   <CardPrice>
                     <h3>{plan[currentLanguage]?.price}</h3>
                     {plan[currentLanguage]?.oldPrice && (
@@ -101,7 +106,10 @@ const Pricing = () => {
               key={plan[currentLanguage]?.title}
             >
               <CardTitleBox $status={plan[currentLanguage]?.status}>
-                <CardTitle text={plan[currentLanguage]?.title} />
+                <SectionTitle
+                  className="text-black"
+                  text={plan[currentLanguage]?.title}
+                />
                 <CardPrice>
                   <h3>{plan[currentLanguage]?.price}</h3>
                   {plan[currentLanguage]?.oldPrice && (
@@ -155,16 +163,8 @@ const Container = styled.div`
   }
 `;
 
-const StyledSectionTitle = styled(SectionTitle)`
-  color: ${colors.grey900};
-`;
-
 const StyledSwiper = styled(Swiper)`
   max-width: 100%;
-`;
-
-const CardTitle = styled(SectionTitle)`
-  color: ${colors.black};
 `;
 
 const CardContent = styled.div`
@@ -234,11 +234,6 @@ const CardTitleBox = styled.div<{
         `
       : $status === "standard" &&
         css`
-          & ${CardTitle} {
-            svg * {
-              fill: ${colors.grey100};
-            }
-          }
           h3 {
             color: ${colors.black};
             ${typography.grotesk40};

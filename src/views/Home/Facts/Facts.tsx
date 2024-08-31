@@ -2,7 +2,7 @@ import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import styled from "styled-components";
 import SectionTitle from "../../../components/SectionTitle.tsx";
-import { useTranslation } from "react-i18next";
+import { useLocale, useTranslations } from "next-intl";
 import {
   breakpoint,
   colors,
@@ -16,11 +16,11 @@ import { motion } from "framer-motion";
 import left from "./assets/left.png";
 import center from "./assets/center.png";
 import right from "./assets/right.png";
-import { SupportedLanguages } from "../../../App.tsx";
+import { SupportedLanguages } from "../../../i18n/routing.ts";
 
 const Facts = () => {
-  const { t, i18n } = useTranslation();
-  const currentLanguage = i18n.language as SupportedLanguages;
+  const t = useTranslations();
+  const currentLanguage = useLocale() as SupportedLanguages;
   const swiperRef = useRef<SwiperRef>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -36,7 +36,7 @@ const Facts = () => {
 
   return (
     <Container>
-      <SectionTitle text={t("facts")} />
+      <SectionTitle className="text-black" text={t("facts")} />
       <StyledSwiper
         ref={swiperRef}
         onActiveIndexChange={(s) => setActiveIndex(s.activeIndex)}
@@ -65,7 +65,7 @@ const Facts = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            src={left}
+            src={left.src}
           />
         </div>
         <div>
@@ -74,7 +74,7 @@ const Facts = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            src={center}
+            src={center.src}
           />
         </div>
         <div>
@@ -83,7 +83,7 @@ const Facts = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ delay: 1.2, duration: 0.6 }}
-            src={right}
+            src={right.src}
           />
         </div>
       </Images>
@@ -102,12 +102,6 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-
-  ${SectionTitle} {
-    color: ${colors.black};
-    margin-top: 40px;
-    margin-bottom: 30px;
-  }
 `;
 
 const Card = styled.div`

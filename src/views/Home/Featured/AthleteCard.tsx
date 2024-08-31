@@ -10,12 +10,13 @@
 // } from "../../../components/GlobalStyles.tsx";
 // import Tag from "../../../components/Tag.tsx";
 // import Stat from "../../../components/Stat.tsx";
-// import { useTranslation } from "react-i18next";
+// import {useTranslations} from 'next-intl';
 // import { FeaturedAthlete } from "./FeaturedData.tsx";
 // import { Link } from "react-router-dom";
 //
 // const AthleteCard = ({ testimonialsData }: { testimonialsData: FeaturedAthlete }) => {
-//   const { t } = useTranslation();
+//   const t = useTranslations();
+
 //   return (
 //     <Container type="athlete">
 //       <InfoBox>

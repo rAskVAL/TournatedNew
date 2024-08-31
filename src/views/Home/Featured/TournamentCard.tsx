@@ -1,5 +1,3 @@
-/// <reference types="vite-plugin-svgr/client" />
-
 import CardContainer from "./CardContainer.tsx";
 import styled from "styled-components";
 import {
@@ -14,14 +12,14 @@ import ScrollContainer from "react-indiana-drag-scroll";
 import Stat from "../../../components/Stat.tsx";
 import Organizer from "./Organizer.tsx";
 
-import { useTranslation } from "react-i18next";
+import { useLocale, useTranslations } from "next-intl";
 import { tournamentData as data } from "../../../data/FeaturedData.tsx";
-import { SupportedLanguages } from "../../../App.tsx";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import { SupportedLanguages } from "../../../i18n/routing.ts";
 
 const TournamentCard = () => {
-  const { t, i18n } = useTranslation();
-  const currentLanguage = i18n.language as SupportedLanguages;
+  const t = useTranslations();
+  const currentLanguage = useLocale() as SupportedLanguages;
 
   return (
     <Container
@@ -36,7 +34,7 @@ const TournamentCard = () => {
       }
     >
       <TitleBox>
-        <Title to={data.link}>{data.title[currentLanguage]}</Title>
+        <Title href={data.link}>{data.title[currentLanguage]}</Title>
         <Details>
           <p>{data.date} ・</p>
           <ReactCountryFlag
@@ -74,7 +72,7 @@ const TournamentCard = () => {
         <div>
           <p>{data.participantsNames}</p>
           <SubText>
-            {t("tournamentCard.and others are confirmed", { count: 77 })}
+            {t("tournamentCard.and_others_are_confirmed", { count: 77 })}
           </SubText>
         </div>
       </Participants>

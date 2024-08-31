@@ -1,13 +1,18 @@
+"use client";
+
 import styled from "styled-components";
 import {
   breakpoint,
   containerStyles,
 } from "../../../components/GlobalStyles.tsx";
 import Left from "./Left.tsx";
-import Right from "./Right.tsx";
 import Partners from "../../../components/Partners/Partners.tsx";
 import { motion } from "framer-motion";
 import { powering } from "../partnersData.ts";
+
+import dynamic from "next/dynamic";
+
+const Right = dynamic(() => import("./Right.tsx"), { ssr: false });
 
 const Hero = () => (
   <Container

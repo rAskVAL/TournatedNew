@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import {
   breakpoint,
@@ -7,7 +9,7 @@ import SectionTitle from "../../../components/SectionTitle.tsx";
 import TournamentCard from "./TournamentCard.tsx";
 import LeagueCard from "./LeagueCard.tsx";
 import { useMediaQuery } from "@react-hookz/web";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import {
   leagueCardData,
   organizationCardData,
@@ -15,7 +17,8 @@ import {
 
 const Featured = () => {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.l}px)`);
-  const { t } = useTranslation();
+  const t = useTranslations();
+
   return (
     <Container>
       <Content>

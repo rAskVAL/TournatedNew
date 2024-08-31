@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import {
   breakpoint,
@@ -6,29 +8,31 @@ import {
   resetStyles,
   typography,
 } from "../components/GlobalStyles.tsx";
-import logo from "../assets/logo.svg";
+import Logo from "../assets/logo.svg";
 import pattern from "../assets/pattern_grayed.png";
-import Facebook from "../assets/Icons/facebook.svg?react";
-import Linkedin from "../assets/Icons/linkedin.svg?react";
-import Instagram from "../assets/Icons/instagram.svg?react";
+import Facebook from "../assets/Icons/facebook.svg";
+import Linkedin from "../assets/Icons/linkedin.svg";
+import Instagram from "../assets/Icons/instagram.svg";
 import stripe from "../assets/stripe.png";
 import visa from "../assets/visa.png";
 import mastercard from "../assets/mastercard.png";
 import { useMediaQuery } from "@react-hookz/web";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { FEATUREBASE_LINK, GITBOOK_LINK, PLATFORM_URL } from "../consts.ts";
 
 const Footer = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <Container>
       <Wrapper>
         <Top>
           <FlexItem>
-            <Logo src={logo} alt="Logo" />
+            <a href="/" className="cursor-pointer">
+              <Logo />
+            </a>
           </FlexItem>
           <FlexItem>
             <p>{t("mission_statement")}</p>
@@ -51,20 +55,22 @@ const Footer = () => {
           <Menus>
             <Menu>
               <MenuTitle>{t("support")}</MenuTitle>
-              <MenuItem to={GITBOOK_LINK}>{t("documentation")}</MenuItem>
-              <MenuItem to={FEATUREBASE_LINK}>{t("feedback")}</MenuItem>
-              <MenuItem to="https://discord.gg/E2MEXghwdx">
+              <MenuItem href={GITBOOK_LINK}>{t("documentation")}</MenuItem>
+              <MenuItem href={FEATUREBASE_LINK}>{t("feedback")}</MenuItem>
+              <MenuItem href="https://discord.gg/E2MEXghwdx">
                 {t("submit_ticket")}
               </MenuItem>
             </Menu>
             <Menu>
               <MenuTitle>{t("site")}</MenuTitle>
-              <MenuItem to="">{t("organizations")}</MenuItem>
-              <MenuItem to="">{t("features")}</MenuItem>
-              <MenuItem to={`${PLATFORM_URL}/pricing`}>{t("pricing")}</MenuItem>
-              <MenuItem to="">{t("testimonials")}</MenuItem>
-              <MenuItem to="">{t("news")}</MenuItem>
-              <MenuItem to="">{t("team")}</MenuItem>
+              <MenuItem href="">{t("organizations")}</MenuItem>
+              <MenuItem href="">{t("features")}</MenuItem>
+              <MenuItem href={`${PLATFORM_URL}/pricing`}>
+                {t("pricing")}
+              </MenuItem>
+              <MenuItem href="">{t("testimonials")}</MenuItem>
+              <MenuItem href="">{t("news")}</MenuItem>
+              <MenuItem href="">{t("team")}</MenuItem>
             </Menu>
             {/*<Menu>*/}
             {/*  <MenuTitle>{t("legal")}</MenuTitle>*/}
@@ -87,13 +93,13 @@ const Footer = () => {
               </Socials>
             )}
             <Payments>
-              <img src={mastercard} alt="Mastercard" />
-              <img src={visa} alt="Visa" />
-              <img src={stripe} alt="Stripe" />
+              <img src={mastercard.src} alt="Mastercard" />
+              <img src={visa.src} alt="Visa" />
+              <img src={stripe.src} alt="Stripe" />
               {/*<img src={googlePay} alt="Google Pay" />*/}
               {/*<img src={applePay} alt="Apple Pay" />*/}
             </Payments>
-            <Pattern src={pattern} />
+            <Pattern src={pattern.src} />
           </Contacts>
         </Bottom>
       </Wrapper>
@@ -120,7 +126,7 @@ const Top = styled.div`
   justify-content: space-between;
   height: 132px;
   border-bottom: 1px solid ${colors.secondary};
-  ${typography.grotesk16}
+  ${typography.grotesk16};
 
   @media (max-width: ${breakpoint.l}px) {
     flex-direction: column;
@@ -166,10 +172,6 @@ const Menu = styled.div`
 
 const Wrapper = styled.div`
   ${containerStyles};
-`;
-
-const Logo = styled.img`
-  height: 24px;
 `;
 
 const FlexItem = styled.div`

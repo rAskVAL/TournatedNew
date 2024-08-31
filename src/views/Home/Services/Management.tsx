@@ -3,17 +3,17 @@ import SectionTitle from "../../../components/SectionTitle.tsx";
 import ManagementOfData from "../../../data/ManagementOfData.tsx";
 import { breakpoint } from "../../../components/GlobalStyles.tsx";
 import ManagementItem from "./ManagementItem.tsx";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 const Management = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <Container>
       <SectionTitle text={t("services.management_of")} />
       <Wrapper>
-        {ManagementOfData.map((item) => (
-          <ManagementItem data={item} />
+        {ManagementOfData.map((item, i) => (
+          <ManagementItem key={i} data={item} />
         ))}
       </Wrapper>
     </Container>

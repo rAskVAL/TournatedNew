@@ -1,0 +1,17 @@
+.hb {
+    min-height: 96px;
+    padding-inline: 10px;
+    flex: 1;
+
+    &:hover .arrow {
+        * {
+            stroke: white;
+        }
+    }
+
+    & > * {
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+    }
+}

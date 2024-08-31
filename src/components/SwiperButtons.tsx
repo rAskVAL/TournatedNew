@@ -8,7 +8,7 @@ type Props = {
   dataLength: number;
   className?: string;
 };
-import ArrowRight from "../assets/Icons/arrowRight.svg?react";
+import ArrowRight from "../assets/Icons/arrowRight.svg";
 
 const SwiperButtons = ({
   handleNext,

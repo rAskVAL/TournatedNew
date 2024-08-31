@@ -1,11 +1,16 @@
 import { graphql as gql } from "gql.tada";
+import { cacheExchange, createClient, fetchExchange } from "urql";
+import { registerUrql } from "@urql/next/rsc";
 
-// const graphql = initGraphQLTada<{
-//   introspection: introspection;
-//   scalars: {
-//     DateTime: string;
-//   };
-// }>();
+const makeClient = () => {
+  return createClient({
+    url: GRAPHQL_ENDPOINT,
+    exchanges: [cacheExchange, fetchExchange],
+  });
+};
+
+export const { getClient } = registerUrql(makeClient);
+
 export const GRAPHQL_ENDPOINT = "https://api.tournated.com/graphql";
 
 export const NewsQuery = gql(`

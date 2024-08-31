@@ -35,7 +35,7 @@ export const teamData: TeamData = [
         link: "https://www.instagram.com/nikitaribakovs/",
       },
     ],
-    photo: nick,
+    photo: nick.src,
   },
   {
     fullName: "Julia Chubarova",
@@ -52,7 +52,7 @@ export const teamData: TeamData = [
         link: "https://www.linkedin.com/in/julia-chubarova-3bb5b517a/",
       },
     ],
-    photo: julia,
+    photo: julia.src,
   },
   {
     fullName: "Roberts Ribakovs",
@@ -70,13 +70,13 @@ export const teamData: TeamData = [
       },
       { name: "X", icon: "ti ti-brand-x", link: "https://x.com/rAskVAL" },
     ],
-    photo: rob,
+    photo: rob.src,
   },
   {
     fullName: "Mihails Samoilovs",
     role: { en: "Board Member", lv: "Valdes loceklis" },
     socials: [{ name: "Instagram", icon: "ti ti-brand-instagram", link: "" }],
-    photo: mihails,
+    photo: mihails.src,
   },
 ];
 

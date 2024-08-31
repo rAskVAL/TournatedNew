@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.article {
+    color: #b9b9b9;
+    max-width: 580px;
+
+    h1 {
+        /* Assuming typography.grotesk24 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        position: relative;
+        font-size: 32px; /* Example */
+        color: theme('colors.white');
+        margin-bottom: 28px;
+        padding-left: calc(24px + 12px);
+    }
+
+    h1::before {
+        content: "";
+        position: absolute;
+        left: 0; /* Adjust the position as needed */
+        top: 50%;
+        transform: translateY(-40%);
+        width: 24px; /* Width of the square */
+        height: 24px; /* Height of the square */
+        background-color: theme('colors.primary'); /* Color of the square */
+        clip-path: polygon(0 100%, 100% 100%, 0 0);
+    }
+
+    h2 {
+        /* Assuming typography.grotesk20 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        font-size: 20px; /* Example */
+        color: theme('colors.white');
+        margin-bottom: 18px;
+    }
+
+    h3 {
+        /* Assuming typography.grotesk18 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        font-size: 18px; /* Example */
+        color: theme('colors.white');
+        margin-bottom: 18px;
+    }
+
+    h4 {
+        /* Assuming typography.grotesk16 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        font-size: 16px; /* Example */
+        color: theme('colors.white');
+        margin-bottom: 18px;
+    }
+
+    h5 {
+        /* Assuming typography.grotesk14 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        font-size: 14px; /* Example */
+        color: theme('colors.white');
+        margin-bottom: 18px;
+    }
+
+    h6 {
+        /* Assuming typography.grotesk13 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        font-size: 13px; /* Example */
+        color: theme('colors.white');
+        margin-bottom: 18px;
+    }
+
+    p {
+        /* Assuming typography.grotesk18 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        font-size: 18px; /* Example */
+        margin-bottom: 18px;
+    }
+
+    b, strong {
+        /* Assuming typography.grotesk18 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        font-size: 18px; /* Example */
+        margin-bottom: 18px;
+        font-weight: 700;
+        color: theme('colors.grey100')
+    }
+
+
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin-bottom: 16px;
+    }
+
+    ul {
+        list-style-type: none; /* Remove default bullet points */
+        padding-left: 24px; /* Adjust padding as needed */
+    }
+
+    ul li {
+        position: relative; /* Required for positioning the pseudo-element */
+        font-size: 18px; /* Example */
+        margin-bottom: 8px;
+    }
+
+    ul li::before {
+        content: "";
+        position: absolute;
+        left: -22px; /* Adjust the position as needed */
+        top: 7px;
+        width: 14px; /* Width of the square */
+        height: 14px; /* Height of the square */
+        background-color: theme('colors.primary'); /* Color of the square */
+        clip-path: polygon(0 100%, 100% 100%, 0 0);
+    }
+
+    blockquote {
+        /* Assuming typography.grotesk16 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        font-size: 16px; /* Example */
+        color: theme('colors.grey700');
+        border-left: 4px solid theme('colors.grey300');
+        padding-left: 16px;
+        margin-bottom: 16px;
+    }
+
+    code {
+        background-color: theme('colors.grey100');
+        padding: 2px 4px;
+        color: theme('colors.white');
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 24px;
+    }
+
+    table th,
+    table td {
+        border: 1px solid #333;
+        padding: 8px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #333;
+        /* Assuming typography.grotesk14 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        font-size: 14px; /* Example */
+        color: theme('colors.white');
+    }
+
+    table td {
+        /* Assuming typography.grotesk14 is a mixin or a set of styles */
+        /* Replace with actual styles */
+        font-size: 14px; /* Example */
+        color: #b9b9b9;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 24px;
+    }
+
+    a {
+        color: theme('colors.primary');
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: theme('colors.primaryHover');
+    }
+
+    hr {
+        border: 0;
+        border-top: 1px solid theme('colors.grey300');
+        margin: 24px 0;
+    }
+
+    @media (max-width: 1024px) { /* Replace 1024px with actual breakpoint.l value */
+        p, b, strong, ul li {
+            /* Assuming typography.grotesk16 is a mixin or a set of styles */
+            /* Replace with actual styles */
+            font-size: 16px; /* Example */
+        }
+
+        p, b, strong {
+            margin-bottom: 10px;
+        }
+
+    }
+}

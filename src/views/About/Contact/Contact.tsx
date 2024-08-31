@@ -1,16 +1,18 @@
+"use client";
+
 import styled from "styled-components";
 import {
   breakpoint,
   colors,
   typography,
 } from "../../../components/GlobalStyles.tsx";
-import Pattern from "./assets/pattern.svg?react";
+import Pattern from "./assets/pattern.svg";
 import Button from "../../../components/Button.tsx";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import { CALENDLY_URL } from "../../../consts.ts";
 
 const Contact = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   const images = [
     "https://i.imgur.com/ffrQfeK.png",

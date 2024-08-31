@@ -1,95 +1,32 @@
 import SectionTitle from "../../components/SectionTitle.tsx";
-import styled from "styled-components";
-import {
-  breakpoint,
-  colors,
-  containerStyles,
-  typography,
-} from "../../components/GlobalStyles.tsx";
-
-// import SearchIcon from "./assets/searchIcon.svg?react";
 import Card from "./Card.tsx";
-import { useQuery } from "urql";
+import { ResultOf } from "gql.tada";
 import { NewsQuery } from "../../graphql/graphql.ts";
-import { Helmet } from "react-helmet";
 
-const Blog = () => {
-  const [{ data }] = useQuery({ query: NewsQuery });
-
+const Blog = ({ data }: { data: ResultOf<typeof NewsQuery> }) => {
   return (
-    <>
-      <Helmet>
-        <title>
-          Tournated Blog | Latest News, In-Depth Articles, and Feature Updates
-        </title>
-        <meta
-          name="description"
-          content="Stay updated with Tournated Blog! Explore our latest news, insightful articles, and comprehensive feature updates. Dive into the world of sports innovation, trends, and expert insights today."
-        />
-        <link rel="canonical" href="https://tournated.com/blog" />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-N82L4GJGH9"
-        ></script>
-        <script>
-          {`
-             window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-N82L4GJGH9');
-          `}
-        </script>
-      </Helmet>
-      <OuterContainer>
-        <LightBackground />
-        <Container>
-          <SectionTitle text="Blog" />
-          <Headline>
-            Tournated news and featured articles from our experts
-          </Headline>
-          {/*<SearchBar>*/}
-          {/*  <SearchButton>*/}
-          {/*    <SearchIcon />*/}
-          {/*  </SearchButton>*/}
-          {/*  <Input placeholder="Search..." />*/}
-          {/*</SearchBar>*/}
-          <CardsGrid>
-            {data?.allNews.news.map((article) => <Card article={article} />)}
-          </CardsGrid>
-        </Container>
-      </OuterContainer>
-    </>
+    <div className="flex justify-center relative w-full">
+      <div className="absolute bg-grey900 w-full h-[min(605px,100%)]" />
+      <main className="container mx-auto pt-12 pb-[111px] flex flex-col items-center relative md:pt-20">
+        <SectionTitle text="Blog" />
+        <h1 className="max-w-[686px] lg:text-grotesk64 text-white mt-6 mb-8 text-center ltext-grotesk40">
+          Tournated news and featured articles from our experts
+        </h1>
+        {/*<SearchBar>*/}
+        {/*  <SearchButton>*/}
+        {/*    <SearchIcon />*/}
+        {/*  </SearchButton>*/}
+        {/*  <Input placeholder="Search..." />*/}
+        {/*</SearchBar>*/}
+        <div className="md:mt-12 grid md:grid-cols-2 gap-x-7 md:gap-y-20 max-w-[1000px] grid-cols-1 gap-y-8 mt-8">
+          {data?.allNews.news.map((article) => <Card article={article} />)}
+        </div>
+      </main>
+    </div>
   );
 };
 
 export default Blog;
-
-const Container = styled.main`
-  ${containerStyles};
-  padding-top: 80px;
-  padding-bottom: 111px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-
-  @media (max-width: ${breakpoint.l}px) {
-    padding-top: 48px;
-  }
-`;
-
-const Headline = styled.h1`
-  max-width: 686px;
-  ${typography.grotesk64};
-  color: ${colors.white};
-  margin-top: 24px;
-  margin-bottom: 32px;
-  text-align: center;
-
-  @media (max-width: ${breakpoint.l}px) {
-    ${typography.grotesk40}
-  }
-`;
 
 // const SearchBar = styled.div`
 //   display: flex;
@@ -126,32 +63,3 @@ const Headline = styled.h1`
 //     }
 //   }
 // `;
-
-const LightBackground = styled.div`
-  position: absolute;
-  background: ${colors.grey900};
-  width: 100%;
-  height: min(605px, 100%);
-`;
-
-const OuterContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-`;
-
-const CardsGrid = styled.div`
-  margin-top: 48px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 28px;
-  row-gap: 80px;
-  max-width: 1000px;
-
-  @media (max-width: ${breakpoint.l}px) {
-    grid-template-columns: 1fr;
-    row-gap: 32px;
-    margin-top: 32px;
-  }
-`;

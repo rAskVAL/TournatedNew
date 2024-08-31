@@ -1,6 +1,6 @@
 // src/views/leagueCard/LeagueCard.tsx
 
-import { useTranslation } from "react-i18next";
+import { useLocale, useTranslations } from "next-intl";
 import CardContainer from "./CardContainer.tsx";
 import styled from "styled-components";
 import {
@@ -13,12 +13,12 @@ import Stat from "../../../components/Stat.tsx";
 import Organizer from "./Organizer.tsx";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { leagueCardData } from "../../../data/FeaturedData.tsx";
-import { SupportedLanguages } from "../../../App.tsx";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import { SupportedLanguages } from "../../../i18n/routing.ts";
 
 const LeagueCard = ({ data }: { data: (typeof leagueCardData)[number] }) => {
-  const { t, i18n } = useTranslation();
-  const currentLanguage = i18n.language as SupportedLanguages;
+  const t = useTranslations();
+  const currentLanguage = useLocale() as SupportedLanguages;
 
   return (
     <Container type={data.type}>
@@ -27,7 +27,7 @@ const LeagueCard = ({ data }: { data: (typeof leagueCardData)[number] }) => {
           <img src={data.logo} alt={data.title.en} />
         </Avatar>
         <TitleBox>
-          <Title to={data.link}>{data.title[currentLanguage]}</Title>
+          <Title href={data.link}>{data.title[currentLanguage]}</Title>
           <Tags>
             {data.tags.map((tag, index) => (
               <Tag key={index} variant={tag.variant} leftIcon={tag.leftIcon}>

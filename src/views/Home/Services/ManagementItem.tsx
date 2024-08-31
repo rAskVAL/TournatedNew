@@ -5,15 +5,16 @@ import {
   colors,
   typography,
 } from "../../../components/GlobalStyles.tsx";
-import ArrowRight from "../../../assets/Icons/arrowRight.svg?react";
-import { useTranslation } from "react-i18next";
-import { SupportedLanguages } from "../../../App.tsx";
+import ArrowRight from "../../../assets/Icons/arrowRight.svg";
+import { useLocale } from "next-intl";
+import { ReactElement } from "react";
+import { SupportedLanguages } from "../../../i18n/routing.ts";
 
 type Props = {
   data: {
     title: { en: string; lv: string };
     to?: string;
-    icon: string;
+    icon: ReactElement;
     label: { en: string; lv: string };
     labelColor: string;
     desc: { lv: string; en: string };
@@ -23,8 +24,7 @@ type Props = {
 const ManagementItem = ({
   data: { title, icon, label, labelColor, to, desc },
 }: Props) => {
-  const { i18n } = useTranslation();
-  const currentLanguage = i18n.language as SupportedLanguages;
+  const currentLanguage = useLocale() as SupportedLanguages;
 
   return (
     <StyledButton disabled={!to} onClick={() => window.open(to)} style="dark">
@@ -32,8 +32,7 @@ const ManagementItem = ({
         <Label style={{ background: labelColor }}>
           {label[currentLanguage]}
         </Label>
-
-        <Icon src={icon} />
+        <Icon>{icon}</Icon>
         <Content>
           <TitleZone>
             <p>{title[currentLanguage]}</p>
@@ -48,13 +47,16 @@ const ManagementItem = ({
 
 export default ManagementItem;
 
-const Icon = styled.img`
-  height: 72px;
-  width: 72px;
+const Icon = styled.div`
+  & > svg {
+    transform: scale(2);
+    transform-origin: top left;
 
-  @media (max-width: ${breakpoint.l}px) {
-    height: 40px;
-    width: 40px;
+    @media (max-width: ${breakpoint.l}px) {
+      height: 40px;
+      width: 40px;
+      transform: scale(1);
+    }
   }
 `;
 
@@ -62,6 +64,7 @@ const Desc = styled.div`
   ${typography.grotesk16};
   color: ${colors.grey300};
   height: 60px;
+  text-align: start;
 
   @media (max-width: ${breakpoint.l}px) {
     ${typography.grotesk14};

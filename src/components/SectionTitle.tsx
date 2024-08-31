@@ -1,31 +1,16 @@
-/// <reference types="vite-plugin-svgr/client" />
-
-import styled from "styled-components";
-import { colors, typography } from "./GlobalStyles.tsx";
-import TournatedShape from "../assets/Icons/tournatedShape.svg?react";
+import TournatedShape from "../assets/Icons/tournatedShape.svg";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   text: string;
   className?: string;
-  color?: string;
 };
-const SectionTitle = ({ text, className, color }: Props) => (
-  <Wrapper className={className} $color={color}>
+
+const SectionTitle = ({ text, className }: Props) => (
+  <div className={twMerge(`flex items-center gap-2 text-white`, className)}>
     <TournatedShape />
-    <Text>{text}</Text>
-  </Wrapper>
+    <h2 className="text-grotesk16 whitespace-nowrap">{text}</h2>
+  </div>
 );
 
-export default styled(SectionTitle)``;
-
-const Text = styled.h2`
-  ${typography.grotesk16};
-  white-space: nowrap;
-`;
-
-const Wrapper = styled.div<{ $color?: string }>`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: ${({ $color }) => $color ?? colors.white};
-`;
+export default SectionTitle;

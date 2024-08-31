@@ -1,0 +1,29 @@
+:root {
+    --grey800: #141414;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Familjen Grotesk", sans-serif;
+}
+
+#root {
+    width: 100%;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1240px;
+    padding-inline: 20px;
+}
+
+.navbar-chevron {
+
+    & svg {
+        transform: scale(90%);
+        margin-top: 2px;
+    }
+}

@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import {
   breakpoint,
@@ -5,14 +7,14 @@ import {
   typography,
 } from "../../../components/GlobalStyles.tsx";
 import Button from "../../../components/Button.tsx";
-import ArrowRight from "../../../assets/Icons/arrowRight.svg?react";
+import ArrowRight from "../../../assets/Icons/arrowRight.svg";
 import pattern from "../../../assets/promo_pattern.png";
 import mobile from "../../../assets/promo_mobile.png";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 import { CALENDLY_URL, PLATFORM_URL } from "../../../consts.ts";
 
 const Promo = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <Container $image="https://i.imgur.com/MVZooyX.jpeg">
@@ -41,8 +43,8 @@ const Promo = () => {
             </StartButton>
           </Left>
           <Right>
-            <Pattern src={pattern} />
-            <Mobile src={mobile} />
+            <Pattern src={pattern.src} />
+            <Mobile src={mobile.src} />
           </Right>
         </Content>
         <Buttons>

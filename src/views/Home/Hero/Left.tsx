@@ -6,11 +6,11 @@ import {
 } from "../../../components/GlobalStyles.tsx";
 import Button from "../../../components/Button.tsx";
 import DynamicText from "./DynamicText.tsx";
-import { Trans, useTranslation } from "react-i18next";
 import { CALENDLY_URL, PLATFORM_URL } from "../../../consts.ts";
+import { useTranslations } from "next-intl";
 
 const Left = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <Container>
@@ -21,10 +21,9 @@ const Left = () => {
           <p>{t("sports_platform")}</p>
         </Headline>
         <Subtitle>
-          <Trans
-            i18nKey="launch_custom_platform"
-            components={{ span: <span className="highlight" /> }}
-          />
+          {t.rich("launch_custom_platform", {
+            span: (chunks) => <span className="highlight">{chunks}</span>,
+          })}
         </Subtitle>
       </TitleBox>
       <Stats>

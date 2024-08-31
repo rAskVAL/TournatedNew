@@ -4,7 +4,7 @@ import {
   padding,
   typography,
 } from "../../../components/GlobalStyles.tsx";
-import { useTranslation } from "react-i18next";
+import { useTranslations } from "next-intl";
 
 type Props = {
   title: string;
@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Organizer = ({ title, avatar, textKey = "organizedBy" }: Props) => {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <Container>

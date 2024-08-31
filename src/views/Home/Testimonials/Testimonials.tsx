@@ -1,5 +1,8 @@
+"use client";
+
 import styled from "styled-components";
-import Pattern from "./assets/pattern.svg?react";
+
+import Pattern from "./assets/pattern.svg";
 import {
   breakpoint,
   colors,
@@ -7,18 +10,17 @@ import {
   typography,
 } from "../../../components/GlobalStyles.tsx";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
-import { useTranslation } from "react-i18next";
+import { useLocale } from "next-intl";
 import { testimonialsData } from "../../../data/TestimonialsData.ts";
-import { SupportedLanguages } from "../../../App.tsx";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useRef, useState } from "react";
 import ProgressBar from "../../../components/ProgressBar.tsx";
 import { useMediaQuery, useThrottledState } from "@react-hookz/web";
 import SwiperButtons from "../../../components/SwiperButtons.tsx";
+import { SupportedLanguages } from "../../../i18n/routing.ts";
 
 const Testimonials = () => {
-  const { i18n } = useTranslation();
-  const currentLanguage = i18n.language as SupportedLanguages;
+  const currentLanguage = useLocale() as SupportedLanguages;
   const swiperRef = useRef<SwiperRef>(null);
   const isMobile = useMediaQuery(`(max-width: ${breakpoint.l}px)`);
   const [activeIndex, setActiveIndex] = useState(0);

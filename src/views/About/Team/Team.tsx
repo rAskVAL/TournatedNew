@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import SectionTitle from "../../../components/SectionTitle.tsx";
 import {
@@ -7,25 +9,29 @@ import {
   resetStyles,
   typography,
 } from "../../../components/GlobalStyles.tsx";
-import { Trans, useTranslation } from "react-i18next";
 import { teamData } from "../../../data/teamData.ts";
-import { SupportedLanguages } from "../../../App.tsx";
-import BG from "./assets/back.svg?react";
-import { Link } from "react-router-dom";
+import BG from "./assets/back.svg";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
+
+import { SupportedLanguages } from "../../../i18n/routing.ts";
 
 const Team = () => {
-  const { t, i18n } = useTranslation();
-  const language = i18n.language as SupportedLanguages;
+  const t = useTranslations();
+  const locale = useLocale();
+  const language = locale as SupportedLanguages;
 
   return (
     <OuterContainer>
       <Background />
       <Container>
         <TitleBox>
-          <SectionTitle text={t("our_team.title")} color={colors.black} />
+          <SectionTitle text={t("our_team.title")} className="text-black" />
           <Title>
-            <Trans i18nKey="our_team.ourCore" components={{ span: <span /> }} />
+            {t.rich("our_team.ourCore", {
+              span: (chunks) => <span>{chunks}</span>,
+            })}
           </Title>
           <Subtitle>{t("our_team.description")}</Subtitle>
         </TitleBox>
@@ -44,7 +50,7 @@ const Team = () => {
                 <Role>{member.role[language]}</Role>
                 <Socials>
                   {member.socials.map(({ icon, link }, idx) => (
-                    <Icon to={link} className={icon} key={idx} />
+                    <Icon href={link} className={icon} key={idx} />
                   ))}
                 </Socials>
               </div>
